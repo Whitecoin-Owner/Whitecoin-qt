@@ -1,0 +1,87 @@
+QComboBox{min-height:18px;max-height:24px;background-color:rgb(255,255,255);border:1px solid rgb(239,242,245);color: rgb(135,144,172);padding-left: 5px;font: 12px \"Microsoft YaHei UI Light\";border-top-left-radius:4px;border-bottom-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;}
+/*QComboBox:on{border:1px solid rgb(93,107,144);}*/
+QComboBox::drop-down {width:21px;background:rgb(148,186,249);border:none;border-top-right-radius:4px;border-bottom-right-radius:4px;}
+QComboBox::down-arrow {image: url(:/ui/wallet_ui/downArrow.png);}
+/*QComboBox::down-arrow:on {image: url(:/ui/wallet_ui/downArrow_on.png);}*/
+QComboBox QAbstractItemView {outline: 0px;}
+QComboBox QAbstractItemView{ min-height: 18px; color:rgb(135,144,172);selection-color: white;background-color: rgb(255,255,255);selection-background-color: rgb(148,186,249);}
+/*QComboBox QAbstractItemView::item:hover {color: white;background-color: rgb(44,48,67);}*/
+
+
+
+QScrollBar:vertical{border:none; width:20px;background:transparent;padding:20px 4px 20px 8px;}
+QScrollBar::handle:vertical{width:8px;background:rgb(90,115,227);border-radius:4px;min-height:20;}
+QScrollBar::handle:vertical:hover{background:rgb(103,81,158);}
+QScrollBar::add-line:vertical{height:0px;}
+QScrollBar::sub-line:vertical{height:0px;}
+QScrollBar::sub-page:vertical {background: transparent;}
+QScrollBar::add-page:vertical {background: transparent;}
+
+QCheckBox{color:rgb(83,107,215);font: 11px \"微软雅黑\";}
+QCheckBox:checked{color:rgb(90,115,227);}
+QCheckBox::indicator{ width:15px;height:15px;image:url(:/ui/wallet_ui/checkBox_unchecked.png);background-repeat: no-repeat;background-position: center;border:none;}
+QCheckBox::indicator:checked{ image:url(:/ui/wallet_ui/checkBox_checked.png);background-repeat: no-repeat;background-position: center;border:none; }
+
+
+QLineEdit{min-height:18px;max-height:40px;background: rgb(235,242,248);color: rgb(135,144,172);font: 12px \"Microsoft YaHei UI Light\";border:none;padding: 0px 10px 0px 6px;border-radius:4px;}
+QLineEdit:focus{border:none;}
+QLineEdit:disabled{color: rgb(151,151,151);}
+QLineEdit[LineEditStyle="red"]{background: transparent;color: rgb(235,0,94);font:bold 12px \"微软雅黑\";border:1px solid rgb(84,61,137);padding: 0px 10px 0px 6px;border-radius:8px;}
+QLineEdit[LineEditStyle="green"]{background: transparent;color: rgb(44,202,148);font:bold 12px \"微软雅黑\";border:1px solid rgb(84,61,137);padding: 0px 10px 0px 6px;border-radius:8px;}
+
+
+QSpinBox{background: rgb(255,255,255);color: rgb(84,61,137);border:1px solid rgb(84,61,137);padding: 0px 0px 0px 6px;border-radius:4px;}
+QSpinBox:focus{border:1px solid rgb(84,61,137);}
+QSpinBox:disabled{background:transparent;color: rgb(83,90,109);border:1px solid rgb(83,90,109);}
+QSpinBox::up-button {background:transparent;padding:4px 0px 0px 0px;}
+QSpinBox::down-button {background:transparent;padding:0px 0px 5px 0px;}
+QSpinBox::up-arrow {image: url(:/ui/wallet_ui/spinUpArrow.png); width: 5px;height: 3px;}
+QSpinBox::up-arrow:hover {image: url(:/ui/wallet_ui/spinUpArrow_hover.png);}
+QSpinBox::down-arrow {image: url(:/ui/wallet_ui/spinDownArrow.png); width: 5px;height: 3px;}
+QSpinBox::down-arrow:hover {image: url(:/ui/wallet_ui/spinDownArrow_hover.png);}
+
+#title_label{font:  20px "Microsoft YaHei";color: rgb(57,68,107);}
+#accountNameLabel,#priceLabel{font: bold 14px \"Microsoft YaHei UI Light\";}
+#pathBtn{background:transparent;color:rgb(192,202,212);font: 12px \"Microsoft YaHei UI Light\";}
+#pathBtn:hover{color:rgb(84,116,235);}
+#welcome_label{background-image: url(:/ui/wallet_ui/Welcome.png);}
+#welcome_label_big{background-image: url(:/ui/wallet_ui/Welcome_big.png);}
+
+QToolButton[BtnStyle="ok"]{font: 11px \"微软雅黑\";background-color: rgb(84,61,137);border:0px solid white;border-radius:3px;color: white;}
+QToolButton[BtnStyle="ok"]:pressed{background-color:rgb(84,61,137);}
+QToolButton[BtnStyle="ok"]:disabled{background-color:rgb(196,191,214);}
+QToolButton[BtnStyle="copy"]{background-image:url(:/ui/wallet_ui/copy.png);background-repeat: no-repeat;background-position: center;border-style: flat;}
+QToolButton[BtnStyle="copy"]:hover{background-image:url(:/ui/wallet_ui/copy_hover.png);}
+QToolButton[BtnStyle="closeDialog"]{background-image:url(:/ui/wallet_ui/close_button.png);background-repeat: no-repeat;background-position: center;background-color:transparent;border:none;}
+QToolButton[BtnStyle="closeDialog"]:hover{background-color:rgb(208,228,255);}
+QToolButton[BtnStyle="btn1"]{font: 11px \"微软雅黑\";background-color:transparent; border:1px solid rgb(84,61,137);border-radius:9px;color: rgb(84,61,137);}
+QToolButton[BtnStyle="btn1"]:pressed{background-color:rgb(90,115,227);color: white;}
+QToolButton[BtnStyle="senatoradd"]{background-image:url(:/ui/wallet_ui/senator_add.png);background-repeat: no-repeat;background-position: center;border-style: flat;}
+QToolButton[BtnStyle="senatordel"]{background-image:url(:/ui/wallet_ui/senator_del.png);background-repeat: no-repeat;background-position: center;border-style: flat;}
+QToolButton[BtnStyle="swap"]{background-image:url(:/ui/wallet_ui/swap.png);background-repeat: no-repeat;background-position: center;background-color:transparent;border:none;}
+QToolButton[BtnStyle="swap"]:hover{background-image:url(:/ui/wallet_ui/swap_hover.png);}
+QToolButton[BtnStyle="switch"]{background-image:url(:/ui/wallet_ui/switch_off.png);background-repeat: no-repeat;background-position: center;background-color:transparent;border:none;}
+QToolButton[BtnStyle="switch"]:checked{background-image:url(:/ui/wallet_ui/switch_on.png);}
+QToolButton[BtnStyle="switch"]:!checked{background-image:url(:/ui/wallet_ui/switch_off.png);}
+QToolButton[BtnStyle="favoritePair"]{background:transparent;border:none;}
+QToolButton[BtnStyle="favoritePair"]:!checked{color: rgb(83,107,215);font: 12px \"微软雅黑\";}
+QToolButton[BtnStyle="favoritePair"]:checked{color: rgb(110,104,130);font: bold 12px \"微软雅黑\";}
+
+QPushButton[BtnStyle="dropDown"]{background-image: url(:/ui/wallet_ui/dropDown.png);background-repeat: no-repeat;background-position: right;border:none;margin:0 5 0 0;text-align: left;color: rgb(135,144,172);font: bold 12px \"微软雅黑\";}
+
+
+QWidget[WidgetStyle="dialogBg"]{background-image:url(:/ui/wallet_ui/back_dialog.png);}
+QWidget[WidgetStyle="container"]{background-color:rgb(239,242,245);border-radius:4px;}
+QWidget[WidgetStyle="container2"]{background-color:rgb(255,255,255);border:1px solid rgb(255,255,255);border-radius:8px;}
+QLabel[WidgetStyle="container"]{color:rgb(51,51,51);}
+
+
+QTableView{background-color:rgb(255,255,255);border:none;border-radius:0px;font: 12px \"Microsoft YaHei UI Light\";color:rgb(80,80,80);}
+QHeaderView{border:none;border-bottom:1px solid rgb(209,219,232);background-color:rgb(255,255,255);color:rgb(57,68,107);font: 14px \"Microsoft YaHei UI Light\";}
+QHeaderView:section{height:42px;border:none;background-color:rgb(255,255,255);}
+QHeaderView:section:first{border-top-left-radius:0px;}
+QHeaderView:section:last{border-top-right-radius:0px;}
+
+
+
+QTextBrowser{color:rgb(0,0,0);border:1px solid rgb(84,61,137);}

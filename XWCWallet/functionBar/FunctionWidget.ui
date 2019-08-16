@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FunctionWidget</class>
+ <widget class="QWidget" name="FunctionWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>192</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>62</x>
+     <y>0</y>
+     <width>130</width>
+     <height>480</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>130</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>130</width>
+     <height>50000</height>
+    </size>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
+   <property name="currentIndex">
+    <number>-1</number>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_exchange">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>61</y>
+     <width>62</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_contact">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>183</y>
+     <width>62</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_advanced">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>122</y>
+     <width>62</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_more">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>430</y>
+     <width>62</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>62</width>
+     <height>50</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>62</width>
+     <height>50</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_account">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>62</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_guard">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>244</y>
+     <width>62</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="toolButton_citizen">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>305</y>
+     <width>62</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>62</width>
+     <height>62</height>
+    </size>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

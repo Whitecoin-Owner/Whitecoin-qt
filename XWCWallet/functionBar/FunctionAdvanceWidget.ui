@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FunctionAdvanceWidget</class>
+ <widget class="QWidget" name="FunctionAdvanceWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>130</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>120</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>-1</pointsize>
+     <weight>75</weight>
+     <italic>false</italic>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;
+font: bold 16px &quot;微软雅黑&quot;;</string>
+   </property>
+   <property name="text">
+    <string>高级</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_multiSig">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>60</y>
+     <width>130</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>112</width>
+     <height>24</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>130</width>
+     <height>37</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>多重签名</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_poundage">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>97</y>
+     <width>130</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>112</width>
+     <height>24</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>130</width>
+     <height>37</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>手续费承兑单</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_nameTransfer">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>134</y>
+     <width>130</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>112</width>
+     <height>24</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>130</width>
+     <height>37</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>账户名转让</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,338 @@
+#include "CreateTokenDialog.h"
+#include "ui_CreateTokenDialog.h"
+
+#include "wallet.h"
+#include "FeeChooseWidget.h"
+#include "dialog/TransactionResultDialog.h"
+#include "dialog/ErrorResultDialog.h"
+
+CreateTokenDialog::CreateTokenDialog(QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::CreateTokenDialog)
+{
+    ui->setupUi(this);
+
+    connect( XWCWallet::getInstance(), SIGNAL(jsonDataUpdated(QString)), this, SLOT(jsonDataUpdated(QString)));
+
+    setParent(XWCWallet::getInstance()->mainFrame);
+
+    setAttribute(Qt::WA_TranslucentBackground, true);
+    setWindowFlags(Qt::FramelessWindowHint);
+
+    ui->widget->setObjectName("widget");
+    ui->widget->setStyleSheet(BACKGROUNDWIDGET_STYLE);
+    ui->containerWidget->setObjectName("containerwidget");
+    ui->containerWidget->setStyleSheet(CONTAINERWIDGET_STYLE);
+
+    ui->registerBtn->setStyleSheet(OKBTN_STYLE);
+    ui->initBtn->setStyleSheet(OKBTN_STYLE);
+    ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
+
+    QRegExp rx1("[a-zA-Z0-9]{0,20}");
+    QRegExpValidator *pReg1 = new QRegExpValidator(rx1, this);
+    ui->tokenNameLineEdit->setValidator(pReg1);
+
+    QRegExp rx2("[a-zA-Z0-9]{0,8}");
+    QRegExpValidator *pReg2 = new QRegExpValidator(rx2, this);
+    ui->tokenSymbolLineEdit->setValidator(pReg2);
+
+    setTotalSupplyValidator();
+
+    init();
+}
+
+CreateTokenDialog::~CreateTokenDialog()
+{
+    delete ui;
+}
+
+void CreateTokenDialog::pop()
+{
+    move(0,0);
+    exec();
+}
+
+void CreateTokenDialog::init()
+{
+    ui->stackedWidget->setCurrentIndex(0);
+
+    ui->accountComboBox->clear();
+    QStringList accounts = XWCWallet::getInstance()->accountInfoMap.keys();
+    ui->accountComboBox->addItems(accounts);
+
+    if(accounts.contains(XWCWallet::getInstance()->currentAccount))
+    {
+        ui->accountComboBox->setCurrentText(XWCWallet::getInstance()->currentAccount);
+    }
+
+    QFileInfo fileInfo(QDir::currentPath() + "/contracts/token.lua.gpc");
+
+    if(!fileInfo.exists())
+    {
+        return;
+    }
+    ui->gpcPathLineEdit->setText(fileInfo.absoluteFilePath());
+    ui->gpcPathLineEdit->setEnabled(false);
+
+    ui->registerBtn->setEnabled(false);
+    ui->initBtn->setEnabled(false);
+
+    registerFeeWidget = new FeeChooseWidget( 0,XWCWallet::getInstance()->feeType,
+                                                 ui->accountComboBox->currentText(), ui->registerContractPage);
+    connect(registerFeeWidget,&FeeChooseWidget::feeSufficient,ui->registerBtn,&QToolButton::setEnabled);
+    registerFeeWidget->move(50,120);
+    calculateRegisterFee();
+}
+
+void CreateTokenDialog::jsonDataUpdated(QString id)
+{
+    if( id == "CreateTokenDialog-register_contract_testing")
+    {
+        QString result = XWCWallet::getInstance()->jsonDataValue(id);
+        qDebug() << id << result;
+
+        if(result.startsWith("\"result\":"))
+        {
+            XWCWallet::TotalContractFee totalFee = XWCWallet::getInstance()->parseTotalContractFee(result);
+            stepCount = totalFee.step;
+
+            unsigned long long totalAmount = totalFee.baseAmount + ceil(totalFee.step * XWCWallet::getInstance()->contractFee / 100.0);
+            registerFeeWidget->updateFeeNumberSlots(getBigNumberString(totalAmount, ASSET_PRECISION).toDouble());
+            registerFeeWidget->updateAccountNameSlots(ui->accountComboBox->currentText(), true);
+        }
+        else
+        {
+            registerFeeWidget->updateFeeNumberSlots(0);
+            registerFeeWidget->updateAccountNameSlots(ui->accountComboBox->currentText(), true);
+            ui->registerBtn->setEnabled(false);
+        }
+
+        return;
+    }
+
+    if( id == "CreateTokenDialog-register_contract")
+    {
+        QString result = XWCWallet::getInstance()->jsonDataValue(id);
+        qDebug() << id << result;
+
+        if(result.startsWith(QString("\"result\":")))
+        {
+            result.prepend("{");
+            result.append("}");
+
+            QJsonDocument parse_doucment = QJsonDocument::fromJson(result.toLatin1());
+            QJsonObject object = parse_doucment.object().value("result").toObject();
+            QString registeredContractId = object.value("contract_id").toString();
+            QString trxId = object.value("trxid").toString();
+
+            ui->stackedWidget->setCurrentIndex(1);
+            ui->contractIdLabel->setText(registeredContractId);
+            ui->trxIdLabel->setText(trxId);
+
+            timerForRegister = new QTimer(this);
+            connect(timerForRegister,&QTimer::timeout,[this](){
+                XWCWallet::getInstance()->postRPC( "CreateTokenDialog-get_transaction-" + this->ui->trxIdLabel->text(),
+                                                 toJsonFormat( "get_transaction",
+                                                               QJsonArray() << this->ui->trxIdLabel->text()));
+
+            });
+            timerForRegister->start(5000);
+
+        }
+        else
+        {
+            ErrorResultDialog errorResultDialog;
+            errorResultDialog.setInfoText(tr("Registering contract failed!"));
+            errorResultDialog.setDetailText(result);
+            errorResultDialog.pop();
+        }
+        return;
+    }
+
+    if( id.startsWith("CreateTokenDialog-get_transaction-"))
+    {
+        QString result = XWCWallet::getInstance()->jsonDataValue(id);
+        qDebug() << id << result;
+        if(result.startsWith(QString("\"result\":")))
+        {
+            // 如果注册交易已被确认
+            timerForRegister->stop();
+            ui->stackedWidget->setCurrentIndex(2);
+
+            initFeeWidget = new FeeChooseWidget( getBigNumberString(0, ASSET_PRECISION).toDouble(),XWCWallet::getInstance()->feeType,
+                                                         ui->accountComboBox->currentText(), ui->initPage);
+            initFeeWidget->setGeometry(50,160,280,150);
+            initFeeWidget->show();
+        }
+
+        return;
+    }
+
+    if( id.startsWith("CreateTokenDialog-invoke_contract_testing-init_token-"))
+    {
+        QString result = XWCWallet::getInstance()->jsonDataValue(id);
+        qDebug() << id << result;
+        if(result.startsWith("\"result\":"))
+        {
+            XWCWallet::TotalContractFee totalFee = XWCWallet::getInstance()->parseTotalContractFee(result);
+            stepCount = totalFee.step;
+            unsigned long long totalAmount = totalFee.baseAmount + ceil(totalFee.step * XWCWallet::getInstance()->contractFee / 100.0);
+
+            initFeeWidget->updateFeeNumberSlots(getBigNumberString(totalAmount, ASSET_PRECISION).toDouble());
+            ui->initBtn->setEnabled(true);
+        }
+        else
+        {
+            initFeeWidget->updateFeeNumberSlots(0);
+            ui->initBtn->setEnabled(false);
+        }
+
+        return;
+    }
+
+    if( id.startsWith("CreateTokenDialog-invoke_contract-init_token-"))
+    {
+        QString result = XWCWallet::getInstance()->jsonDataValue(id);
+        qDebug() << id << result;
+        if(result.startsWith("\"result\":"))
+        {
+            XWCWallet::getInstance()->configFile->setValue("/contractTokens/" + ui->contractIdLabel->text(), 1);
+            newTokenAdded = true;
+
+            TransactionResultDialog transactionResultDialog;
+            transactionResultDialog.setInfoText(tr("Transaction of invoking contract function \"init_token\" has been sent out!"));
+            transactionResultDialog.setDetailText(result);
+            transactionResultDialog.pop();
+
+            close();
+        }
+        else if(result.startsWith("\"error\":"))
+        {
+            ErrorResultDialog errorResultDialog;
+            errorResultDialog.setInfoText(tr("Initializing token failed!"));
+            errorResultDialog.setDetailText(result);
+            errorResultDialog.pop();
+        }
+
+        return;
+    }
+}
+
+void CreateTokenDialog::on_registerBtn_clicked()
+{
+    if(!registerFeeWidget)     return;
+    registerFeeWidget->updatePoundageID();
+    QString filePath = "contracts/token.lua.gpc";
+    XWCWallet::getInstance()->postRPC( "CreateTokenDialog-register_contract", toJsonFormat( "register_contract",
+                                                                           QJsonArray() << ui->accountComboBox->currentText() << XWCWallet::getInstance()->currentContractFee()
+                                                                           << stepCount  << filePath));
+    ui->registerBtn->setEnabled(false);
+}
+
+void CreateTokenDialog::on_closeBtn_clicked()
+{
+    close();
+}
+
+void CreateTokenDialog::calculateRegisterFee()
+{
+    QFileInfo fileInfo(ui->gpcPathLineEdit->text());
+    if(!fileInfo.exists())  return;
+    QString filePath = "contracts/token.lua.gpc";
+    XWCWallet::getInstance()->postRPC("CreateTokenDialog-register_contract_testing",
+                                    toJsonFormat( "register_contract_testing",
+                                    QJsonArray() << ui->accountComboBox->currentText() << filePath));
+
+}
+
+void CreateTokenDialog::calculateInitFee()
+{
+    QString totalSupply = addPrecisionString(ui->totalSupplyLineEdit->text(),ui->precisionSpinBox->text().toInt());
+    QString precision  = intToPrecisionString(ui->precisionSpinBox->text().toInt());
+    QString params = QString("%1,%2,%3,%4").arg(ui->tokenNameLineEdit->text()).arg(ui->tokenSymbolLineEdit->text())
+                                     .arg(totalSupply).arg(precision);
+
+    XWCWallet::getInstance()->postRPC( "CreateTokenDialog-invoke_contract_testing-init_token-" + params, toJsonFormat( "invoke_contract_testing",
+                                     QJsonArray() << ui->accountComboBox->currentText()
+                                     << ui->contractIdLabel->text()
+                                     << "init_token"  << params));
+
+}
+
+QString CreateTokenDialog::intToPrecisionString(int precision)
+{
+    QString result = "1";
+    while (precision > 0)
+    {
+        result.append("0");
+        precision--;
+    }
+
+    return result;
+}
+
+QString CreateTokenDialog::addPrecisionString(QString supply, int precision)
+{
+    QString result = supply;
+    while (precision > 0)
+    {
+        result.append("0");
+        precision--;
+    }
+
+    return result;
+}
+
+void CreateTokenDialog::on_tokenNameLineEdit_textEdited(const QString &arg1)
+{
+    calculateInitFee();
+}
+
+void CreateTokenDialog::on_tokenSymbolLineEdit_textEdited(const QString &arg1)
+{
+    calculateInitFee();
+}
+
+void CreateTokenDialog::on_precisionSpinBox_valueChanged(int arg1)
+{
+    ui->totalSupplyLineEdit->clear();
+    setTotalSupplyValidator();
+
+    ui->initBtn->setEnabled(false);
+}
+
+void CreateTokenDialog::on_totalSupplyLineEdit_textEdited(const QString &arg1)
+{
+    calculateInitFee();
+}
+
+void CreateTokenDialog::setTotalSupplyValidator()
+{
+    int precisionNum = ui->precisionSpinBox->text().toInt();
+
+    QRegExp rx(QString("^([1-9][0-9]{0,%1})?$|(^\\t?$)").arg(17 - precisionNum));
+    QRegExpValidator *validator = new QRegExpValidator(rx, this);
+    ui->totalSupplyLineEdit->setValidator(validator);
+
+}
+
+void CreateTokenDialog::on_initBtn_clicked()
+{
+    QString totalSupply = addPrecisionString(ui->totalSupplyLineEdit->text(),ui->precisionSpinBox->text().toInt());
+    QString precision  = intToPrecisionString(ui->precisionSpinBox->text().toInt());
+    QString params = QString("%1,%2,%3,%4").arg(ui->tokenNameLineEdit->text()).arg(ui->tokenSymbolLineEdit->text())
+                                     .arg(totalSupply).arg(precision);
+
+    XWCWallet::getInstance()->postRPC( "CreateTokenDialog-invoke_contract-init_token-" + params, toJsonFormat( "invoke_contract",
+                                     QJsonArray() << ui->accountComboBox->currentText()
+                                     << XWCWallet::getInstance()->currentContractFee() << stepCount
+                                     << ui->contractIdLabel->text()
+                                     << "init_token"  << params));
+
+}
+
+void CreateTokenDialog::on_accountComboBox_currentIndexChanged(const QString &arg1)
+{
+    calculateRegisterFee();
+}
+
