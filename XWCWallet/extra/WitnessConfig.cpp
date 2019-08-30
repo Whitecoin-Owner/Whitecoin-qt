@@ -210,12 +210,12 @@ void WitnessConfig::addPrivateKey(QString pubKey, QString privateKey)
 void WitnessConfig::addMiner(QString minerId)
 {
     if(minerId.isEmpty())       return;
-    this->append("candidate-id", minerId, true);
+    this->append("miner-id", minerId, true);
 }
 
 QStringList WitnessConfig::getMiners()
 {
-    QStringList minerIds = this->allValue("candidate-id");
+    QStringList minerIds = this->allValue("miner-id");
     return minerIds;
 }
 

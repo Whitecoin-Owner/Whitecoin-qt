@@ -396,6 +396,7 @@ void Frame::alreadyLogin()
 
     connect(functionBar,&FunctionWidget::showMinerSignal,this,&Frame::showMinerPage);
     connect(functionBar,&FunctionWidget::showBonusSignal,this,&Frame::showBonusPage);
+    connect(functionBar,&FunctionWidget::showRecordSignal,this,&Frame::showAllTransactionWidget);
     connect(functionBar,&FunctionWidget::showAccountSignal,this,&Frame::showMainPage);
     connect(functionBar,&FunctionWidget::showContactSignal,this,&Frame::showContactPage);
     connect(functionBar,&FunctionWidget::showAdvanceSignal,this,&Frame::showMainPage);
@@ -523,6 +524,12 @@ void Frame::showBonusPage()
     bonusPage->show();
 
     currentPageNum = 19;
+}
+
+void Frame::showAllTransactionWidget()
+{
+    showMainPage();
+    mainPage->showAllTransacionPage();
 }
 
 void Frame::showTransferPage(QString accountName,QString assetType)
@@ -1645,14 +1652,7 @@ void Frame::jsonDataUpdated(QString id)
                 assetAmount.assetId = object.take("asset_id").toString();
 
                 QJsonValue value = object.take("amount");
-                if(value.isString())
-                {
-                    assetAmount.amount = value.toString().toULongLong();
-                }
-                else
-                {
-                    assetAmount.amount = QString::number(value.toDouble(),'g',12).toULongLong();
-                }
+                assetAmount.amount = jsonValueToULL(value);
 
                 map.insert(assetAmount.assetId,assetAmount);
             }
@@ -1788,14 +1788,7 @@ void Frame::jsonDataUpdated(QString id)
                                 QJsonObject object2 = object.take("options").toObject();
 
                                 QJsonValue value2 = object2.take("max_supply");
-                                if( value2.isString())
-                                {
-                                    assetInfo.maxSupply = value2.toString().toULongLong();
-                                }
-                                else
-                                {
-                                    assetInfo.maxSupply = QString::number(value2.toDouble(),'g',10).toULongLong();
-                                }
+                                assetInfo.maxSupply = jsonValueToULL(value2);
 
                                 if(assetInfo.symbol != ASSET_NAME)
                                 {
@@ -1924,7 +1917,7 @@ void Frame::jsonDataUpdated(QString id)
 
                 XWCWallet::getInstance()->postRPC( "id-get_wallfacer_member-" + account,
                                                  toJsonFormat( "get_wallfacer_member", QJsonArray() << account),
-                                                 1);
+                                                 (XWCWallet::getInstance()->getPermanentSenators().size() > 0) ? 1 : 0);
                 //            XWCWallet::getInstance()->fetchGuardAllMultisigAddresses(accountId);
 
             }
@@ -2024,7 +2017,7 @@ void Frame::jsonDataUpdated(QString id)
 //        return;
 //    }
 
-    if( id == "id-list_candidates")
+    if( id == "id-list_miners")
     {
         QString result = XWCWallet::getInstance()->jsonDataValue(id);
 //        qDebug() << id << result;
@@ -2048,33 +2041,33 @@ void Frame::jsonDataUpdated(QString id)
 
                 if(!account.isEmpty())
                 {
-                    XWCWallet::getInstance()->postRPC( "id-get_candidate-" + account,
-                                                     toJsonFormat( "get_candidate", QJsonArray() << account),
-                                                     1);
+                    XWCWallet::getInstance()->postRPC( "id-get_miner-" + account,
+                                                     toJsonFormat( "get_miner", QJsonArray() << account),
+                                                     (XWCWallet::getInstance()->minerMap.size() > 0) ? 1 : 0);
                 }
             }
 
-            XWCWallet::getInstance()->postRPC( "Finish+get_candidate", toJsonFormat( "Finish+candidate", QJsonArray()), 1);
+            XWCWallet::getInstance()->postRPC( "Finish+get_miner", toJsonFormat( "Finish+miner", QJsonArray()), 1);
         }
 
         return;
     }
 
-    if( id == "Finish+get_candidate")
+    if( id == "Finish+get_miner")
     {
 //        qDebug() << id <<XWCWallet::getInstance()->jsonDataValue(id);
         XWCWallet::getInstance()->fetchCitizensFinished = true;
         return;
     }
 
-    if( id.startsWith("id-get_candidate-"))
+    if( id.startsWith("id-get_miner-"))
     {
         QString result = XWCWallet::getInstance()->jsonDataValue(id);
 //        qDebug() << id <<result;
 
         if(result.startsWith("\"result\":"))
         {
-            QString account = id.mid(QString("id-get_candidate-").size());
+            QString account = id.mid(QString("id-get_miner-").size());
 
             result.prepend("{");
             result.append("}");
@@ -2084,7 +2077,7 @@ void Frame::jsonDataUpdated(QString id)
             QJsonObject object = jsonObject.value("result").toObject();
 
             XWCWallet::getInstance()->minerMap[account].minerId       = object.value("id").toString();
-            XWCWallet::getInstance()->minerMap[account].accountId     = object.value("candidate_account").toString();
+            XWCWallet::getInstance()->minerMap[account].accountId     = object.value("miner_account").toString();
             XWCWallet::getInstance()->minerMap[account].signingKey    = object.value("signing_key").toString();
             XWCWallet::getInstance()->minerMap[account].pledgeWeight   = jsonValueToULL( object.value("pledge_weight"));
             XWCWallet::getInstance()->minerMap[account].totalMissed   = object.value("total_missed").toInt();
@@ -2124,7 +2117,7 @@ void Frame::jsonDataUpdated(QString id)
             QJsonObject optionsObject = object.value("options").toObject();
             if(XWCWallet::getInstance()->minerMap.contains(account))
             {
-                XWCWallet::getInstance()->minerMap[account].payBack = optionsObject.value("candidate_pledge_pay_back").toInt();
+                XWCWallet::getInstance()->minerMap[account].payBack = optionsObject.value("miner_pledge_pay_back").toInt();
                 XWCWallet::getInstance()->minerMap[account].address = object.value("addr").toString();
             }
         }
@@ -2190,10 +2183,10 @@ void Frame::jsonDataUpdated(QString id)
         return;
     }
 
-    if(id == "candidate-get_proposal_for_voter")
+    if(id == "miner-get_referendum_for_voter")
     {
         QString result = XWCWallet::getInstance()->jsonDataValue(id);
-//        qDebug() << id << result;
+        qDebug() << id << result;
 
         if(result.startsWith("\"result\":"))
         {
@@ -2235,7 +2228,7 @@ void Frame::jsonDataUpdated(QString id)
                     info.requiredAccounts += v4.toString();
                 }
 
-                info.pledge = getBigNumberString(object.take("pledge").toDouble(),ASSET_PRECISION);
+                info.pledge = getBigNumberString(jsonValueToULL(object.value("pledge")),ASSET_PRECISION);
 
                 info.proposalOperationType = proposedTransactionValue.toObject().take("operations").toArray()
                         .at(0).toArray().at(0).toInt();
@@ -2647,7 +2640,7 @@ void Frame::jsonDataUpdated(QString id)
                 SignTransaction st;
                 st.trxId            = array2.at(0).toString();
                 st.generatedTrxId   = operationObject.take("ccw_trx_id").toString();
-                st.guardAddress     = operationObject.take("guard_address").toString();
+                st.guardAddress     = operationObject.take("wallfacer_address").toString();
 
                 XWCWallet::getInstance()->signTransactionMap.insert(st.trxId, st);
             }

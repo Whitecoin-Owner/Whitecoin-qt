@@ -37,6 +37,9 @@ FeeChooseWidget::FeeChooseWidget(double feeNumber,const QString &coinType,const 
 {
     ui->setupUi(this);
     qDebug()<<accountName;
+
+    ui->comboBox_coinType->setStyleSheet(COMBOBOX_BORDER_STYLE);
+
     InitWidget();
 }
 

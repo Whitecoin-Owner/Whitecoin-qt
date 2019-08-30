@@ -64,8 +64,8 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 12px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>手续费</string>
@@ -102,11 +102,16 @@ color:rgb(83,107,215);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <family>微软雅黑</family>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">QLabel{color: rgb(80,80,80);
+font: 12px &quot;微软雅黑&quot;;}</string>
        </property>
        <property name="text">
         <string>20  XWC</string>
@@ -150,8 +155,15 @@ color:rgb(83,107,215);</string>
        <property name="font">
         <font>
          <family>微软雅黑</family>
-         <pointsize>10</pointsize>
+         <pointsize>-1</pointsize>
+         <weight>50</weight>
+         <italic>false</italic>
+         <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;</string>
        </property>
        <property name="text">
         <string>使用承兑单</string>
@@ -180,7 +192,7 @@ color:rgb(83,107,215);</string>
          <property name="maximumSize">
           <size>
            <width>16777215</width>
-           <height>25</height>
+           <height>24</height>
           </size>
          </property>
          <property name="font">
@@ -219,6 +231,10 @@ color:rgb(83,107,215);</string>
          <width>16777215</width>
          <height>30</height>
         </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
        </property>
        <property name="text">
         <string>汇率:@  币种:#  余额:$</string>

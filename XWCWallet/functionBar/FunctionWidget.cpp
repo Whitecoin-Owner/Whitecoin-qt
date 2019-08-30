@@ -278,6 +278,7 @@ void FunctionWidget::InitWidget()
     connect(_p->accountBar,&FunctionAccountWidget::showAccountSignal,this,&FunctionWidget::showAccountSignal);
     connect(_p->accountBar,&FunctionAccountWidget::showMinerSignal,this,&FunctionWidget::showMinerSignal);
     connect(_p->accountBar,&FunctionAccountWidget::showBonusSignal,this,&FunctionWidget::showBonusSignal);
+    connect(_p->accountBar,&FunctionAccountWidget::showRecordSignal,this,&FunctionWidget::showRecordSignal);
 
     connect(_p->advanceBar,&FunctionAdvanceWidget::showPoundageSignal,this,&FunctionWidget::showPoundageSignal);
     connect(_p->advanceBar,&FunctionAdvanceWidget::showMultiSigSignal,this,&FunctionWidget::showMultiSigSignal);
@@ -320,7 +321,7 @@ void FunctionWidget::InitWidget()
     ui->toolButton_exchange->setToolTip(tr("EXCHANGE"));
     ui->toolButton_contact->setToolTip(tr("CONTACT"));
     ui->toolButton_advanced->setToolTip(tr("ADVANCED"));
-    ui->toolButton_citizen->setToolTip(tr("CANDIDATE"));
+    ui->toolButton_citizen->setToolTip(tr("MINER"));
     ui->toolButton_guard->setToolTip(tr("WALLFACER"));
     ui->toolButton_more->setToolTip(tr("SETTINGS"));
 }

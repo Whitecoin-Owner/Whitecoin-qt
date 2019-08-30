@@ -168,7 +168,7 @@
       </rect>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <widget class="QTableWidget" name="balanceTableWidget">
@@ -221,9 +221,6 @@
        </property>
        <property name="gridStyle">
         <enum>Qt::SolidLine</enum>
-       </property>
-       <property name="TableStyle" stdset="0">
-        <string>table1</string>
        </property>
        <attribute name="horizontalHeaderVisible">
         <bool>false</bool>
@@ -278,7 +275,7 @@
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>40</y>
+         <y>30</y>
          <width>650</width>
          <height>230</height>
         </rect>
@@ -324,9 +321,6 @@
        </property>
        <property name="gridStyle">
         <enum>Qt::SolidLine</enum>
-       </property>
-       <property name="TableStyle" stdset="0">
-        <string>table1</string>
        </property>
        <attribute name="horizontalHeaderVisible">
         <bool>false</bool>
@@ -374,10 +368,14 @@
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>10</y>
+         <y>0</y>
          <width>300</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
        </property>
        <property name="text">
         <string/>
@@ -499,6 +497,10 @@
        <height>18</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
+     </property>
      <property name="text">
       <string>输入待签名交易字节码</string>
      </property>
@@ -511,6 +513,10 @@
        <width>140</width>
        <height>18</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>交易结构体</string>
@@ -593,6 +599,10 @@
        <height>18</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
+     </property>
      <property name="text">
       <string>选择签名账户</string>
      </property>
@@ -605,6 +615,10 @@
        <width>300</width>
        <height>18</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>钱包内没有该多签地址的账户</string>

@@ -88,6 +88,7 @@ void CreateSenatorDialog::InitWidget()
     ui->okBtn->setStyleSheet(OKBTN_STYLE);
     ui->cancelBtn->setStyleSheet(CANCELBTN_STYLE);
     ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
+    ui->accountComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
     ui->stackedWidget->setCurrentIndex(0);
 

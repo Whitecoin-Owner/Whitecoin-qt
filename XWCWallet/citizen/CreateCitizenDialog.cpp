@@ -31,6 +31,7 @@ CreateCitizenDialog::CreateCitizenDialog(QWidget *parent) :
     ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
     ui->okBtn2->setStyleSheet(OKBTN_STYLE);
     ui->cancelBtn2->setStyleSheet(CANCELBTN_STYLE);
+    ui->accountComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
     FeeChooseWidget *feeWidget = new FeeChooseWidget(XWCWallet::getInstance()->feeChargeInfo.createCitizenFee.toDouble(),
                                                      XWCWallet::getInstance()->feeType);
@@ -79,7 +80,7 @@ void CreateCitizenDialog::jsonDataUpdated(QString id)
 
         if(result == "\"result\":null")
         {
-            XWCWallet::getInstance()->postRPC(  "id-create_candidate", toJsonFormat("create_candidate",
+            XWCWallet::getInstance()->postRPC(  "id-create_miner", toJsonFormat("create_miner",
                                                                               QJsonArray() << ui->accountComboBox->currentText()
                                                                               << "" << true ));
 
@@ -93,7 +94,7 @@ void CreateCitizenDialog::jsonDataUpdated(QString id)
         return;
     }
 
-    if( id == "id-create_candidate")
+    if( id == "id-create_miner")
     {
         QString result = XWCWallet::getInstance()->jsonDataValue(id);
         qDebug() << id << result;
@@ -102,7 +103,7 @@ void CreateCitizenDialog::jsonDataUpdated(QString id)
             close();
 
             TransactionResultDialog transactionResultDialog;
-            transactionResultDialog.setInfoText(tr("Transaction of create-candidate has been sent out!"));
+            transactionResultDialog.setInfoText(tr("Transaction of create-miner has been sent out!"));
             transactionResultDialog.setDetailText(result);
             transactionResultDialog.pop();
         }

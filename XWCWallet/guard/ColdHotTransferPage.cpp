@@ -230,8 +230,8 @@ void ColdHotTransferPage::jsonDataUpdated(QString id)
                     cht.amount          = operationObject.take("amount").toString();
                     cht.assetSymbol     = operationObject.take("asset_symbol").toString();
                     cht.assetId         = operationObject.take("asset_id").toString();
-                    cht.guard           = operationObject.take("guard").toString();
-                    cht.guardId         = operationObject.take("guard_id").toString();
+                    cht.guard           = operationObject.take("wallfacer").toString();
+                    cht.guardId         = operationObject.take("wallfacer_id").toString();
                     cht.memo            = operationObject.take("memo").toString();
 
                     if(type == 0)
@@ -248,7 +248,7 @@ void ColdHotTransferPage::jsonDataUpdated(QString id)
                     ColdHotSignTransaction chst;
                     chst.trxId          = array2.at(0).toString();
                     chst.coldHotCrosschainTrxId = operationObject.take("coldhot_trx_id").toString();
-                    chst.guardAddress   = operationObject.take("guard_address").toString();
+                    chst.guardAddress   = operationObject.take("wallfacer_address").toString();
 
                     coldHotSignTransactionMap.insert(chst.trxId, chst);
                 }

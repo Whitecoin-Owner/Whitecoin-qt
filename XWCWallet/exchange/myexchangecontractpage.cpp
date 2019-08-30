@@ -217,14 +217,7 @@ void MyExchangeContractPage::jsonDataUpdated(QString id)
                 QJsonValue amountValue = object.take(key);
                 unsigned long long amount = 0;
 
-                if(amountValue.isString())
-                {
-                    amount = amountValue.toString().toULongLong();
-                }
-                else
-                {
-                    amount = QString::number(amountValue.toDouble(),'g',12).toULongLong();
-                }
+                amount = jsonValueToULL(amountValue);
 
                 balances.insert(key,amount);
             }

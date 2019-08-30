@@ -36,7 +36,7 @@ void ChangePayBackDialog::ChangePaybackSlots()
         {
             feeWidget->updatePoundageID();
         }
-        XWCWallet::getInstance()->postRPC("id_change_payback_rate",toJsonFormat("set_candidate_pledge_pay_back_rate",
+        XWCWallet::getInstance()->postRPC("id_change_payback_rate",toJsonFormat("set_miner_pledge_pay_back_rate",
                                         QJsonArray()<<this->ui->account->currentText()<<number<<true));
 
     });
@@ -84,7 +84,7 @@ void ChangePayBackDialog::InitWidget()
     ui->okBtn->setStyleSheet(OKBTN_STYLE);
     ui->cancelBtn->setStyleSheet(CANCELBTN_STYLE);
     ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
-
+    ui->account->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
     installDoubleValidator(ui->lineEdit_feeNumber,0,50);
     InitData();

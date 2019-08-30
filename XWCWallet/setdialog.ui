@@ -97,11 +97,11 @@
       <property name="styleSheet">
        <string notr="true"/>
       </property>
-      <widget class="QToolButton" name="generalBtn">
+      <widget class="QPushButton" name="generalBtn">
        <property name="geometry">
         <rect>
          <x>152</x>
-         <y>14</y>
+         <y>7</y>
          <width>51</width>
          <height>28</height>
         </rect>
@@ -124,9 +124,6 @@
        <property name="text">
         <string>通用设置</string>
        </property>
-       <property name="toolButtonStyle">
-        <enum>Qt::ToolButtonTextUnderIcon</enum>
-       </property>
       </widget>
       <widget class="QStackedWidget" name="stackedWidget">
        <property name="geometry">
@@ -146,7 +143,7 @@
         <string notr="true"/>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>1</number>
        </property>
        <widget class="QWidget" name="page">
         <widget class="QToolButton" name="saveBtn">
@@ -195,8 +192,8 @@
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 11px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>钱包自动锁定时间</string>
@@ -313,8 +310,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 11px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>界面语言</string>
@@ -342,8 +339,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 9px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 9px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>min</string>
@@ -443,8 +440,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 11px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>手续费币种</string>
@@ -472,8 +469,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 9px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 9px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>XWC</string>
@@ -533,8 +530,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 11px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>充值自动划转</string>
@@ -592,8 +589,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 11px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>单步合约执行费用</string>
@@ -663,8 +660,8 @@ font: 11px &quot;微软雅黑&quot;;</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 11px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>中间件URL</string>
@@ -835,8 +832,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 9px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>再次输入：</string>
@@ -885,8 +882,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 9px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>旧密码：</string>
@@ -935,8 +932,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 9px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>新密码：</string>
@@ -1006,8 +1003,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 10px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>修改钱包密码</string>
@@ -1032,8 +1029,8 @@ color:rgb(83,107,215);</string>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 9px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>钱包数据路径：</string>
@@ -1085,8 +1082,8 @@ color:rgb(83,107,215);</string>
           <string>默认数据备份路径，请勿删除</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">font: 9px &quot;微软雅黑&quot;;
-color:rgb(83,107,215);</string>
+          <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>钱包配置路径：</string>
@@ -1144,7 +1141,8 @@ color:rgb(83,107,215);</string>
           <enum>Qt::NoFocus</enum>
          </property>
          <property name="styleSheet">
-          <string notr="true">QToolButton{font: 9px &quot;微软雅黑&quot;;background:transparent;border:0px solid white;color: rgb(83,107,215);} QToolButton:hover{color:rgb(107,99,131);}</string>
+          <string notr="true">QToolButton{font: 9px &quot;微软雅黑&quot;;background:transparent;border:none;color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>打开</string>
@@ -1178,7 +1176,8 @@ color:rgb(83,107,215);</string>
           <string>默认数据备份路径，请勿删除</string>
          </property>
          <property name="styleSheet">
-          <string notr="true">QToolButton{font: 9px &quot;微软雅黑&quot;;background:transparent;border:0px solid white;color: rgb(83,107,215);} QToolButton:hover{color:rgb(107,99,131);}</string>
+          <string notr="true">QToolButton{font: 9px &quot;微软雅黑&quot;;background:transparent;border:none;color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
          </property>
          <property name="text">
           <string>打开</string>
@@ -1204,11 +1203,11 @@ color:rgb(83,107,215);</string>
        </widget>
        <widget class="AccountManagerWidget" name="accountmanager"/>
       </widget>
-      <widget class="QToolButton" name="safeBtn">
+      <widget class="QPushButton" name="safeBtn">
        <property name="geometry">
         <rect>
          <x>249</x>
-         <y>14</y>
+         <y>7</y>
          <width>51</width>
          <height>28</height>
         </rect>
@@ -1231,15 +1230,12 @@ color:rgb(83,107,215);</string>
        <property name="text">
         <string>安全设置</string>
        </property>
-       <property name="toolButtonStyle">
-        <enum>Qt::ToolButtonTextUnderIcon</enum>
-       </property>
       </widget>
-      <widget class="QToolButton" name="accountBtn">
+      <widget class="QPushButton" name="accountBtn">
        <property name="geometry">
         <rect>
          <x>351</x>
-         <y>14</y>
+         <y>7</y>
          <width>51</width>
          <height>28</height>
         </rect>
@@ -1262,73 +1258,29 @@ color:rgb(83,107,215);</string>
        <property name="text">
         <string>账户管理</string>
        </property>
-       <property name="toolButtonStyle">
-        <enum>Qt::ToolButtonTextUnderIcon</enum>
-       </property>
       </widget>
-      <widget class="QLabel" name="label_11">
+      <widget class="Line" name="line">
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>17</y>
+         <y>34</y>
          <width>556</width>
-         <height>264</height>
+         <height>1</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(229, 226, 240);</string>
+        <string notr="true">background-color: rgb(244,245,249);
+border:none;</string>
        </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_general">
-       <property name="geometry">
-        <rect>
-         <x>170</x>
-         <y>11</y>
-         <width>12</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
-      <widget class="QLabel" name="label_safe">
-       <property name="geometry">
-        <rect>
-         <x>268</x>
-         <y>11</y>
-         <width>12</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_account">
-       <property name="geometry">
-        <rect>
-         <x>369</x>
-         <y>11</y>
-         <width>12</width>
-         <height>12</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <zorder>label_11</zorder>
+      <zorder>line</zorder>
       <zorder>generalBtn</zorder>
       <zorder>stackedWidget</zorder>
       <zorder>safeBtn</zorder>
       <zorder>accountBtn</zorder>
-      <zorder>label_safe</zorder>
-      <zorder>label_account</zorder>
-      <zorder>label_general</zorder>
      </widget>
     </widget>
     <widget class="HelpWidget" name="page_help"/>
@@ -1356,9 +1308,9 @@ color:rgb(83,107,215);</string>
     <property name="geometry">
      <rect>
       <x>545</x>
-      <y>177</y>
-      <width>238</width>
-      <height>248</height>
+      <y>190</y>
+      <width>280</width>
+      <height>226</height>
      </rect>
     </property>
     <property name="text">

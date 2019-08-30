@@ -176,6 +176,8 @@ void PublishPoundageWidget::InitStyle()
 
     ui->okBtn->setStyleSheet(OKBTN_STYLE);
     ui->cancelBtn->setStyleSheet(CANCELBTN_STYLE);
+    ui->comboBox_accounts->setStyleSheet(COMBOBOX_BORDER_STYLE);
+    ui->comboBox_targetType->setStyleSheet(COMBOBOX_BORDER_STYLE);
 }
 
 void PublishPoundageWidget::paintEvent(QPaintEvent *event)

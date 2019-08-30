@@ -119,7 +119,7 @@ MinerPage::MinerPage(QWidget *parent) :
     blankWidget_record = new BlankDefaultWidget(ui->incomeRecordTableWidget);
     blankWidget_record->setTextTip(tr("There's no income record!"));
     blankWidget_citizen = new BlankDefaultWidget(ui->citizenInfoTableWidget);
-    blankWidget_citizen->setTextTip(tr("There's no candidate!"));
+    blankWidget_citizen->setTextTip(tr("There's no miner!"));
 
     XWCWallet::getInstance()->mainFrame->installBlurEffect(ui->incomeRecordTableWidget);
     XWCWallet::getInstance()->mainFrame->installBlurEffect(ui->incomeTableWidget);
@@ -176,18 +176,11 @@ void MinerPage::jsonDataUpdated(QString id)
             ui->lockBalancesTableWidget->setRowHeight(i,42);
 
             QJsonObject object = array.at(i).toObject();
-            QString minerId = object.take("lockto_candidate_account").toString();
+            QString minerId = object.take("lockto_miner_account").toString();
             QString assetId = object.take("lock_asset_id").toString();
             unsigned long long lockAmount = 0;
             QJsonValue value = object.take("lock_asset_amount");
-            if(value.isString())
-            {
-                lockAmount = value.toString().toULongLong();
-            }
-            else
-            {
-                lockAmount = QString::number(value.toDouble(),'g',10).toULongLong();
-            }
+            lockAmount = jsonValueToULL(value);
 
             ui->lockBalancesTableWidget->setItem(i,0,new QTableWidgetItem(XWCWallet::getInstance()->getMinerNameFromId(minerId)));
 
@@ -229,7 +222,7 @@ void MinerPage::jsonDataUpdated(QString id)
         return;
     }
 
-    if( id == "id-foreclose_balance_from_candidate")
+    if( id == "id-foreclose_balance_from_miner")
     {
         QString result = XWCWallet::getInstance()->jsonDataValue(id);
 
@@ -245,7 +238,7 @@ void MinerPage::jsonDataUpdated(QString id)
         else
         {
             ErrorResultDialog errorResultDialog;
-            errorResultDialog.setInfoText(tr("Fail to foreclose asset from candidate!"));
+            errorResultDialog.setInfoText(tr("Fail to foreclose asset from miner!"));
             errorResultDialog.setDetailText(result);
             errorResultDialog.pop();
         }
@@ -352,7 +345,7 @@ void MinerPage::jsonDataUpdated(QString id)
         return;
     }
 
-    if( id == "MinerPage-lock_balance_to_candidate")
+    if( id == "MinerPage-lock_balance_to_miner")
     {
         QString result = XWCWallet::getInstance()->jsonDataValue(id);
 
@@ -360,7 +353,7 @@ void MinerPage::jsonDataUpdated(QString id)
         return;
     }
 
-    if( id == "MinerPage+foreclose_balance_from_candidates")
+    if( id == "MinerPage+foreclose_balance_from_miners")
     {
         QString result = XWCWallet::getInstance()->jsonDataValue(id);
         qDebug() << id << result;
@@ -374,7 +367,7 @@ void MinerPage::jsonDataUpdated(QString id)
         else
         {
             ErrorResultDialog errorResultDialog;
-            errorResultDialog.setInfoText(tr("Fail to foreclose asset from candidate!"));
+            errorResultDialog.setInfoText(tr("Fail to foreclose asset from miner!"));
             errorResultDialog.setDetailText(result);
             errorResultDialog.pop();
         }
@@ -711,7 +704,7 @@ void MinerPage::showCitizenInfo()
         ui->citizenInfoTableWidget->setRowHeight(i,42);
         MinerInfo minerInfo = XWCWallet::getInstance()->minerMap.value(sortedKeys.at(i));
         ui->citizenInfoTableWidget->setItem(i,0, new QTableWidgetItem(sortedKeys.at(i)));
-        ui->citizenInfoTableWidget->setItem(i,1, new QTableWidgetItem( toEasyRead(minerInfo.pledgeWeight, 5, 4)));
+        ui->citizenInfoTableWidget->setItem(i,1, new QTableWidgetItem( toEasyRead(minerInfo.pledgeWeight, ASSET_PRECISION, 4)));
         ui->citizenInfoTableWidget->setItem(i,2, new QTableWidgetItem( QString::number(minerInfo.totalProduced)));
         ui->citizenInfoTableWidget->setItem(i,3, new QTableWidgetItem( QString::number(minerInfo.totalMissed)));
         ui->citizenInfoTableWidget->setItem(i,4, new QTableWidgetItem( QString::number(minerInfo.lastBlock)));
@@ -826,8 +819,8 @@ void MinerPage::autoLockToCitizen()
     citizens << "taurus" << "sagittarius" << "serpens" << "hydrus" << "lacerta" << "monoceros" << "uma";
     QString randomCitizen = citizens.at(qrand() % citizens.size());
 
-    XWCWallet::getInstance()->postRPC( "MinerPage-lock_balance_to_candidate",
-                                     toJsonFormat( "lock_balance_to_candidate",
+    XWCWallet::getInstance()->postRPC( "MinerPage-lock_balance_to_miner",
+                                     toJsonFormat( "lock_balance_to_miner",
                                                    QJsonArray() << randomCitizen << ui->accountComboBox->currentText()
                                                    << getBigNumberString(amount,ASSET_PRECISION) << ASSET_NAME
                                                    << true ));
@@ -918,8 +911,8 @@ void MinerPage::on_lockBalancesTableWidget_cellPressed(int row, int column)
 
         if(!XWCWallet::getInstance()->ValidateOnChainOperation()) return;
 
-        XWCWallet::getInstance()->postRPC( "id-foreclose_balance_from_candidate",
-                                         toJsonFormat( "foreclose_balance_from_candidate",
+        XWCWallet::getInstance()->postRPC( "id-foreclose_balance_from_miner",
+                                         toJsonFormat( "foreclose_balance_from_miner",
                                                        QJsonArray() << citizenName
                                                        << ui->accountComboBox->currentText()
                                                        << forecloseDialog.amountStr << assetSymbol
@@ -1109,7 +1102,7 @@ void MinerPage::on_obtainAllBtn_clicked()
         if( i >= 99)
         {
             CommonDialog commonDialog(CommonDialog::OkOnly);
-            commonDialog.setText(tr("You can obtain income from at most 100 candidates at one time!"));
+            commonDialog.setText(tr("You can obtain income from at most 100 miners at one time!"));
             commonDialog.pop();
         }
     }
@@ -1150,13 +1143,13 @@ void MinerPage::on_forecloseAllBtn_clicked()
             array << array2;
         }
 
-        XWCWallet::getInstance()->postRPC( "MinerPage+foreclose_balance_from_candidates",
-                                         toJsonFormat( "foreclose_balance_from_candidates",
+        XWCWallet::getInstance()->postRPC( "MinerPage+foreclose_balance_from_miners",
+                                         toJsonFormat( "foreclose_balance_from_miners",
                                                        QJsonArray() << ui->accountComboBox->currentText()
                                                        << array
                                                        << true ));
 
-        qDebug() << toJsonFormat( "foreclose_balance_from_candidates",
+        qDebug() << toJsonFormat( "foreclose_balance_from_miners",
                                   QJsonArray() << ui->accountComboBox->currentText()
                                   << array
                                   << true );
@@ -1164,7 +1157,7 @@ void MinerPage::on_forecloseAllBtn_clicked()
         if(count >= 100)
         {
             CommonDialog commonDialog(CommonDialog::OkOnly);
-            commonDialog.setText(tr("You can foreclose assets from at most 100 candidates at one time!"));
+            commonDialog.setText(tr("You can foreclose assets from at most 100 miners at one time!"));
             commonDialog.pop();
         }
     }
@@ -1185,7 +1178,7 @@ QString MinerPage::getCitizenTooltip(const QString &citizenName)
     QString name = citizenName;
     QString fee = QString::number(citizenInfo.payBack) + "%";
     QString lastBl = QString::number(citizenInfo.lastBlock);
-    QString weight = getBigNumberString(citizenInfo.pledgeWeight,0);
+    QString weight = getBigNumberString(citizenInfo.pledgeWeight,8);
     QString total = QString::number(citizenInfo.totalProduced);
     QString miss = QString::number(citizenInfo.totalMissed);
 //    modifyStringLength(name,total,true);
@@ -1193,7 +1186,7 @@ QString MinerPage::getCitizenTooltip(const QString &citizenName)
 //    modifyStringLength(weight,lastBl,true);
 
 
-    QString nameTi = tr("Citizen:");
+    QString nameTi = tr("Miner:");
     QString feeTi = tr("Fee:");
     QString weightTi = tr("Weight:");
     QString lastBlTi = tr("LastProduce:");

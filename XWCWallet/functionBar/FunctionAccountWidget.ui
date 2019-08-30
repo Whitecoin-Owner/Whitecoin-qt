@@ -108,6 +108,24 @@ font: bold 16px &quot;微软雅黑&quot;;</string>
     <string>分红</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButton_record">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>171</y>
+     <width>130</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>交易记录</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

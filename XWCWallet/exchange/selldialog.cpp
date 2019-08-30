@@ -26,6 +26,8 @@ SellDialog::SellDialog(QWidget *parent) :
     ui->okBtn->setStyleSheet(OKBTN_STYLE);
     ui->cancelBtn->setStyleSheet(CANCELBTN_STYLE);
     ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
+    ui->assetComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
+    ui->assetComboBox2->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
     feeChoose = new FeeChooseWidget(0,XWCWallet::getInstance()->feeType);
     ui->stackedWidget->addWidget(feeChoose);

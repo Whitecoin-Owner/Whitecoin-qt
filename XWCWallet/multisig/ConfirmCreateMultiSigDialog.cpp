@@ -24,7 +24,7 @@ ConfirmCreateMultiSigDialog::ConfirmCreateMultiSigDialog(QWidget *parent) :
 
     ui->okBtn->setStyleSheet(OKBTN_STYLE);
     ui->closeBtn->setStyleSheet(CANCELBTN_STYLE);
-
+    ui->accountComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
 
 

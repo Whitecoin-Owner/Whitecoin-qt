@@ -30,6 +30,7 @@ RegisterDialog::RegisterDialog(QWidget *parent) :
     ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
     ui->okBtn2->setStyleSheet(OKBTN_STYLE);
     ui->cancelBtn2->setStyleSheet(CANCELBTN_STYLE);
+    ui->accountComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
     QRegExp regx("[a-z][a-z0-9\-]+$");
     QValidator *validator = new QRegExpValidator(regx, this);

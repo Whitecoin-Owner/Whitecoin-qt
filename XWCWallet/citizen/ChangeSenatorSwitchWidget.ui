@@ -43,7 +43,7 @@
     <string>senatoradd</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="candidate2">
+  <widget class="QComboBox" name="miner2">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -63,7 +63,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="candidate3">
+  <widget class="QComboBox" name="miner3">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -83,7 +83,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="candidate1">
+  <widget class="QComboBox" name="miner1">
    <property name="geometry">
     <rect>
      <x>180</x>
@@ -99,7 +99,7 @@
      <x>106</x>
      <y>10</y>
      <width>70</width>
-     <height>16</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -119,7 +119,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
      <x>106</x>
      <y>45</y>
      <width>70</width>
-     <height>16</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -139,7 +139,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
      <x>106</x>
      <y>80</y>
      <width>70</width>
-     <height>16</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="styleSheet">

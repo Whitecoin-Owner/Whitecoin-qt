@@ -174,8 +174,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>当前wallfacer账号</string>
@@ -187,7 +187,7 @@
   <widget class="QComboBox" name="accountComboBox">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>190</x>
      <y>65</y>
      <width>120</width>
      <height>20</height>

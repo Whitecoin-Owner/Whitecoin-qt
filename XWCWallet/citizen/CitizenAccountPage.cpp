@@ -88,7 +88,7 @@ void CitizenAccountPage::init()
 
         QLabel* label = new QLabel(this);
         label->setGeometry(QRect(ui->label->pos(), QSize(300,30)));
-        label->setText(tr("There are no candidate accounts in the wallet."));
+        label->setText(tr("There are no miner accounts in the wallet."));
         label->setStyleSheet(NOACCOUNT_TIP_LABEL);
     }
 
@@ -126,7 +126,7 @@ void CitizenAccountPage::jsonDataUpdated(QString id)
             XWCWallet::getInstance()->witnessConfig->save();
 
             CommonDialog commonDialog(CommonDialog::OkOnly);
-            commonDialog.setText(tr("Mining configuration has been written. This candidate account will start mining when the wallet is launched next time."));
+            commonDialog.setText(tr("Mining configuration has been written. This miner account will start mining when the wallet is launched next time."));
             commonDialog.pop();
         }
     }
@@ -218,7 +218,7 @@ void CitizenAccountPage::on_startMineBtn_clicked()
 //#else
 
     CommonDialog commonDialog(CommonDialog::OkAndCancel);
-    commonDialog.setText(tr("Sure to open the mining function of this candidate account?"));
+    commonDialog.setText(tr("Sure to open the mining function of this miner account?"));
     if(commonDialog.pop())
     {
         XWCWallet::getInstance()->postRPC( "CitizenAccountPage+dump_private_key+" + ui->accountComboBox->currentText(),

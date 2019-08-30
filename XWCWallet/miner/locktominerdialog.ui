@@ -45,6 +45,10 @@
        <height>24</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
+     </property>
      <property name="text">
       <string>投票账户</string>
      </property>
@@ -56,7 +60,7 @@
      <property name="geometry">
       <rect>
        <x>218</x>
-       <y>270</y>
+       <y>280</y>
        <width>120</width>
        <height>36</height>
       </rect>
@@ -83,7 +87,7 @@
      <property name="geometry">
       <rect>
        <x>78</x>
-       <y>270</y>
+       <y>280</y>
        <width>120</width>
        <height>36</height>
       </rect>
@@ -138,7 +142,8 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 14px &quot;Microsoft YaHei UI Light&quot;;</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font:bold 12px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string/>
@@ -156,8 +161,12 @@
        <height>30</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
+     </property>
      <property name="text">
-      <string>投票Candidate</string>
+      <string>投票Miner</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -195,6 +204,10 @@
        <height>24</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
+     </property>
      <property name="text">
       <string>投票数量</string>
      </property>
@@ -210,6 +223,10 @@
        <width>120</width>
        <height>30</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>投票币种</string>

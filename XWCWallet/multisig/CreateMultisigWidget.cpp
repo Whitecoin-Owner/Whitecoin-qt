@@ -16,6 +16,10 @@ CreateMultisigWidget::CreateMultisigWidget(QWidget *parent) :
 
     connect( XWCWallet::getInstance(), SIGNAL(jsonDataUpdated(QString)), this, SLOT(jsonDataUpdated(QString)));
 
+    ui->addLocalAccountBtn->setStyleSheet(TOOLBUTTON_STYLE_1);
+    ui->addPubKeyBtn->setStyleSheet(TOOLBUTTON_STYLE_1);
+    ui->createBtn->setStyleSheet(OKBTN_STYLE);
+
     ui->pubKeyTableWidget->installEventFilter(this);
     ui->pubKeyTableWidget->setSelectionMode(QAbstractItemView::NoSelection);
     ui->pubKeyTableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);

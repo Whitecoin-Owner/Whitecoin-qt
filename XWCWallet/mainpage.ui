@@ -50,8 +50,8 @@
   <widget class="QToolButton" name="addAccountBtn">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>92</y>
+     <x>560</x>
+     <y>62</y>
      <width>70</width>
      <height>24</height>
     </rect>
@@ -286,7 +286,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
+    <string notr="true">QLabel{color: rgb(135,144,172);font: 12px &quot;微软雅黑&quot;;}
 </string>
    </property>
    <property name="text">
@@ -339,13 +339,13 @@
     <font>
      <family>Microsoft YaHei</family>
      <pointsize>-1</pointsize>
-     <weight>50</weight>
+     <weight>75</weight>
      <italic>false</italic>
-     <bold>false</bold>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:rgb(57,68,107);font: 14px &quot;Microsoft YaHei&quot;;</string>
+    <string notr="true">color:rgb(57,68,107);font:bold 12px &quot;Microsoft YaHei&quot;;</string>
    </property>
    <property name="text">
     <string>操作</string>
@@ -428,9 +428,9 @@ background:transparent;</string>
   <widget class="CommonControl::EllipsisLabel" name="pubKeyLabel">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>140</x>
      <y>95</y>
-     <width>340</width>
+     <width>320</width>
      <height>20</height>
     </rect>
    </property>
@@ -444,7 +444,7 @@ background:transparent;</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
+    <string notr="true">QLabel{color: rgb(135,144,172);font: 12px &quot;微软雅黑&quot;;}
 </string>
    </property>
    <property name="text">
@@ -484,43 +484,11 @@ background:transparent;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="pubKeyLabel_2">
-   <property name="geometry">
-    <rect>
-     <x>60</x>
-     <y>95</y>
-     <width>60</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑</family>
-     <pointsize>-1</pointsize>
-     <weight>50</weight>
-     <italic>false</italic>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
-   </property>
-   <property name="text">
-    <string>公钥</string>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-   <property name="textInteractionFlags">
-    <set>Qt::TextSelectableByMouse</set>
-   </property>
-  </widget>
   <widget class="QToolButton" name="registerBtn">
    <property name="geometry">
     <rect>
-     <x>560</x>
-     <y>62</y>
+     <x>640</x>
+     <y>92</y>
      <width>70</width>
      <height>24</height>
     </rect>
@@ -546,6 +514,41 @@ background:transparent;</string>
     <string>注册</string>
    </property>
   </widget>
+  <widget class="QToolButton" name="pubkeyBtn">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>95</y>
+     <width>70</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>-1</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+     <underline>true</underline>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background:transparent;
+color: rgb(135,144,172);
+font: 12px &quot;微软雅黑&quot;;
+text-decoration: underline;</string>
+   </property>
+   <property name="text">
+    <string>查看公钥</string>
+   </property>
+  </widget>
   <zorder>title_label</zorder>
   <zorder>addressLabel</zorder>
   <zorder>addAccountBtn</zorder>
@@ -559,8 +562,8 @@ background:transparent;</string>
   <zorder>backupBtn</zorder>
   <zorder>pubKeyLabel</zorder>
   <zorder>copyBtn2</zorder>
-  <zorder>pubKeyLabel_2</zorder>
   <zorder>registerBtn</zorder>
+  <zorder>pubkeyBtn</zorder>
  </widget>
  <customwidgets>
   <customwidget>

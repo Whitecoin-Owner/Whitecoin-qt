@@ -36,7 +36,7 @@
 font: bold 16px &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
-    <string>CANDIDATE</string>
+    <string>MINER</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>

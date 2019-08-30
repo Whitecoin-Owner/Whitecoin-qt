@@ -46,8 +46,8 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(198, 202, 212);
-font: 11px &quot;微软雅黑&quot;;</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>类型</string>
@@ -63,8 +63,8 @@ font: 11px &quot;微软雅黑&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(198, 202, 212);
-font: 11px &quot;微软雅黑&quot;;</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>时间</string>
@@ -529,8 +529,8 @@ font: 11px &quot;微软雅黑&quot;;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:1px solid rgb(212,208,217);border-top-left-radius:4px;border-bottom-left-radius:4px;
-color: rgb(83,107,215);padding: 0px 5px 0px 5px;
+    <string notr="true">border:1px solid #e1e4ee;border-top-left-radius:4px;border-bottom-left-radius:4px;
+color: #39446B;padding: 0px 5px 0px 5px;
 font: 11px &quot;微软雅黑&quot;;
 </string>
    </property>

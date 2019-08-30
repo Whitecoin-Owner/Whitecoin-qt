@@ -185,7 +185,7 @@ color: rgb(163,124,175);</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(229, 226, 240);</string>
+    <string notr="true">background-color: white;</string>
    </property>
    <property name="text">
     <string/>

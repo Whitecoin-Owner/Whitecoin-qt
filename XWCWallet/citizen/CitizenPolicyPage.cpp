@@ -68,7 +68,7 @@ void CitizenPolicyPage::init()
 
         QLabel* label = new QLabel(this);
         label->setGeometry(QRect(ui->label->pos(), QSize(300,30)));
-        label->setText(tr("There are no candidate accounts in the wallet."));
+        label->setText(tr("There are no miner accounts in the wallet."));
         label->setStyleSheet(NOACCOUNT_TIP_LABEL);
     }
 
@@ -152,7 +152,7 @@ void CitizenPolicyPage::jsonDataUpdated(QString id)
             QString address = XWCWallet::getInstance()->accountInfoMap.value(ui->accountComboBox->currentText()).address;
             if(address.isEmpty())
             {
-                ui->resolutionTableWidget->setItem(i,4,new QTableWidgetItem(tr("no candidate")));
+                ui->resolutionTableWidget->setItem(i,4,new QTableWidgetItem(tr("no miner")));
             }
             else
             {
@@ -187,7 +187,7 @@ void CitizenPolicyPage::paintEvent(QPaintEvent *)
 
 void CitizenPolicyPage::showResolutions()
 {
-    XWCWallet::getInstance()->postRPC("CitizenPolicyPage-get_votes",toJsonFormat("get_votes",QJsonArray() << "volans"));
+    XWCWallet::getInstance()->postRPC("CitizenPolicyPage-get_votes",toJsonFormat("get_votes",QJsonArray() << STABLE_MINER));
 
 }
 

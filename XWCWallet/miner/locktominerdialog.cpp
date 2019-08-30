@@ -27,6 +27,9 @@ LockToMinerDialog::LockToMinerDialog(QString _accountName, QWidget *parent) :
     ui->okBtn->setStyleSheet(OKBTN_STYLE);
     ui->cancelBtn->setStyleSheet(CANCELBTN_STYLE);
     ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
+    ui->minerComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
+    ui->assetComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
+
 
     connect( XWCWallet::getInstance(), SIGNAL(jsonDataUpdated(QString)), this, SLOT(jsonDataUpdated(QString)));
 
@@ -74,7 +77,7 @@ void LockToMinerDialog::setAsset(QString _assetName)
 
 void LockToMinerDialog::jsonDataUpdated(QString id)
 {
-    if( id == "id-lock_balance_to_candidate")
+    if( id == "id-lock_balance_to_miner")
     {
         QString result = XWCWallet::getInstance()->jsonDataValue(id);
 
@@ -84,14 +87,14 @@ void LockToMinerDialog::jsonDataUpdated(QString id)
             close();
 
             TransactionResultDialog transactionResultDialog;
-            transactionResultDialog.setInfoText(tr("Transaction of lock-to-candidate has been sent out!"));
+            transactionResultDialog.setInfoText(tr("Transaction of lock-to-miner has been sent out!"));
             transactionResultDialog.setDetailText(result);
             transactionResultDialog.pop();
         }
         else if(result.startsWith("\"error\":"))
         {
             ErrorResultDialog errorResultDialog;
-            errorResultDialog.setInfoText(tr("Fail to lock balance to candidate!"));
+            errorResultDialog.setInfoText(tr("Fail to lock balance to miner!"));
             errorResultDialog.setDetailText(result);
             errorResultDialog.pop();
         }
@@ -102,8 +105,8 @@ void LockToMinerDialog::on_okBtn_clicked()
 {
     if(!XWCWallet::getInstance()->ValidateOnChainOperation()) return;
 
-    XWCWallet::getInstance()->postRPC( "id-lock_balance_to_candidate",
-                                     toJsonFormat( "lock_balance_to_candidate",
+    XWCWallet::getInstance()->postRPC( "id-lock_balance_to_miner",
+                                     toJsonFormat( "lock_balance_to_miner",
                                                    QJsonArray() << ui->minerComboBox->currentText() << m_accountName
                                                    << ui->amountLineEdit->text() << getRealAssetSymbol( ui->assetComboBox->currentText())
                                                    << true ));

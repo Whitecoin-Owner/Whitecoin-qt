@@ -1158,21 +1158,21 @@ void XWCWallet::parseTransaction(QString result)
         break;
     case TRANSACTION_TYPE_SIGN_ETH_MULTI_CREATE:
     {
-        QString guardAddr = operationObject.take("guard_sign_address").toString();
+        QString guardAddr = operationObject.take("wallfacer_sign_address").toString();
 
         transactionDB.addAccountTransactionId(guardAddr, typeId);
     }
         break;
     case TRANSACTION_TYPE_SIGN_ETH_FINAL:
     {
-        QString guardAddr = operationObject.take("guard_address").toString();
+        QString guardAddr = operationObject.take("wallfacer_address").toString();
 
         transactionDB.addAccountTransactionId(guardAddr, typeId);
     }
         break;
     case TRANSACTION_TYPE_SIGN_ETH_COLDHOT_FINAL:
     {
-        QString guardAddr = operationObject.take("guard_address").toString();
+        QString guardAddr = operationObject.take("wallfacer_address").toString();
 
         transactionDB.addAccountTransactionId(guardAddr, typeId);
     }
@@ -1603,7 +1603,7 @@ void XWCWallet::fetchMiners()
 {
     if(!fetchCitizensFinished)  return;
     fetchCitizensFinished = false;
-    postRPC( "id-list_candidates", toJsonFormat( "list_candidates", QJsonArray() << "A" << 1000));
+    postRPC( "id-list_miners", toJsonFormat( "list_miners", QJsonArray() << "A" << 1000));
 }
 
 void XWCWallet::fetchCitizenPayBack()
@@ -1619,8 +1619,7 @@ void XWCWallet::fetchProposals()
 {
     if(XWCWallet::getInstance()->getPermanentSenators().size() < 1 || minerMap.size() < 1)   return;
     postRPC( "wallfacer-get_proposal_for_voter", toJsonFormat( "get_proposal_for_voter", QJsonArray() << XWCWallet::getInstance()->getPermanentSenators().first()));
-    postRPC( "candidate-get_proposal_for_voter", toJsonFormat( "get_referendum_for_voter", QJsonArray() << minerMap.keys().at(0)));
-
+    postRPC( "miner-get_referendum_for_voter", toJsonFormat( "get_referendum_for_voter", QJsonArray() << STABLE_MINER));
 }
 
 QString XWCWallet::citizenAccountIdToName(QString citizenAccountId)

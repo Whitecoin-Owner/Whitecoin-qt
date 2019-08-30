@@ -29,6 +29,8 @@ ChangeCrosschainAddressDialog::ChangeCrosschainAddressDialog(QWidget *parent) :
 
     ui->okBtn->setStyleSheet(OKBTN_STYLE);
     ui->closeBtn->setStyleSheet(CANCELBTN_STYLE);
+    ui->accountComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
+    ui->assetComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
     init();
 }
@@ -170,8 +172,8 @@ void ChangeCrosschainAddressDialog::jsonDataUpdated(QString id)
 
                     QJsonArray operationArray = object.value("object_transaction").toObject().value("operations").toArray();
                     QJsonObject object2 = operationArray.at(0).toArray().at(1).toObject();
-                    ethTrx.guardSignHotAddress = object2.value("guard_sign_hot_address").toString();
-                    ethTrx.guardSignColdAddress = object2.value("guard_sign_cold_address").toString();
+                    ethTrx.guardSignHotAddress = object2.value("wallfacer_sign_hot_address").toString();
+                    ethTrx.guardSignColdAddress = object2.value("wallfacer_sign_cold_address").toString();
 
                     ui->trxIdLabel->setText(ethTrx.trxId);
                     ui->senatorHotAddressLabel->setText(ethTrx.guardSignHotAddress);
@@ -232,7 +234,7 @@ void ChangeCrosschainAddressDialog::jsonDataUpdated(QString id)
 
                     if(newHotAddress == ethTrx.guardSignHotAddress && newColdAddress == ethTrx.guardSignColdAddress)
                     {
-                        signerId = object.value("guard_account").toString();
+                        signerId = object.value("wallfacer_account").toString();
 
                         ui->signerLabel->setText(XWCWallet::getInstance()->guardAccountIdToName(signerId));
                     }

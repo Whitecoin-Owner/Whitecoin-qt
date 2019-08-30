@@ -65,8 +65,8 @@ SetDialog::SetDialog(QWidget *parent) :
     setStyleSheet("QToolButton{background-color:transparent;border:none;color:rgb(83,107,215);font: 11px \"微软雅黑\";}"
                   "QToolButton::checked{color:rgb(90,115,227);}"
 
-                  "QToolButton#toolButton_help,QToolButton#toolButton_set{font:53 11px \"Microsoft YaHei UI\";border:none;background:transparent;color:white;border-top-left-radius:4px;border-top-right-radius:4px;}"
-                  "QToolButton#toolButton_help::checked,QToolButton#toolButton_set::checked{color:rgb(52,37,90);background:#FFFFFF;}"
+                  "QToolButton#toolButton_help,QToolButton#toolButton_set{font:12px \"微软雅黑\";border:none;background:transparent;color:white;border-top-left-radius:4px;border-top-right-radius:4px;}"
+                  "QToolButton#toolButton_help::checked,QToolButton#toolButton_set::checked{color:rgb(80,80,80);background:#FFFFFF;}"
 
                   "QToolButton#depositBtn{color:rgb(84,61,137);}"
 
@@ -82,6 +82,13 @@ SetDialog::SetDialog(QWidget *parent) :
                   );
     ui->saveBtn->setStyleSheet(OKBTN_STYLE);
     ui->confirmBtn->setStyleSheet(OKBTN_STYLE);
+    ui->languageComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
+    ui->middlewareCombobox->setStyleSheet(COMBOBOX_BORDER_STYLE);
+    ui->comboBox_fee->setStyleSheet(COMBOBOX_BORDER_STYLE);
+
+    ui->generalBtn->setStyleSheet(PUSHBUTTON_CHECK_STYLE);
+    ui->safeBtn->setStyleSheet(PUSHBUTTON_CHECK_STYLE);
+    ui->accountBtn->setStyleSheet(PUSHBUTTON_CHECK_STYLE);
 
     ui->closeBtn->setIconSize(QSize(8,8));
     ui->closeBtn->setIcon(QIcon(":/ui/wallet_ui/white_close.png"));
@@ -577,11 +584,6 @@ void SetDialog::updateButtonIcon(int buttonNumber)
     QPixmap blue(":/ui/wallet_ui/blue_circle.png");
     blue = blue.scaled(12,12,Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
 
-    ui->label_general->setPixmap(0 == buttonNumber ? blue : gray);
-
-    ui->label_safe->setPixmap(1 == buttonNumber ? blue : gray);
-
-    ui->label_account->setPixmap(2 == buttonNumber ? blue : gray);
 //    ui->generalBtn->setIcon(0 == buttonNumber ? blue : gray);
 //    ui->safeBtn->setIcon(1 == buttonNumber ? blue : gray);
 //    ui->accountBtn->setIcon(2 == buttonNumber ? blue : gray);

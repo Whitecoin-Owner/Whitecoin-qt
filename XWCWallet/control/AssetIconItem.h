@@ -21,8 +21,6 @@ public:
 
 private:
     Ui::AssetIconItem *ui;
-
-    static QMap<QString,QString> assetColorMap;
 };
 
 #endif // ASSETICONITEM_H

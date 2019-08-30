@@ -12,6 +12,8 @@ BlankDefaultWidget::BlankDefaultWidget(QWidget *parent) :
         this->resize(parent->size());
     }
     QTimer::singleShot(100,this,&BlankDefaultWidget::InitWidget);
+
+    ui->label_tip->setStyleSheet("color: rgb(135, 144, 172);font: 12px \"Microsoft YaHei\"");
 }
 
 BlankDefaultWidget::~BlankDefaultWidget()

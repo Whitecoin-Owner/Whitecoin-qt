@@ -86,7 +86,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Candidate决议投票</string>
+      <string>Miner决议投票</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

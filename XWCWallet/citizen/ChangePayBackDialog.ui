@@ -154,14 +154,14 @@
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>102</y>
+       <y>100</y>
        <width>101</width>
-       <height>21</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>修改为(%):</string>
@@ -186,12 +186,12 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
        <x>80</x>
        <y>74</y>
        <width>111</width>
-       <height>21</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>当前矿池管理费(%):</string>
@@ -224,8 +224,8 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>账户:</string>

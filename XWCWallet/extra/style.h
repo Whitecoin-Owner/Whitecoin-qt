@@ -19,11 +19,11 @@
 #define TOOLBUTTON_STYLE_1      "QToolButton{font: 12px \"微软雅黑\";background-color:white; border:none;border-radius:12px;color: rgb(83,107,215);}"
                                // "QToolButton:pressed{background-color:rgb(90,115,227);color: white;}"
 
-#define PUSHBUTTON_CHECK_STYLE  "QPushButton{font:11px \"微软雅黑\";background:transparent;border:none;color: rgb(83,107,215);}" \
-                                "QPushButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137);}"
+#define PUSHBUTTON_CHECK_STYLE  "QPushButton{font:12px \"微软雅黑\";background:transparent;border:none;color: rgb(57,68,107);}" \
+                                "QPushButton::checked{color:rgb(83,107,215);border-bottom:2px solid rgb(83,107,215);}"
 
 #define TABLEWIDGET_STYLE_1     "QTableView{background-color:rgb(255,255,255);border:none;border-radius:0px;font: 12px \"Microsoft YaHei\";color:rgb(80,80,80);}" \
-                                "QHeaderView{border:none;border-bottom:1px solid rgb(209,219,232);background-color:rgb(255,255,255);color:rgb(57,68,107);font: 14px \"Microsoft YaHei\";}" \
+                                "QHeaderView{border:none;border-bottom:1px solid #e9eef4;background-color:rgb(255,255,255);color:rgb(57,68,107,204);font:bold 12px \"Microsoft YaHei\";}" \
                                 "QHeaderView:section{height:42px;border:none;background-color:rgb(255,255,255);}" \
                                 "QHeaderView:section:first{border-top-left-radius:0px;}" \
                                 "QHeaderView:section:last{border-top-right-radius:0px;}"
@@ -52,5 +52,11 @@
 #define TEXTBROWSER_READONLY    "QTextBrowser{color:rgb(52,37,90);border:none;border-radius:10px;outline:1px solid rgb(196,191,214);outline-radius:8px;}"
 
 #define NOACCOUNT_TIP_LABEL     "QLabel{color: rgb(83,107,215);font: 11px \"Microsoft YaHei UI Light\";}"
+
+#define COMBOBOX_BORDER_STYLE   "QComboBox{min-height:18px;max-height:24px;background-color:rgb(255,255,255);border:1px solid #e1e4ee;color: #39446B;padding-left: 5px;font: 12px \"Microsoft YaHei UI Light\";border-top-left-radius:4px;border-bottom-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;}" \
+                                "QComboBox::drop-down {width:21px;background:rgb(148,186,249);border:none;border-top-right-radius:4px;border-bottom-right-radius:4px;}" \
+                                "QComboBox::down-arrow {image: url(:/ui/wallet_ui/downArrow.png);}" \
+                                "QComboBox QAbstractItemView {outline: 0px;}" \
+                                "QComboBox QAbstractItemView{ min-width:80px;min-height: 18px; color: #39446B;selection-color: white;background-color: rgb(255,255,255);selection-background-color: rgb(148,186,249);}"
 
 #endif // STYLE_H

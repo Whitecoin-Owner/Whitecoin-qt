@@ -30,6 +30,7 @@ public slots:
 
     void updateAccountList();
 
+    void showAllTransacionPage();
 
 signals:
     void showShadowWidget();
@@ -71,6 +72,8 @@ private slots:
 
     //自动划转提醒
     void activeTunnelMoneyNotify();
+    void on_pubkeyBtn_clicked();
+
 private:
     void InitStyle();
 private:

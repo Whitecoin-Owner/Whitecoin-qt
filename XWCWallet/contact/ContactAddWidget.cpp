@@ -114,6 +114,7 @@ void ContactAddWidget::InitStyle()
     setPalette(palette);
 
     ui->toolButton->setStyleSheet(OKBTN_STYLE);
+    ui->comboBox_group->setStyleSheet(COMBOBOX_BORDER_STYLE);
 }
 
 void ContactAddWidget::InitWidget()

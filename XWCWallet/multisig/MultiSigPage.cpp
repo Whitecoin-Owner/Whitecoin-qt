@@ -66,7 +66,8 @@ MultiSigPage::MultiSigPage(QWidget *parent) :
     ui->typeSignBtn->resize(ui->typeSignBtn->width(), 18);
     ui->typeSignBtn->move(ui->typeInfoBtn->x() + ui->typeInfoBtn->width() + 30, ui->typeSignBtn->y());
 
-    setStyleSheet(PUSHBUTTON_CHECK_STYLE);
+    setStyleSheet(PUSHBUTTON_CHECK_STYLE
+                  TABLEWIDGET_STYLE_1);
     ui->trxStructTextBrowser->setStyleSheet(TEXTBROWSER_READONLY);
     ui->trxSignedextBrowser->setStyleSheet(TEXTBROWSER_READONLY);
 

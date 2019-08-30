@@ -27,6 +27,7 @@ CreateTokenDialog::CreateTokenDialog(QWidget *parent) :
     ui->registerBtn->setStyleSheet(OKBTN_STYLE);
     ui->initBtn->setStyleSheet(OKBTN_STYLE);
     ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
+    ui->accountComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
     QRegExp rx1("[a-zA-Z0-9]{0,20}");
     QRegExpValidator *pReg1 = new QRegExpValidator(rx1, this);

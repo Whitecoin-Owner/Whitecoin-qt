@@ -117,7 +117,7 @@
    </property>
    <property name="font">
     <font>
-     <family>Microsoft YaHei UI Light</family>
+     <family>微软雅黑</family>
      <pointsize>-1</pointsize>
      <weight>50</weight>
      <italic>false</italic>
@@ -125,8 +125,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>交易对</string>
@@ -192,7 +192,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
    </property>
    <property name="font">
     <font>
-     <family>Microsoft YaHei UI Light</family>
+     <family>微软雅黑</family>
      <pointsize>-1</pointsize>
      <weight>50</weight>
      <italic>false</italic>
@@ -200,8 +200,8 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>当前账户</string>
@@ -272,7 +272,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
    </property>
    <property name="font">
     <font>
-     <family>Microsoft YaHei UI Light</family>
+     <family>微软雅黑</family>
      <pointsize>-1</pointsize>
      <weight>50</weight>
      <italic>false</italic>
@@ -280,8 +280,8 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>设为常用</string>

@@ -224,10 +224,10 @@ void AccountManagerWidget::InitStyle()
     ui->tableWidget->verticalHeader()->setVisible(false);
     ui->tableWidget->setShowGrid(false);
     ui->tableWidget->setColumnCount(3);
-    ui->tableWidget->setColumnWidth(0,435);
-    ui->tableWidget->setColumnWidth(1,60);
-    ui->tableWidget->setColumnWidth(2,60);
-    ui->tableWidget->setStyleSheet("QTableView{border:none;font:12px \"微软雅黑\";background-color:rgb(239,242,245);color:rgb(83,107,215);}");
+    ui->tableWidget->setColumnWidth(0,415);
+    ui->tableWidget->setColumnWidth(1,70);
+    ui->tableWidget->setColumnWidth(2,70);
+    ui->tableWidget->setStyleSheet("QTableView{border:none;font:12px \"微软雅黑\";background-color:white;color:rgb(83,107,215);}");
 
     ui->toolButton->setStyleSheet(OKBTN_STYLE);
 

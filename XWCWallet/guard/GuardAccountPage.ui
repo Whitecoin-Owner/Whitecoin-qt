@@ -57,8 +57,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>当前wallfacer账户</string>
@@ -70,7 +70,7 @@
   <widget class="QComboBox" name="accountComboBox">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>190</x>
      <y>65</y>
      <width>120</width>
      <height>20</height>
@@ -111,13 +111,14 @@ border-radius:0px;</string>
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>147</y>
+     <y>142</y>
      <width>120</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{font: 12px &quot;微软雅黑 Light&quot;;color: rgb(51, 51, 51);}</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>WALLFACER类型</string>
@@ -127,7 +128,7 @@ border-radius:0px;</string>
    <property name="geometry">
     <rect>
      <x>75</x>
-     <y>177</y>
+     <y>172</y>
      <width>290</width>
      <height>20</height>
     </rect>
@@ -146,13 +147,14 @@ border-radius:0px;</string>
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>147</y>
+     <y>142</y>
      <width>120</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{font: 12px &quot;微软雅黑 Light&quot;;color: rgb(51, 51, 51);}</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>WALLFACER ID</string>
@@ -162,7 +164,7 @@ border-radius:0px;</string>
    <property name="geometry">
     <rect>
      <x>385</x>
-     <y>177</y>
+     <y>172</y>
      <width>290</width>
      <height>20</height>
     </rect>
@@ -181,13 +183,14 @@ border-radius:0px;</string>
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>209</y>
+     <y>206</y>
      <width>120</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{font: 12px &quot;微软雅黑 Light&quot;;color: rgb(51, 51, 51);}</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>账户地址</string>
@@ -197,7 +200,7 @@ border-radius:0px;</string>
    <property name="geometry">
     <rect>
      <x>75</x>
-     <y>239</y>
+     <y>236</y>
      <width>300</width>
      <height>20</height>
     </rect>
@@ -215,7 +218,7 @@ border-radius:0px;</string>
   <widget class="QLabel" name="guardLabel">
    <property name="geometry">
     <rect>
-     <x>344</x>
+     <x>314</x>
      <y>69</y>
      <width>12</width>
      <height>12</height>

@@ -88,6 +88,7 @@ void SenatorChangeSenatorDialog::InitWidget()
     ui->okBtn->setStyleSheet(OKBTN_STYLE);
     ui->cancelBtn->setStyleSheet(CANCELBTN_STYLE);
     ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
+    ui->account->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
     installDoubleValidator(ui->lineEdit_expTime,0,720.0,1);
     ui->lineEdit_expTime->setText("1");

@@ -133,8 +133,8 @@
     <enum>Qt::DefaultContextMenu</enum>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLineEdit{background:transparent;border:none;border-bottom:1px solid rgb(160,160,160);
-color: rgb(202, 202, 202);border-radius:0px;}</string>
+    <string notr="true">QLineEdit{background:transparent;border:none;border-bottom:1px solid rgb(160,160,160,153);
+color: rgb(57,68,107);border-radius:0px;}</string>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>

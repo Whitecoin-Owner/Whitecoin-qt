@@ -95,10 +95,10 @@
     <widget class="QToolButton" name="closeBtn">
      <property name="geometry">
       <rect>
-       <x>289</x>
-       <y>5</y>
-       <width>7</width>
-       <height>7</height>
+       <x>273</x>
+       <y>7</y>
+       <width>18</width>
+       <height>18</height>
       </rect>
      </property>
      <property name="cursor">
@@ -163,7 +163,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(137, 129, 161);
+      <string notr="true">color:rgb(80,80,80);
 font: 11px &quot;微软雅黑&quot;;</string>
      </property>
      <property name="text">
@@ -235,7 +235,7 @@ font: 11px &quot;微软雅黑&quot;;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(137, 129, 161);
+      <string notr="true">color:rgb(80,80,80);
 font: 11px &quot;微软雅黑&quot;;</string>
      </property>
      <property name="text">

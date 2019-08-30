@@ -192,7 +192,7 @@ void PoundageShowWidget::setButtonWidget()
     {
         ToolButtonWidget *toolButton = new ToolButtonWidget();
         toolButton->setText(tr("delete"));
-        toolButton->setBackgroundColor(0==i%2?"rgb(255,255,255)":"rgb(238,236,245)"  );
+        toolButton->setBackgroundColor(0==i%2?"rgb(255,255,255)":"rgb(248,251,255)"  );
         connect(toolButton,&ToolButtonWidget::clicked,[i,this](){
             emit DeletePoundageSignal(this->_p->tableModel->index(i,0).data(Qt::UserRole).value<std::shared_ptr<PoundageUnit>>()->poundageID,
                                       XWCWallet::getInstance()->addressToName(this->_p->tableModel->index(i,0).data(Qt::UserRole).value<std::shared_ptr<PoundageUnit>>()->ownerAdress));

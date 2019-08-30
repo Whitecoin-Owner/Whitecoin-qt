@@ -35,7 +35,7 @@
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>Candidate账户信息</string>
+    <string>Miner账户信息</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -57,11 +57,11 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
-    <string>当前Candidate账号</string>
+    <string>当前Miner账号</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -70,7 +70,7 @@
   <widget class="QComboBox" name="accountComboBox">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>190</x>
      <y>65</y>
      <width>110</width>
      <height>20</height>
@@ -109,11 +109,11 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
-    <string>CANDIDATE ID</string>
+    <string>MINER ID</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -122,7 +122,7 @@
   <widget class="QLabel" name="idLabel">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>190</x>
      <y>95</y>
      <width>100</width>
      <height>20</height>
@@ -138,8 +138,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string/>
@@ -268,13 +268,13 @@
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>创建新Candidate</string>
+    <string>创建新Miner</string>
    </property>
   </widget>
   <widget class="QLabel" name="totalProducedLabel2">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>320</x>
      <y>65</y>
      <width>70</width>
      <height>20</height>
@@ -290,8 +290,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>总出块数</string>
@@ -303,7 +303,7 @@
   <widget class="QLabel" name="totalProducedLabel">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>380</x>
      <y>65</y>
      <width>70</width>
      <height>20</height>
@@ -319,8 +319,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string/>
@@ -332,7 +332,7 @@
   <widget class="QLabel" name="lastBlockLabel2">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>320</x>
      <y>95</y>
      <width>70</width>
      <height>20</height>
@@ -348,8 +348,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>上次出块</string>
@@ -361,7 +361,7 @@
   <widget class="QLabel" name="lastBlockLabel">
    <property name="geometry">
     <rect>
-     <x>410</x>
+     <x>380</x>
      <y>95</y>
      <width>100</width>
      <height>20</height>
@@ -377,8 +377,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string/>

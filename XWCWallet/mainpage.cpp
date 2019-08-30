@@ -72,6 +72,8 @@ MainPage::MainPage(QWidget *parent) :
 
     activeTunnelMoneyNotify();
 
+    ui->pubKeyLabel->hide();
+    ui->copyBtn2->hide();
 }
 
 MainPage::~MainPage()
@@ -156,6 +158,11 @@ void MainPage::updateAccountList()
     {
         //blankWidget->setVisible(false);
     }
+}
+
+void MainPage::showAllTransacionPage()
+{
+    on_allTransactionBtn_clicked();
 }
 
 void MainPage::on_addAccountBtn_clicked()
@@ -544,4 +551,20 @@ void MainPage::activeTunnelMoneyNotify()
     //开启自动获取划转账户金额提醒
     captialNotify->startCheckTunnelMoney();
 
+}
+
+void MainPage::on_pubkeyBtn_clicked()
+{
+    if(ui->pubKeyLabel->isVisible())
+    {
+        ui->pubKeyLabel->hide();
+        ui->copyBtn2->hide();
+        ui->pubkeyBtn->setText(tr("PUBKEY"));
+    }
+    else
+    {
+        ui->pubKeyLabel->show();
+        ui->copyBtn2->show();
+        ui->pubkeyBtn->setText(tr("HIDE"));
+    }
 }

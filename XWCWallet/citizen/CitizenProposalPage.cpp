@@ -63,6 +63,8 @@ CitizenProposalPage::CitizenProposalPage(QWidget *parent) :
     ui->stackedWidget->addWidget(pageWidget);
     connect(pageWidget,&PageScrollWidget::currentPageChangeSignal,this,&CitizenProposalPage::pageChangeSlot);
 
+    XWCWallet::getInstance()->fetchProposals();
+
     init();
 }
 
@@ -93,7 +95,7 @@ void CitizenProposalPage::init()
 
         QLabel* label = new QLabel(this);
         label->setGeometry(QRect(ui->label->pos(), QSize(300,30)));
-        label->setText(tr("There are no candidate accounts in the wallet."));
+        label->setText(tr("There are no miner accounts in the wallet."));
         label->setStyleSheet(NOACCOUNT_TIP_LABEL);
     }
 
@@ -148,9 +150,139 @@ void CitizenProposalPage::jsonDataUpdated(QString id)
 
 //        qDebug()<<"aaaa"<<object;
         qDebug()<<"votetimessss"<<QDateTime::fromString(XWCWallet::getInstance()->currentBlockTime,"yyyy-MM-ddThh:mm:ss")<<QDateTime::fromString(nextTime,"yyyy-MM-ddThh:mm:ss")<<isCurrentTimeBigThanNextVoteTime;
-        //查询白名单
-        queryWhiteList();
 
+
+        QStringList keys = XWCWallet::getInstance()->citizenProposalInfoMap.keys();
+
+        int size = keys.size();
+        ui->proposalTableWidget->setRowCount(0);
+        for(int i = 0; i < size; i++)
+        {
+            ProposalInfo info = XWCWallet::getInstance()->citizenProposalInfoMap.value(keys.at(i));
+            QJsonObject object = QJsonDocument::fromJson(info.transactionStr.toLatin1()).object();
+            QJsonArray arr = object.value("operations").toArray().at(0).toArray().at(1).toObject().value("replace_queue").toArray();
+
+            ui->proposalTableWidget->insertRow(ui->proposalTableWidget->rowCount());
+            ui->proposalTableWidget->setRowHeight(i,42);
+
+            ui->proposalTableWidget->setItem(i,0,new QTableWidgetItem(toLocalTime(info.expirationTime)));
+            ui->proposalTableWidget->item(i,0)->setData(Qt::UserRole,info.proposalId);
+            ui->proposalTableWidget->item(i,0)->setTextAlignment(Qt::AlignLeft);
+            ui->proposalTableWidget->item(i,0)->setIcon(QIcon(":/ui/wallet_ui/whiteList_proposal.png"));
+
+            QMap<QString,MinerInfo> allCitizen(XWCWallet::getInstance()->minerMap);
+            QMapIterator<QString, MinerInfo> it(allCitizen);
+            QString citizenName = "";
+            while (it.hasNext()) {
+                it.next();
+                if(info.proposer == it.value().accountId)
+                {
+                    citizenName = it.key();
+                    break;
+                }
+            }
+            ui->proposalTableWidget->setItem(i,1,new QTableWidgetItem(citizenName));
+
+            QString typeStr;
+            if(TRANSACTION_TYPE_CITIZEN_CHANGE_SENATOR == info.proposalOperationType)
+            {
+                typeStr = tr("change wallfacer");
+            }
+            else
+            {
+                typeStr = tr("unknown");
+            }
+            ui->proposalTableWidget->setItem(i,2,new QTableWidgetItem(typeStr));
+            ui->proposalTableWidget->item(i,2)->setTextColor(QColor(84,116,235));
+
+            //投票状态
+            ui->proposalTableWidget->setItem(i,3,new QTableWidgetItem(calProposalWeight(info)));
+
+            //投票数量
+            ui->proposalTableWidget->setItem(i,4,new QTableWidgetItem(info.pledge));
+            //我的投票状态
+            QString address = XWCWallet::getInstance()->accountInfoMap.value(ui->accountComboBox->currentText()).address;
+            if(address.isEmpty())
+            {
+                ui->proposalTableWidget->setItem(i,5,new QTableWidgetItem(tr("no miner")));
+            }
+            else if(info.approvedKeys.contains(address))
+            {
+                ui->proposalTableWidget->setItem(i,5,new QTableWidgetItem(tr("approved")));
+                ui->proposalTableWidget->item(i,5)->setTextColor(QColor(0,170,0));
+            }
+            else if(info.disapprovedKeys.contains(address))
+            {
+                ui->proposalTableWidget->setItem(i,5,new QTableWidgetItem(tr("not voted")));
+    //            ui->proposalTableWidget->item(i,5)->setTextColor(QColor(255,0,0));
+            }
+            else
+            {
+                ui->proposalTableWidget->setItem(i,5,new QTableWidgetItem(tr("not voted")));
+            }
+
+            if(!address.isEmpty() && false == info.proposalFinished)          // 如果有senator账户
+            {
+                if(isCurrentTimeBigThanNextVoteTime)
+                {
+                    if(!info.approvedKeys.contains(address))
+                    {
+                        qDebug()<<"1";
+                        ui->proposalTableWidget->setItem(i,6,new QTableWidgetItem(tr("approve")));
+                        ToolButtonWidget *toolButton = new ToolButtonWidget();
+                        toolButton->setText(ui->proposalTableWidget->item(i,6)->text());
+                        ui->proposalTableWidget->setCellWidget(i,6,toolButton);
+                        ui->proposalTableWidget->item(i,6)->setData(Qt::UserRole,QVariant::fromValue<ProposalInfo>(info));
+                        connect(toolButton,&ToolButtonWidget::clicked,std::bind(&CitizenProposalPage::on_proposalTableWidget_cellClicked,this,i,6));
+                    }
+                    else
+                    {
+                        qDebug()<<"2";
+                        ui->proposalTableWidget->setItem(i,6,new QTableWidgetItem(tr("disapprove")));
+
+                        ToolButtonWidget *toolButton = new ToolButtonWidget();
+                        toolButton->setText(ui->proposalTableWidget->item(i,6)->text());
+                        ui->proposalTableWidget->setCellWidget(i,6,toolButton);
+                        ui->proposalTableWidget->item(i,6)->setData(Qt::UserRole,QVariant::fromValue<ProposalInfo>(info));
+                        connect(toolButton,&ToolButtonWidget::clicked,std::bind(&CitizenProposalPage::on_proposalTableWidget_cellClicked,this,i,7));
+                    }
+
+                }
+                else
+                {
+                    //提案人address
+                    QString proposeAccountID = info.proposer;
+                    if(XWCWallet::getInstance()->accountInfoMap.value(ui->accountComboBox->currentText()).id == proposeAccountID)
+                    {
+                        qDebug()<<"3";
+                        ui->proposalTableWidget->setItem(i,6,new QTableWidgetItem(tr("addPledge")));
+                        ToolButtonWidget *toolButton = new ToolButtonWidget();
+                        toolButton->setText(ui->proposalTableWidget->item(i,6)->text());
+                        ui->proposalTableWidget->setCellWidget(i,6,toolButton);
+                        ui->proposalTableWidget->item(i,6)->setData(Qt::UserRole,QVariant::fromValue<ProposalInfo>(info));
+                        connect(toolButton,&ToolButtonWidget::clicked,std::bind(&CitizenProposalPage::on_proposalTableWidget_cellClicked,this,i,8));
+                    }
+                    else
+                    {
+                        qDebug()<<"5";
+                        ui->proposalTableWidget->setItem(i,6,new QTableWidgetItem(("")));
+                    }
+                }
+            }
+            else
+            {
+                ui->proposalTableWidget->setItem(i,6,new QTableWidgetItem(("")));
+            }
+        }
+
+        int page = (ui->proposalTableWidget->rowCount()%ROWNUMBER==0 && ui->proposalTableWidget->rowCount() != 0) ?
+                    ui->proposalTableWidget->rowCount()/ROWNUMBER : ui->proposalTableWidget->rowCount()/ROWNUMBER+1;
+        pageWidget->SetTotalPage(page);
+        pageWidget->setShowTip(ui->proposalTableWidget->rowCount(),ROWNUMBER);
+        pageChangeSlot(pageWidget->GetCurrentPage());
+
+        pageWidget->setVisible(0 != ui->proposalTableWidget->rowCount());
+        tableWidgetSetItemZebraColor(ui->proposalTableWidget);
     }
 
 }
@@ -354,7 +486,7 @@ void CitizenProposalPage::httpReplied(QByteArray _data, int _status)
         QString address = XWCWallet::getInstance()->accountInfoMap.value(ui->accountComboBox->currentText()).address;
         if(address.isEmpty())
         {
-            ui->proposalTableWidget->setItem(i,5,new QTableWidgetItem(tr("no candidate")));
+            ui->proposalTableWidget->setItem(i,5,new QTableWidgetItem(tr("no miner")));
         }
         else if(info.approvedKeys.contains(address))
         {
@@ -453,15 +585,12 @@ QString CitizenProposalPage::calProposalWeight(const ProposalInfo &info) const
         if(info.requiredAccounts.contains(i.value().address))
         {
             allWeight += i.value().pledgeWeight;
-//            qDebug()<<"pppppppppppp"<<i.value().address<<i.value().pledgeWeight;
         }
         if(info.approvedKeys.contains(i.value().address))
         {
             alreadyWeight += i.value().pledgeWeight;
-//            qDebug()<<"qqqqqqqqqqqq"<<i.value().address<<i.value().pledgeWeight;
         }
     }
-//    qDebug()<<"wwwwwwwwwwwww"<<allWeight<<alreadyWeight;
     if(0 != allWeight)
     {
         return QString::number(alreadyWeight * 100.0 / allWeight,'f',2)+"%";

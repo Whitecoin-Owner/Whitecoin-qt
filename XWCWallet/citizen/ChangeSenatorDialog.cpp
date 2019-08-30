@@ -58,7 +58,7 @@ void ChangeSenatorDialog::ChangeSenatorSlots()
         {
             feeWidget->updatePoundageID();
         }
-        XWCWallet::getInstance()->postRPC("id_change_wallfacer",toJsonFormat("candidate_referendum_for_wallfacer",
+        XWCWallet::getInstance()->postRPC("id_change_wallfacer",toJsonFormat("miner_referendum_for_wallfacer",
                                         QJsonArray()<<proposingAccount<<feeNumber<<replaceArr<<true));
 
     });
@@ -105,7 +105,7 @@ void ChangeSenatorDialog::InitWidget()
     ui->okBtn->setStyleSheet(OKBTN_STYLE);
     ui->cancelBtn->setStyleSheet(CANCELBTN_STYLE);
     ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
-
+    ui->account->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
     installDoubleValidator(ui->lineEdit_feeNumber,0,(std::numeric_limits<double>::max)(),ASSET_PRECISION);
     InitData();

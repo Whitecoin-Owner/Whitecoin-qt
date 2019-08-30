@@ -32,11 +32,11 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
-    <string>当前Candidate账号</string>
+    <string>当前Miner账号</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -237,7 +237,7 @@
     <string notr="true"/>
    </property>
    <property name="text">
-    <string>Candidate提案</string>
+    <string>Miner提案</string>
    </property>
   </widget>
   <widget class="QToolButton" name="changeSenatorBtn">

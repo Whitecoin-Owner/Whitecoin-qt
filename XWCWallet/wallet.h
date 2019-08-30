@@ -49,6 +49,8 @@
 #define EXCHANGE_MODE_CONTRACT_ADDRESS  "XWCCRCnJ8AV624UZBLNKz4UBweVbhVXkQfNe7"  // 交易所模式合约地址
 #endif
 
+#define STABLE_MINER  "1.2.6"
+
 #ifdef TEST_WALLET
 #define MIDDLE_DEFAULT_URL      "http://192.168.1.121:5005/api"
 #define MIDDLE_EXCHANGE_URL     "http://192.168.1.124:15000/api"

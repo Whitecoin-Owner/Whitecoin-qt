@@ -3,9 +3,6 @@
 
 #include "wallet.h"
 
-//QMap<QString,QString> AssetIconItem::assetColorMap.insert("BTC","#F5A623");
-QMap<QString,QString> AssetIconItem::assetColorMap = {{"XWC","#944ad7"}, {"BTC","#F5A623"}, {"LTC","#4A4A4A"}, {"ETH","#4f7795"},
-                                                      {"USDT","#259F7A"},{"BCH","#f08a16"}};
 
 AssetIconItem::AssetIconItem(QWidget *parent) :
     QWidget(parent),
@@ -23,10 +20,6 @@ AssetIconItem::~AssetIconItem()
 
 void AssetIconItem::setAsset(QString assetSymbol)
 {
-    QString assetColor = assetColorMap.value(assetSymbol);
-    ui->barLabel->setStyleSheet(QString("border-top-right-radius:3px;border-bottom-right-radius:3px;"
-                                        "background-color: %1;").arg(assetColor));
-
     ui->iconLabel->setStyleSheet(QString("border-image: url(:/ui/wallet_ui/coin_%1.png);").arg(assetSymbol));
     ui->assetLabel->setStyleSheet("QLabel{font: 11px \"Microsoft YaHei UI Light\";color:rgb(52,37,90);}");
     ui->assetLabel->setText(revertERCSymbol(assetSymbol));

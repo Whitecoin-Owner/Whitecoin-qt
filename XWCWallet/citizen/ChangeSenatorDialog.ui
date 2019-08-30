@@ -160,8 +160,8 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>发起人:</string>
@@ -177,8 +177,8 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>更换名单:</string>
@@ -231,8 +231,8 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>提案费:</string>

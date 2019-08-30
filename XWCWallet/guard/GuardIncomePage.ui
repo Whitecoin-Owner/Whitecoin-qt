@@ -16,7 +16,7 @@
   <widget class="QComboBox" name="accountComboBox">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>190</x>
      <y>65</y>
      <width>120</width>
      <height>20</height>
@@ -55,8 +55,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>当前wallfacer账号</string>
@@ -143,7 +143,7 @@
    </attribute>
    <column>
     <property name="text">
-     <string>来自CANDIDATE</string>
+     <string>来自MINER</string>
     </property>
     <property name="font">
      <font>
@@ -214,7 +214,7 @@
   <widget class="QLabel" name="totalIncomeLabel2">
    <property name="geometry">
     <rect>
-     <x>360</x>
+     <x>330</x>
      <y>65</y>
      <width>80</width>
      <height>20</height>
@@ -230,8 +230,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>总计收益</string>
@@ -243,7 +243,7 @@
   <widget class="QLabel" name="totalIncomeLabel">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>390</x>
      <y>65</y>
      <width>160</width>
      <height>20</height>

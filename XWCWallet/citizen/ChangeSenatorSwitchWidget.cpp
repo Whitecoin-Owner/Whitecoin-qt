@@ -27,6 +27,9 @@ ChangeSenatorSwitchWidget::ChangeSenatorSwitchWidget(QWidget *parent) :
     _p(new DataPrivate())
 {
     ui->setupUi(this);
+
+    setStyleSheet(COMBOBOX_BORDER_STYLE);
+
     InitWidget();
 }
 
@@ -38,17 +41,17 @@ ChangeSenatorSwitchWidget::~ChangeSenatorSwitchWidget()
 QMap<QString, QString> ChangeSenatorSwitchWidget::getReplacePair() const
 {
     QMap<QString,QString> changeMap;
-    if(ui->senator1->isVisible() && !ui->senator1->currentText().isEmpty() && !ui->candidate1->currentText().isEmpty())
+    if(ui->senator1->isVisible() && !ui->senator1->currentText().isEmpty() && !ui->miner1->currentText().isEmpty())
     {
-        changeMap[ui->candidate1->currentData().value<GuardInfo>().accountId]=ui->senator1->currentData().value<GuardInfo>().accountId;
+        changeMap[ui->miner1->currentData().value<GuardInfo>().accountId]=ui->senator1->currentData().value<GuardInfo>().accountId;
     }
-    if(ui->senator2->isVisible() && !ui->senator2->currentText().isEmpty() && !ui->candidate2->currentText().isEmpty())
+    if(ui->senator2->isVisible() && !ui->senator2->currentText().isEmpty() && !ui->miner2->currentText().isEmpty())
     {
-        changeMap[ui->candidate2->currentData().value<GuardInfo>().accountId]=ui->senator2->currentData().value<GuardInfo>().accountId;
+        changeMap[ui->miner2->currentData().value<GuardInfo>().accountId]=ui->senator2->currentData().value<GuardInfo>().accountId;
     }
-    if(ui->senator3->isVisible() && !ui->senator3->currentText().isEmpty() && !ui->candidate3->currentText().isEmpty())
+    if(ui->senator3->isVisible() && !ui->senator3->currentText().isEmpty() && !ui->miner3->currentText().isEmpty())
     {
-        changeMap[ui->candidate3->currentData().value<GuardInfo>().accountId]=ui->senator3->currentData().value<GuardInfo>().accountId;
+        changeMap[ui->miner3->currentData().value<GuardInfo>().accountId]=ui->senator3->currentData().value<GuardInfo>().accountId;
     }
     return changeMap;
 }
@@ -79,7 +82,7 @@ void ChangeSenatorSwitchWidget::RemoveProposalSlots()
 
 void ChangeSenatorSwitchWidget::httpReplied(QByteArray _data, int _status)
 {
-//    qDebug()<<"opop"<<_data;
+    qDebug()<<"opop"<<_data;
     ui->senator1->clear();
     ui->senator2->clear();
     ui->senator3->clear();
@@ -90,7 +93,7 @@ void ChangeSenatorSwitchWidget::httpReplied(QByteArray _data, int _status)
         QMapIterator<QString, GuardInfo> i(allSenator);
         while (i.hasNext()) {
             i.next();
-//            qDebug()<<"qqq"<<i.value().accountId<<i.value().senatorType<<i.value().isFormal;
+            qDebug()<<"qqq"<<i.value().accountId<<i.value().senatorType<<i.value().isFormal;
             if(i.value().isFormal)
             {
                 if(val.toString() == i.value().accountId && "EXTERNAL" == i.value().senatorType)
@@ -103,7 +106,7 @@ void ChangeSenatorSwitchWidget::httpReplied(QByteArray _data, int _status)
             }
         }
     }
-    if(0 == ui->senator1->count()  || 0 == ui->candidate1->count())
+    if(0 == ui->senator1->count()  || 0 == ui->miner1->count())
     {
         ui->addBtn->setVisible(false);
     }
@@ -130,15 +133,18 @@ void ChangeSenatorSwitchWidget::InitData(bool showPermanent)
     ui->senator1->clear();
     ui->senator2->clear();
     ui->senator3->clear();
-    ui->candidate1->clear();
-    ui->candidate2->clear();
-    ui->candidate3->clear();
+    ui->miner1->clear();
+    ui->miner2->clear();
+    ui->miner3->clear();
 
     //初始化提案combobox
     QMap<QString,GuardInfo> allSenator(XWCWallet::getInstance()->allGuardMap);
     QMapIterator<QString, GuardInfo> i(allSenator);
+    qDebug() << "ssssssssssssss" <<  allSenator.keys();
     while (i.hasNext()) {
         i.next();
+        qDebug() << "ffffffffff" <<  i.value().isFormal <<i.value().senatorType;
+
         if(i.value().isFormal)
         {
             if((showPermanent && ("PERMANENT" == i.value().senatorType)) || (!showPermanent && ("EXTERNAL" == i.value().senatorType)))
@@ -150,12 +156,12 @@ void ChangeSenatorSwitchWidget::InitData(bool showPermanent)
         }
         else
         {
-            ui->candidate1->addItem(i.key(),QVariant::fromValue<GuardInfo>(i.value()));
-            ui->candidate2->addItem(i.key(),QVariant::fromValue<GuardInfo>(i.value()));
-            ui->candidate3->addItem(i.key(),QVariant::fromValue<GuardInfo>(i.value()));
+            ui->miner1->addItem(i.key(),QVariant::fromValue<GuardInfo>(i.value()));
+            ui->miner2->addItem(i.key(),QVariant::fromValue<GuardInfo>(i.value()));
+            ui->miner3->addItem(i.key(),QVariant::fromValue<GuardInfo>(i.value()));
         }
     }
-    if(0 == ui->senator1->count()  || 0 == ui->candidate1->count())
+    if(0 == ui->senator1->count()  || 0 == ui->miner1->count())
     {
         ui->addBtn->setVisible(false);
     }
@@ -174,13 +180,13 @@ void ChangeSenatorSwitchWidget::SetItemVisible(int n, bool vi)
     {
         ui->senator2->setVisible(vi);
         ui->label2->setVisible(vi);
-        ui->candidate2->setVisible(vi);
+        ui->miner2->setVisible(vi);
     }
     else if(3==n)
     {
         ui->senator3->setVisible(vi);
         ui->label3->setVisible(vi);
-        ui->candidate3->setVisible(vi);
+        ui->miner3->setVisible(vi);
     }
 
     if(ui->senator3->isVisible())

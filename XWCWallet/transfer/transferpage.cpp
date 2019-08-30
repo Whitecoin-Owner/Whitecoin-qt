@@ -217,9 +217,10 @@ void TransferPage::InitStyle()
 
     ui->sendBtn->setStyleSheet(OKBTN_STYLE);
     ui->transferRecordBtn->setStyleSheet(TOOLBUTTON_STYLE_1);
+    ui->accountComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
+    ui->assetComboBox->setStyleSheet(COMBOBOX_BORDER_STYLE);
 
-
-    ui->memoTextEdit->setStyleSheet("QTextEdit{background: transparent;color: rgb(90,115,227);font: 11px \"Microsoft YaHei UI Light\";border:none;border-bottom:1px solid rgb(90,115,227);}\
+    ui->memoTextEdit->setStyleSheet("QTextEdit{background: transparent;color: rgb(90,115,227);font: 11px \"Microsoft YaHei UI Light\";border:none;border-bottom:1px solid #e1e4ee;}\
                                     QTextEdit:focus{border-bottom-color:rgb(90,115,227);}\
                                     QTextEdit:disabled{color: rgb(151,151,151);}");
 

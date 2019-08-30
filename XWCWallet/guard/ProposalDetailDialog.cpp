@@ -188,7 +188,7 @@ void ProposalDetailDialog::setProposal(QString _proposalId)
         ui->typeStackedWidget->setCurrentIndex(5);
 
         QJsonObject operationObject = object.value("operations").toArray().at(0).toArray().at(1).toObject();
-        ui->newGuardLabel->setText(operationObject.value("guard_member_account").toString());
+        ui->newGuardLabel->setText(operationObject.value("wallfacer_member_account").toString());
     }
         break;
     case TRANSACTION_TYPE_RESIGN_GUARD:
@@ -197,7 +197,7 @@ void ProposalDetailDialog::setProposal(QString _proposalId)
         ui->typeStackedWidget->setCurrentIndex(6);
 
         QJsonObject operationObject = object.value("operations").toArray().at(0).toArray().at(1).toObject();
-        ui->resignGuardLabel->setText(operationObject.value("guard_member_account").toString());
+        ui->resignGuardLabel->setText(operationObject.value("wallfacer_member_account").toString());
     }
         break;
     case TRANSACTION_TYPE_PROPOSAL_CONTRACT_TRANSFER_FEE:
@@ -298,7 +298,7 @@ void ProposalDetailDialog::setProposal(QString _proposalId)
         break;
     case TRANSACTION_TYPE_CITIZEN_CHANGE_SENATOR:
     {
-        ui->typeLabel->setText(tr("candidate vote for changing wallfacer"));
+        ui->typeLabel->setText(tr("miner vote for changing wallfacer"));
         ui->typeStackedWidget->setCurrentIndex(11);
 
         ui->label_weight->setText(calProposalWeight(info));

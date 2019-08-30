@@ -16,7 +16,7 @@
   <widget class="QComboBox" name="accountComboBox">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>190</x>
      <y>105</y>
      <width>120</width>
      <height>20</height>
@@ -42,7 +42,7 @@
      <x>60</x>
      <y>105</y>
      <width>160</width>
-     <height>18</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -55,8 +55,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>当前wallfacer账号</string>
@@ -469,8 +469,8 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>ETH热地址余额</string>
@@ -498,8 +498,8 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>ETH冷地址余额</string>
@@ -511,7 +511,7 @@
     <widget class="QLabel" name="hotAddressBalanceLabel">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>190</x>
        <y>5</y>
        <width>390</width>
        <height>20</height>
@@ -527,8 +527,8 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string/>
@@ -543,7 +543,7 @@
     <widget class="QLabel" name="coldAddressBalanceLabel">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>190</x>
        <y>30</y>
        <width>390</width>
        <height>20</height>
@@ -559,8 +559,8 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string/>
@@ -577,7 +577,7 @@
   <widget class="QComboBox" name="assetComboBox">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>390</x>
      <y>105</y>
      <width>120</width>
      <height>20</height>
@@ -600,10 +600,10 @@
   <widget class="QLabel" name="assetLabel">
    <property name="geometry">
     <rect>
-     <x>380</x>
+     <x>350</x>
      <y>105</y>
      <width>60</width>
-     <height>18</height>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -616,8 +616,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">QLabel{color: rgb(135,144,172);font: 14px &quot;微软雅黑&quot;;}
-</string>
+    <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
    </property>
    <property name="text">
     <string>币种</string>

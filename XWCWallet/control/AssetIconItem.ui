@@ -55,23 +55,6 @@ font: 25 12px &quot;微软雅黑 Light&quot;;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="barLabel">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>9</y>
-      <width>3</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-top-right-radius:3px;border-bottom-right-radius:3px;
-background-color: rgb(0, 170, 255);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
   </widget>
  </widget>
  <resources/>

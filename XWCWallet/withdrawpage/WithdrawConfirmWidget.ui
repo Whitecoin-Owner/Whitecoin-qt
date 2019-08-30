@@ -51,7 +51,7 @@
      </property>
      <property name="styleSheet">
       <string notr="true">font: 14px &quot;微软雅黑&quot;;
-color: rgb(52,37,90);</string>
+color: rgb(83,107,215);</string>
      </property>
      <property name="text">
       <string>提现确认</string>
@@ -70,7 +70,7 @@ color: rgb(52,37,90);</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(52,37,90);
+      <string notr="true">color: rgb(83,107,215);
 font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
      </property>
      <property name="text">
@@ -90,7 +90,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(52,37,90);
+      <string notr="true">color: rgb(83,107,215);
 font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
      </property>
      <property name="text">
@@ -107,7 +107,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(52,37,90);
+      <string notr="true">color: rgb(83,107,215);
 font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
      </property>
      <property name="text">
@@ -140,7 +140,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(52,37,90);
+      <string notr="true">color: rgb(83,107,215);
 font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
      </property>
      <property name="text">
@@ -157,7 +157,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(52,37,90);
+      <string notr="true">color: rgb(83,107,215);
 font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
      </property>
      <property name="text">
@@ -174,7 +174,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(52,37,90);
+      <string notr="true">color: rgb(83,107,215);
 font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
      </property>
      <property name="text">
@@ -191,7 +191,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(52,37,90);
+      <string notr="true">color: rgb(83,107,215);
 font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
      </property>
      <property name="text">
@@ -224,7 +224,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(52,37,90);
+      <string notr="true">color: rgb(83,107,215);
 font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
      </property>
      <property name="text">
@@ -241,7 +241,7 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: rgb(52,37,90);
+      <string notr="true">color: rgb(83,107,215);
 font: 11px &quot;Microsoft YaHei UI Light&quot;;</string>
      </property>
      <property name="text">

@@ -153,7 +153,7 @@ QVariant PoundageShowTableModel::data(const QModelIndex &index, int role) const
             return QVariant::fromValue<std::shared_ptr<PoundageUnit>>(_p->data->poundages[index.row()+_p->currentPage*_p->pageMaxRow]);
             break;
     case Qt::BackgroundRole:
-        return QBrush(0==index.row()%2?QColor(255,255,255):QColor(238,236,245));
+        return QBrush(0==index.row()%2?QColor(255,255,255):QColor(248,251,255));
         break;
         default:
             break;

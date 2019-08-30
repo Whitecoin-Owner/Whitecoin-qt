@@ -46,7 +46,7 @@ void AllTransactionWidget::init()
 
     ui->transactionsTableWidget->setStyleSheet(TABLEWIDGET_STYLE_1);
 
-    setStyleSheet("QPushButton[checkable=\"true\"]{font:10px \"微软雅黑\";background:transparent;border:1px solid rgb(90,115,227);border-radius:9px;color: rgb(90,115,227);}"
+    setStyleSheet("QPushButton[checkable=\"true\"]{font:bold 10px \"微软雅黑\";background:transparent;border:none;border-radius:9px;color: rgb(90,115,227);}"
                   "QPushButton::checked{background-color:rgb(90,115,227);color:white;}");
     ui->clearDBBtn->setStyleSheet(TOOLBUTTON_STYLE_1);
 
@@ -504,7 +504,7 @@ void AllTransactionWidget::showTransactions()
             QString addr = operationObject.value("addr").toString();
             ui->transactionsTableWidget->setItem(i,2, new QTableWidgetItem("-"));
             ui->transactionsTableWidget->setItem(i,3, new QTableWidgetItem("-"));
-            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("candidate change mining fee")));
+            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("miner change mining fee")));
 
             useGuaranteeOrderType = checkUseGuaranteeOrderType(addr, ui->addressLabel->text(), guaranteeOrderOwnerAddress);
         }
@@ -550,10 +550,10 @@ void AllTransactionWidget::showTransactions()
             break;
         case TRANSACTION_TYPE_CREATE_MINER:
         {
-            QString minerAddress = operationObject.value("candidate_address").toString();
+            QString minerAddress = operationObject.value("miner_address").toString();
             ui->transactionsTableWidget->setItem(i,2, new QTableWidgetItem("-"));
             ui->transactionsTableWidget->setItem(i,3, new QTableWidgetItem("-"));
-            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("create candidate")));
+            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("create miner")));
 
             useGuaranteeOrderType = checkUseGuaranteeOrderType(minerAddress, ui->addressLabel->text(), guaranteeOrderOwnerAddress);
         }
@@ -635,7 +635,7 @@ void AllTransactionWidget::showTransactions()
             unsigned long long lockAmount = jsonValueToULL(operationObject.take("lock_asset_amount"));
             QString lockAssetId = operationObject.take("lock_asset_id").toString();
             AssetInfo lockAssetInfo = XWCWallet::getInstance()->assetInfoMap.value(lockAssetId);
-            QString minerId = operationObject.take("lockto_candidate_account").toString();
+            QString minerId = operationObject.take("lockto_miner_account").toString();
 
             ui->transactionsTableWidget->setItem(i,2, new QTableWidgetItem(XWCWallet::getInstance()->getMinerNameFromId(minerId)));
 
@@ -643,7 +643,7 @@ void AllTransactionWidget::showTransactions()
             ui->transactionsTableWidget->setItem(i,3, item);
             item->setTextColor(QColor(255,0,0));
 
-            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("lock asset to candidate")));
+            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("lock asset to miner")));
         }
             break;
         case TRANSACTION_TYPE_FORECLOSE:
@@ -651,7 +651,7 @@ void AllTransactionWidget::showTransactions()
             unsigned long long forecloseAmount = jsonValueToULL(operationObject.take("foreclose_asset_amount"));
             QString forecloseAssetId = operationObject.take("foreclose_asset_id").toString();
             AssetInfo forecloseAssetInfo = XWCWallet::getInstance()->assetInfoMap.value(forecloseAssetId);
-            QString minerId = operationObject.take("foreclose_candidate_account").toString();
+            QString minerId = operationObject.take("foreclose_miner_account").toString();
 
             ui->transactionsTableWidget->setItem(i,2, new QTableWidgetItem(XWCWallet::getInstance()->getMinerNameFromId(minerId)));
 
@@ -659,7 +659,7 @@ void AllTransactionWidget::showTransactions()
             ui->transactionsTableWidget->setItem(i,3, item);
             item->setTextColor(QColor(0,170,0));
 
-            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("foreclose asset from candidate")));
+            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("foreclose asset from miner")));
         }
             break;
         case TRANSACTION_TYPE_SENATOR_LOCK_BALANCE:
@@ -1008,14 +1008,14 @@ void AllTransactionWidget::showTransactions()
 
             ui->transactionsTableWidget->setItem(i,2, new QTableWidgetItem(str));
             ui->transactionsTableWidget->setItem(i,3, new QTableWidgetItem("-"));
-            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("candidate sponsor a proposal")));
+            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("miner sponsor a proposal")));
         }
             break;
         case TRANSACTION_TYPE_CITIZEN_RESOLUTION_VOTE:
         {
             ui->transactionsTableWidget->setItem(i,2, new QTableWidgetItem("-"));
             ui->transactionsTableWidget->setItem(i,3, new QTableWidgetItem("-"));
-            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("candidate resolution voting")));
+            ui->transactionsTableWidget->setItem(i,7, new QTableWidgetItem(tr("miner resolution voting")));
 
         }
             break;

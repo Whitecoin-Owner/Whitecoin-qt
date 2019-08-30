@@ -97,6 +97,7 @@ private slots:
 
     void showMinerPage();
     void showBonusPage();
+    void showAllTransactionWidget();
 
     void showLockPage();
     void autoLock();

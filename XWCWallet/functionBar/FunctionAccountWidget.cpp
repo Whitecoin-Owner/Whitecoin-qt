@@ -31,6 +31,7 @@ void FunctionAccountWidget::AssetShowSlots()
     ui->pushButton_miner->setChecked(false);
     ui->pushButton_asset->setChecked(true);
     ui->pushButton_bonus->setChecked(false);
+    ui->pushButton_record->setChecked(false);
 
     emit showAccountSignal();
 }
@@ -40,6 +41,7 @@ void FunctionAccountWidget::MinerShowSlots()
     ui->pushButton_miner->setChecked(true);
     ui->pushButton_asset->setChecked(false);
     ui->pushButton_bonus->setChecked(false);
+    ui->pushButton_record->setChecked(false);
 
     emit showMinerSignal();
 }
@@ -49,8 +51,19 @@ void FunctionAccountWidget::BonusShowSlots()
     ui->pushButton_miner->setChecked(false);
     ui->pushButton_asset->setChecked(false);
     ui->pushButton_bonus->setChecked(true);
+    ui->pushButton_record->setChecked(false);
 
     emit showBonusSignal();
+}
+
+void FunctionAccountWidget::RecordShowSlots()
+{
+    ui->pushButton_miner->setChecked(false);
+    ui->pushButton_asset->setChecked(false);
+    ui->pushButton_bonus->setChecked(false);
+    ui->pushButton_record->setChecked(true);
+
+    emit showRecordSignal();
 }
 
 void FunctionAccountWidget::InitWidget()
@@ -59,10 +72,12 @@ void FunctionAccountWidget::InitWidget()
     ui->pushButton_asset->setCheckable(true);
     ui->pushButton_miner->setCheckable(true);
     ui->pushButton_bonus->setCheckable(true);
+    ui->pushButton_record->setCheckable(true);
 
     connect(ui->pushButton_asset,&QPushButton::clicked,this,&FunctionAccountWidget::AssetShowSlots);
     connect(ui->pushButton_miner,&QPushButton::clicked,this,&FunctionAccountWidget::MinerShowSlots);
     connect(ui->pushButton_bonus,&QPushButton::clicked,this,&FunctionAccountWidget::BonusShowSlots);
+    connect(ui->pushButton_record,&QPushButton::clicked,this,&FunctionAccountWidget::RecordShowSlots);
 }
 
 void FunctionAccountWidget::InitStyle()

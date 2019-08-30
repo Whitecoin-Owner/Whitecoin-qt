@@ -109,8 +109,8 @@
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">QToolButton{font:10px &quot;微软雅黑&quot;;background:transparent;border:none;color: rgb(83,107,215);} 
-QToolButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137);}</string>
+      <string notr="true">QToolButton{font:11px &quot;微软雅黑&quot;;background:transparent;border:none;color: rgb(57,68,107);} 
+QToolButton::checked{color:rgb(83,107,215);border-bottom:2px solid rgb(83,107,215);}</string>
      </property>
      <property name="text">
       <string>提案信息</string>
@@ -129,8 +129,8 @@ QToolButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137)
       <cursorShape>PointingHandCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">QToolButton{font:10px &quot;微软雅黑&quot;;background:transparent;border:none;color: rgb(83,107,215);} 
-QToolButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137);}</string>
+      <string notr="true">QToolButton{font:11px &quot;微软雅黑&quot;;background:transparent;border:none;color: rgb(57,68,107);} 
+QToolButton::checked{color:rgb(83,107,215);border-bottom:2px solid rgb(83,107,215);}</string>
      </property>
      <property name="text">
       <string>投票状态</string>
@@ -289,7 +289,7 @@ QToolButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137)
         </rect>
        </property>
        <property name="currentIndex">
-        <number>6</number>
+        <number>12</number>
        </property>
        <widget class="QWidget" name="hotColdTransferPage">
         <widget class="QLabel" name="label_3">
@@ -966,7 +966,7 @@ QToolButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137)
           <rect>
            <x>30</x>
            <y>10</y>
-           <width>81</width>
+           <width>90</width>
            <height>16</height>
           </rect>
          </property>
@@ -977,9 +977,9 @@ QToolButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137)
         <widget class="QLabel" name="label_fee">
          <property name="geometry">
           <rect>
-           <x>114</x>
+           <x>120</x>
            <y>10</y>
-           <width>71</width>
+           <width>80</width>
            <height>16</height>
           </rect>
          </property>
@@ -990,7 +990,7 @@ QToolButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137)
         <widget class="QLabel" name="label_27">
          <property name="geometry">
           <rect>
-           <x>230</x>
+           <x>240</x>
            <y>10</y>
            <width>81</width>
            <height>20</height>
@@ -1003,7 +1003,7 @@ QToolButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137)
         <widget class="QLabel" name="label_votestate">
          <property name="geometry">
           <rect>
-           <x>320</x>
+           <x>330</x>
            <y>10</y>
            <width>81</width>
            <height>16</height>
@@ -1077,7 +1077,7 @@ QToolButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137)
         <widget class="QLabel" name="label_weight">
          <property name="geometry">
           <rect>
-           <x>320</x>
+           <x>330</x>
            <y>30</y>
            <width>121</width>
            <height>20</height>
@@ -1093,7 +1093,7 @@ QToolButton::checked{color:rgb(84,61,137);border-bottom:2px solid rgb(84,61,137)
         <widget class="QLabel" name="label_weight_2">
          <property name="geometry">
           <rect>
-           <x>230</x>
+           <x>240</x>
            <y>30</y>
            <width>81</width>
            <height>20</height>

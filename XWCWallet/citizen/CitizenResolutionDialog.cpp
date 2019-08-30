@@ -50,7 +50,7 @@ CitizenResolutionDialog::CitizenResolutionDialog(const ResolutionInfo& _info, QS
 
     if(account.isEmpty())
     {
-        ui->accountLabel->setText(tr("no candidate account"));
+        ui->accountLabel->setText(tr("no miner account"));
         ui->okBtn->setEnabled(false);
     }
     else
@@ -93,7 +93,7 @@ void CitizenResolutionDialog::jsonDataUpdated(QString id)
         {
             close();
             TransactionResultDialog transactionResultDialog;
-            transactionResultDialog.setInfoText(tr("Transaction of candidate-voting has been sent,please wait for confirmation"));
+            transactionResultDialog.setInfoText(tr("Transaction of miner-voting has been sent,please wait for confirmation"));
             transactionResultDialog.setDetailText(result);
             transactionResultDialog.pop();
         }

@@ -149,7 +149,7 @@
      </property>
      <property name="styleSheet">
       <string notr="true">font: 11px &quot;微软雅黑&quot;;
-color: rgb(137, 129, 161);</string>
+color:rgb(80,80,80);</string>
      </property>
      <property name="text">
       <string>输入公钥</string>

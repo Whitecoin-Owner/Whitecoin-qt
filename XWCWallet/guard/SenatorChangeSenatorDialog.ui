@@ -46,7 +46,7 @@
     <widget class="QToolButton" name="cancelBtn">
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>210</x>
        <y>318</y>
        <width>100</width>
        <height>30</height>
@@ -72,10 +72,10 @@
     <widget class="QLabel" name="nameLabel">
      <property name="geometry">
       <rect>
-       <x>100</x>
+       <x>75</x>
        <y>10</y>
-       <width>211</width>
-       <height>31</height>
+       <width>220</width>
+       <height>30</height>
       </rect>
      </property>
      <property name="font">
@@ -88,11 +88,14 @@
      <property name="text">
       <string>更换Wallfacer提案</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
     <widget class="QToolButton" name="okBtn">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>70</x>
        <y>318</y>
        <width>100</width>
        <height>30</height>
@@ -157,8 +160,8 @@
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>发起人:</string>
@@ -174,8 +177,8 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>更换名单:</string>
@@ -218,8 +221,8 @@ font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QLabel{color: rgb(83,107,215);
-font: 11px &quot;Microsoft YaHei UI Light&quot;;}</string>
+      <string notr="true">QLabel{color: rgb(80,80,80);
+font: 11px &quot;微软雅黑&quot;;}</string>
      </property>
      <property name="text">
       <string>失效时间(h):</string>

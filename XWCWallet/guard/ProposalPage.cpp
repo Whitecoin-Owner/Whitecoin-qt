@@ -45,6 +45,9 @@ ProposalPage::ProposalPage(QWidget *parent) :
 
     blankWidget = new BlankDefaultWidget(ui->proposalTableWidget);
     blankWidget->setTextTip(tr("There are no proposals currently!"));
+
+    XWCWallet::getInstance()->fetchProposals();
+
     init();
 }
 
