@@ -51,6 +51,7 @@ private slots:
 
     void on_sortTypeComboBox_currentIndexChanged(const QString &arg1);
 
+    void on_totalInfoAllBtn_clicked();
 
 private:
     QString getCitizenTooltip(const QString &citizenName);

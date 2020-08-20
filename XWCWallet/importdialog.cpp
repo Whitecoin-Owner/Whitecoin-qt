@@ -18,7 +18,7 @@ ImportDialog::ImportDialog(QWidget *parent) :
 //    ui->privateKeyLineEdit->setEnabled(false);
 //    XWCWallet::getInstance()->appendCurrentDialogVector(this);
 
-    setParent(XWCWallet::getInstance()->mainFrame);
+    setParent(XWCWallet::getInstance()->mainFrame->containerWidget);
 
     setAttribute(Qt::WA_TranslucentBackground, true);
     setWindowFlags(Qt::FramelessWindowHint);
@@ -98,7 +98,9 @@ void ImportDialog::on_importBtn_clicked()
     if(ui->accountNameLineEdit->text().isEmpty())   return;
     if(ui->privateKeyLineEdit->text().isEmpty())    return;
 
-    if(ui->privateKeyLineEdit->text().size() == 51 && !ui->privateKeyLineEdit->text().contains(".")
+    if(((ui->privateKeyLineEdit->text().size() == 51 && !ui->isXwcc->isChecked())
+        || (ui->privateKeyLineEdit->text().size() == 52 && ui->isXwcc->isChecked()))
+            && !ui->privateKeyLineEdit->text().contains(".")
             && !ui->privateKeyLineEdit->text().contains("/")
             && !ui->privateKeyLineEdit->text().contains("\\")
             && !ui->privateKeyLineEdit->text().contains(" "))
@@ -184,7 +186,7 @@ void ImportDialog::on_importBtn_clicked()
     else
     {
         CommonDialog commonDialog(CommonDialog::OkOnly);
-        commonDialog.setText( tr("Wrong XWC private key!"));
+        commonDialog.setText( tr("Wrong XWC/XWCC private key!"));
         commonDialog.pop();
         return;
     }

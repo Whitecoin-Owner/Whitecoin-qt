@@ -1,19 +1,7 @@
 <RCC>
     <qresource prefix="/functionBar">
-        <file>account.png</file>
-        <file>advance.png</file>
-        <file>contact.png</file>
         <file>more.png</file>
-        <file>exchange.png</file>
-        <file>guard.png</file>
         <file>more_checked.png</file>
-        <file>account_checked.png</file>
-        <file>advance_checked.png</file>
-        <file>contact_checked.png</file>
-        <file>exchange_checked.png</file>
-        <file>guard_checked.png</file>
-        <file>citizen.png</file>
-        <file>citizen_checked.png</file>
         <file>menubar_account_ico.png</file>
         <file>menubar_account_ico_select.png</file>
         <file>menubar_citizen_ico.png</file>

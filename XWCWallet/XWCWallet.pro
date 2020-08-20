@@ -12,12 +12,21 @@ TEMPLATE = app
 
 #DEFINES += TEST_WALLET
 #DEFINES += SAFE_VERSION
+DEFINES += LIGHT_MODE
 
 
 if(contains(DEFINES,TEST_WALLET)){
+    if(contains(DEFINES,LIGHT_MODE)){
+        TARGET = XWCWallet_light_test
+    }else{
         TARGET = XWCWallet_test
+    }
 }else{
+    if(contains(DEFINES,LIGHT_MODE)){
+        TARGET = XWCWallet_light
+    }else{
         TARGET = XWCWallet
+    }
 }
 
 
@@ -227,7 +236,6 @@ SOURCES += main.cpp\
     exchange/KLineWidget.cpp \
     extra/mycustomplot.cpp \
     control/OrderDepthWidget.cpp \
-    LightModeConfig.cpp \
     extra/RegularExpression.cpp \
     nameTransfer/NameTransferPage.cpp \
     nameTransfer/NameTransferDialog.cpp \
@@ -235,7 +243,10 @@ SOURCES += main.cpp\
     citizen/CitizenPolicyPage.cpp \
     citizen/CitizenResolutionDialog.cpp \
     control/CoverWidget.cpp \
-    control/CommonControl.cpp
+    control/CommonControl.cpp \
+    miner/TotalLockedDialog.cpp \
+    extra/OldRpcAdapter.cpp \
+    LightModeConfig.cpp
 
 
 HEADERS  += firstlogin.h \
@@ -418,7 +429,6 @@ HEADERS  += firstlogin.h \
     exchange/KLineWidget.h \
     extra/mycustomplot.h \
     control/OrderDepthWidget.h \
-    LightModeConfig.h \
     extra/RegularExpression.h \
     nameTransfer/NameTransferPage.h \
     nameTransfer/NameTransferDialog.h \
@@ -426,7 +436,10 @@ HEADERS  += firstlogin.h \
     citizen/CitizenPolicyPage.h \
     citizen/CitizenResolutionDialog.h \
     control/CoverWidget.h \
-    control/CommonControl.h
+    control/CommonControl.h \
+    miner/TotalLockedDialog.h \
+    extra/OldRpcAdapter.h \
+    LightModeConfig.h
 
 FORMS    += firstlogin.ui \
     normallogin.ui \
@@ -572,13 +585,14 @@ FORMS    += firstlogin.ui \
     exchange/ExchangeContractFeeDialog.ui \
     exchange/KLineWidget.ui \
     control/OrderDepthWidget.ui \
-    LightModeConfig.ui \
     nameTransfer/NameTransferPage.ui \
     nameTransfer/NameTransferDialog.ui \
     nameTransfer/ShowTrxCodeDialog.ui \
     citizen/CitizenPolicyPage.ui \
     citizen/CitizenResolutionDialog.ui \
-    control/CoverWidget.ui
+    control/CoverWidget.ui \
+    miner/TotalLockedDialog.ui \
+    LightModeConfig.ui
 
 win32{
     DISTFILES += logo.rc

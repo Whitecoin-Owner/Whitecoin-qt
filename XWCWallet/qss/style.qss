@@ -1,3 +1,5 @@
+QWidget{font: 12px \"微软雅黑\";}
+
 QComboBox{min-height:18px;max-height:24px;background-color:rgb(255,255,255);border:none;color: #39446B;padding-left: 5px;font: 12px \"Microsoft YaHei UI Light\";border-top-left-radius:4px;border-bottom-left-radius:4px;border-top-right-radius:4px;border-bottom-right-radius:4px;}
 /*QComboBox:on{border:1px solid rgb(93,107,144);}*/
 QComboBox::drop-down {width:21px;background:rgb(148,186,249);border:none;border-top-right-radius:4px;border-bottom-right-radius:4px;}

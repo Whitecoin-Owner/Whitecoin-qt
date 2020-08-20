@@ -37,6 +37,24 @@ WithdrawConfirmWidget::WithdrawConfirmWidget(const WithdrawConfirmInput &data,QW
     _p(new WithdrawConfirmWidgetPrivate(data))
 {
     ui->setupUi(this);
+
+    connect( XWCWallet::getInstance(), &XWCWallet::jsonDataUpdated, this, &WithdrawConfirmWidget::jsonDataUpdated);
+
+    setParent(XWCWallet::getInstance()->mainFrame->containerWidget);
+
+    setAttribute(Qt::WA_TranslucentBackground, true);
+    setWindowFlags(Qt::FramelessWindowHint);
+
+    ui->widget->setObjectName("widget");
+    ui->widget->setStyleSheet(BACKGROUNDWIDGET_STYLE);
+    ui->containerWidget->setObjectName("containerwidget");
+    ui->containerWidget->setStyleSheet(CONTAINERWIDGET_STYLE);
+
+    ui->toolButton_confirm->setStyleSheet(OKBTN_STYLE);
+    ui->toolButton_cancel->setStyleSheet(CANCELBTN_STYLE);
+    ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
+
+
     InitWidget();
     InitData();
 }
@@ -124,27 +142,12 @@ void WithdrawConfirmWidget::InitData()
 
 void WithdrawConfirmWidget::InitWidget()
 {
-    InitStyle();
 
     ui->toolButton_confirm->setEnabled(false);
-    connect( XWCWallet::getInstance(), &XWCWallet::jsonDataUpdated, this, &WithdrawConfirmWidget::jsonDataUpdated);
     connect(ui->toolButton_confirm,&QToolButton::clicked,this,&WithdrawConfirmWidget::ConfirmSlots);
     connect(ui->toolButton_cancel,&QToolButton::clicked,this,&WithdrawConfirmWidget::CancelSlots);
     connect(ui->closeBtn,&QToolButton::clicked,this,&WithdrawConfirmWidget::CancelSlots);
     connect(ui->lineEdit,&QLineEdit::textEdited,this,&WithdrawConfirmWidget::passwordChangeSlots);
-}
-
-void WithdrawConfirmWidget::InitStyle()
-{
-    setAttribute(Qt::WA_TranslucentBackground, true);
-    ui->widget->setObjectName("widget");
-    ui->widget->setStyleSheet(BACKGROUNDWIDGET_STYLE);
-    ui->containerWidget->setObjectName("containerwidget");
-    ui->containerWidget->setStyleSheet(CONTAINERWIDGET_STYLE);
-
-    ui->toolButton_confirm->setStyleSheet(OKBTN_STYLE);
-    ui->toolButton_cancel->setStyleSheet(CANCELBTN_STYLE);
-    ui->closeBtn->setStyleSheet(CLOSEBTN_STYLE);
 }
 
 void WithdrawConfirmWidget::paintEvent(QPaintEvent *event)

@@ -59,6 +59,8 @@ UpdateProgressUtil::VersionEnum UpdateProgressUtil::CompareVersion(const QString
 void UpdateProgressUtil::ParseVersion(const QString &jsonStr,VersionData &data)
 {
     QJsonObject object  = QJsonDocument::fromJson(jsonStr.toUtf8()).object().value("result").toObject();
+    qDebug()<< "ooooooooooooo" << object;
+
     data.url = object.value("downloadUrl").toString();
     qDebug()<< object.value("latestVersion").toString();
 }

@@ -12,11 +12,10 @@ CommonDialog::CommonDialog(commonDialogType _type, QWidget *parent) :
     ui->setupUi(this);
 
 
-    setParent(XWCWallet::getInstance()->mainFrame);
-    move(XWCWallet::getInstance()->mainFrame->pos());
+    setParent(XWCWallet::getInstance()->mainFrame->containerWidget);
 
     setAttribute(Qt::WA_TranslucentBackground, true);
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint);
 
     ui->widget->setObjectName("widget");
     ui->widget->setStyleSheet(BACKGROUNDWIDGET_STYLE);
@@ -46,7 +45,6 @@ CommonDialog::CommonDialog(commonDialogType _type, QWidget *parent) :
         ui->cancelBtn->setText(tr("No"));
     }
 
-    
 }
 
 CommonDialog::~CommonDialog()
@@ -82,7 +80,7 @@ void CommonDialog::adaptSize()
 
 bool CommonDialog::pop()
 {
-    
+    move(0,0);
     exec();
     return yesOrNO;
 }

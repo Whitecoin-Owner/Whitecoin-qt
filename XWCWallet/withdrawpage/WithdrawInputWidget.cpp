@@ -53,7 +53,7 @@ void WithdrawInputWidget::InitData(const QString &number, const QString &symbol)
     {
         RiskWarningDialog riskWarningDialog;
         riskWarningDialog.setInfoText(tr("<html><head/><body><p><span style=\" font-size:14px;\">Due to on-chain reasons of ETH, withdrawing to the exchanges </span><span style=\" font-size:14px; font-weight:600; color:#ff0000;\">might fail because of unable to handle</span><span style=\" font-size:14px;\">."
-                                         "We suggest you firstly withdraw to XWC deposit address and alot to deposit address of the exchange. This operation applies to ETH and ERC20 token (%1). </span></p></body></html>").arg(ERCAssets.join(",")));
+                                         "We suggest you firstly withdraw to XWC deposit address and alot to deposit address of the exchange. This operation applies to ETH and ERC20 token. </span></p></body></html>"));
         riskWarningDialog.setReadingTime(3);
         riskWarningDialog.pop();
     }

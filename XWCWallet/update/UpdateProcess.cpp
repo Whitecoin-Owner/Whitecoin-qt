@@ -139,6 +139,10 @@ void UpdateProcess::GetLatestVersionInfoSlots()
     serverVersion.url.replace(".xml","_mac.xml");//"http://192.168.1.161/down/whitecoin_wallet_upgrade.xml";//测试用，本地文件
 #endif
 
+#ifdef LIGHT_MODE
+    serverVersion.url.replace(".xml","_light.xml");
+#endif
+
     //下载config配置
     //下载当前服务器版本
     DownLoadData up;
@@ -252,6 +256,8 @@ void UpdateProcess::GetLatestVersionInfo()
     paramObject.insert("clientId",_p->clientID);
     paramObject.insert("localVersion",_p->localVersionData->version);
     object.insert("params",paramObject);
+
+    qDebug() << "jjjjjjjjjj" <<_p->serverUrl  <<  QJsonDocument(object).toJson();
 
    QNetworkReply *reply = _p->networkManager->post(request,QJsonDocument(object).toJson());
    connect(reply,&QNetworkReply::finished,this,&UpdateProcess::GetLatestVersionInfoSlots);

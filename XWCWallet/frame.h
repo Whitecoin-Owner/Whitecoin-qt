@@ -27,12 +27,13 @@ class WaitingForSync;
 class UpgradePage;
 class ApplyDelegatePage;
 class SelectWalletPathWidget;
-class LightModeConfig;
 class ShadowWidget;
 class SmartContractPage;
 class MultiSigPage;
 class NewOrImportWalletWidget;
 class ExitingWidget;
+class LightModeConfig;
+
 
 class DepositAutomatic;
 class ContactWidget;
@@ -145,6 +146,8 @@ private slots:
 
     void newAccount(QString name);
 
+    void lightModeRefresh();
+
 private:
     HttpManager httpManager;////用于查询通道账户余额
 private slots:
@@ -187,6 +190,9 @@ private:
     CitizenPolicyPage*  citizenPolicyPage = nullptr;
     NameTransferPage*   nameTransferPage = nullptr;
 
+public:
+    QWidget* containerWidget = nullptr;
+private:
     BottomBar* bottomBar;
     QWidget* centralWidget;
     LockPage*  lockPage;
@@ -250,7 +256,7 @@ public:
     CrossCapitalMark *crossMark;
     AutoUpdateNotify *autoupdate;//自动更新
 public:
-    void installBlurEffect(QWidget *widget);
+    void installBlurEffect(QWidget *widget, double distance = 5.0);
 
 private:
     CoverWidget* coverWidget = nullptr;

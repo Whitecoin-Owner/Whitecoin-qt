@@ -74,6 +74,8 @@ private slots:
     void activeTunnelMoneyNotify();
     void on_pubkeyBtn_clicked();
 
+    void on_showVotedBtn_clicked();
+
 private:
     void InitStyle();
 private:

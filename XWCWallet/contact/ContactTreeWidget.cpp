@@ -572,3 +572,9 @@ void ContactTreeWidget::initTreeData()
 //    painter.drawRect(QRect(-1,-1,131,408));
 //    QWidget::paintEvent(event);
 //}
+
+void ContactTreeWidget::on_ContactTreeWidget_itemDoubleClicked(QTreeWidgetItem *item, int column)
+{
+    setCurrentItem(item);
+    editGroup(this->currentItem());
+}

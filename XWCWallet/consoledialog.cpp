@@ -15,7 +15,7 @@ ConsoleDialog::ConsoleDialog(QWidget *parent) :
     ui->setupUi(this);
 
 //    XWCWallet::getInstance()->appendCurrentDialogVector(this);
-//    setParent(XWCWallet::getInstance()->mainFrame);
+//    setParent(XWCWallet::getInstance()->mainFrame->containerWidget);
 
     setAttribute(Qt::WA_TranslucentBackground, true);
     setWindowFlags(Qt::FramelessWindowHint);
@@ -207,12 +207,18 @@ void ConsoleDialog::on_consoleLineEdit_returnPressed()
         {
             array << QJsonDocument::fromJson(param.toLatin1()).array();
         }
+        else if(param.startsWith("{") && param.endsWith("}"))
+        {
+            array << QJsonDocument::fromJson(param.toLatin1()).object();
+        }
         else
         {
             array << param;
         }
     }
+    qDebug() << "111111111" << array;
 
+qDebug() << "222222222222" << toJsonFormat( command, array );
     XWCWallet::getInstance()->postRPC( "console-" + str, toJsonFormat( command, array ));
 
     ui->consoleLineEdit->clear();

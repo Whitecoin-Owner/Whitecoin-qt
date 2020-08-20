@@ -74,7 +74,7 @@ void SenatorChangeSenatorDialog::jsonDataUpdated(QString id)
 
 void SenatorChangeSenatorDialog::InitWidget()
 {
-    setParent(XWCWallet::getInstance()->mainFrame);
+    setParent(XWCWallet::getInstance()->mainFrame->containerWidget);
     move(0,0);
 
     setAttribute(Qt::WA_TranslucentBackground, true);

@@ -106,7 +106,8 @@ void BottomBar::jsonDataUpdated(QString id)
         QJsonDocument parse_doucment = QJsonDocument::fromJson(result.toLatin1());
         QJsonObject jsonObject = parse_doucment.object();
         QJsonObject resultObject = jsonObject.value("result").toObject();
-        ui->nodeNumLabel->setText(QString::number(resultObject.value("connections").toInt()));
+        XWCWallet::getInstance()->walletInfo.connections = resultObject.value("connections").toInt();
+        ui->nodeNumLabel->setText(QString::number(XWCWallet::getInstance()->walletInfo.connections));
         XWCWallet::getInstance()->walletInfo.blockHeight = resultObject.value("current_block_height").toInt();
         XWCWallet::getInstance()->walletInfo.targetBlockHeight = resultObject.value("target_block_height").toInt();
 

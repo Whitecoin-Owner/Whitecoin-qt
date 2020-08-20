@@ -95,7 +95,7 @@ void CitizenProposalPage::init()
 
         QLabel* label = new QLabel(this);
         label->setGeometry(QRect(ui->label->pos(), QSize(300,30)));
-        label->setText(tr("There are no miner accounts in the wallet."));
+        label->setText(tr("There are no miner accounts in the wallet"));
         label->setStyleSheet(NOACCOUNT_TIP_LABEL);
     }
 

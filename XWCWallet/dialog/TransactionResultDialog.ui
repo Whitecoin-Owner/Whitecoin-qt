@@ -154,6 +154,25 @@
       <string/>
      </property>
     </widget>
+    <widget class="QPushButton" name="detailBtn">
+     <property name="geometry">
+      <rect>
+       <x>212</x>
+       <y>120</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-image: url(:/ui/wallet_ui/more.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

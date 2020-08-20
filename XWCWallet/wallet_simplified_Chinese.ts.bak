@@ -744,8 +744,8 @@
     <message>
         <location filename="alltransactionwidget.cpp" line="507"/>
         <source>miner change mining fee</source>
-        <oldsource>candidate change mining fee</oldsource>
-        <translation type="unfinished">candidate变更挖矿管理费</translation>
+        <oldsource>miner change mining fee</oldsource>
+        <translation type="unfinished">miner变更挖矿管理费</translation>
     </message>
     <message>
         <location filename="alltransactionwidget.cpp" line="517"/>
@@ -786,8 +786,8 @@
     <message>
         <location filename="alltransactionwidget.cpp" line="556"/>
         <source>create miner</source>
-        <oldsource>create candidate</oldsource>
-        <translation type="unfinished">创建candidate</translation>
+        <oldsource>create miner</oldsource>
+        <translation type="unfinished">创建miner</translation>
     </message>
     <message>
         <location filename="alltransactionwidget.cpp" line="565"/>
@@ -894,14 +894,14 @@
     <message>
         <location filename="alltransactionwidget.cpp" line="646"/>
         <source>lock asset to miner</source>
-        <oldsource>lock asset to candidate</oldsource>
-        <translation type="unfinished">质押资产给candidate</translation>
+        <oldsource>lock asset to miner</oldsource>
+        <translation type="unfinished">质押资产给miner</translation>
     </message>
     <message>
         <location filename="alltransactionwidget.cpp" line="662"/>
         <source>foreclose asset from miner</source>
-        <oldsource>foreclose asset from candidate</oldsource>
-        <translation type="unfinished">从candidate赎回资产</translation>
+        <oldsource>foreclose asset from miner</oldsource>
+        <translation type="unfinished">从miner赎回资产</translation>
     </message>
     <message>
         <location filename="alltransactionwidget.cpp" line="677"/>
@@ -939,8 +939,8 @@
     <message>
         <location filename="alltransactionwidget.cpp" line="1018"/>
         <source>miner resolution voting</source>
-        <oldsource>candidate resolution voting</oldsource>
-        <translation type="unfinished">candidate决议投票</translation>
+        <oldsource>miner resolution voting</oldsource>
+        <translation type="unfinished">miner决议投票</translation>
     </message>
     <message>
         <source>name transfer</source>
@@ -1051,8 +1051,8 @@
     <message>
         <location filename="alltransactionwidget.cpp" line="1011"/>
         <source>miner sponsor a proposal</source>
-        <oldsource>candidate sponsor a proposal</oldsource>
-        <translation type="unfinished">candidate发起提案</translation>
+        <oldsource>miner sponsor a proposal</oldsource>
+        <translation type="unfinished">miner发起提案</translation>
     </message>
     <message>
         <location filename="alltransactionwidget.cpp" line="1041"/>
@@ -2242,13 +2242,13 @@ better not transfer or upgrade</source>
     <message>
         <location filename="citizen/CitizenAccountPage.ui" line="38"/>
         <source>Miner账户信息</source>
-        <oldsource>Candidate账户信息</oldsource>
+        <oldsource>Miner账户信息</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="citizen/CitizenAccountPage.ui" line="64"/>
         <source>当前Miner账号</source>
-        <oldsource>当前Candidate账号</oldsource>
+        <oldsource>当前Miner账号</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2270,7 +2270,7 @@ better not transfer or upgrade</source>
     <message>
         <location filename="citizen/CitizenAccountPage.ui" line="271"/>
         <source>创建新Miner</source>
-        <oldsource>创建新Candidate</oldsource>
+        <oldsource>创建新Miner</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2296,20 +2296,20 @@ better not transfer or upgrade</source>
     <message>
         <location filename="citizen/CitizenAccountPage.cpp" line="91"/>
         <source>There are no miner accounts in the wallet.</source>
-        <oldsource>There are no candidate accounts in the wallet.</oldsource>
-        <translation type="unfinished">钱包内没有candidate账户。</translation>
+        <oldsource>There are no miner accounts in the wallet.</oldsource>
+        <translation type="unfinished">钱包内没有miner账户</translation>
     </message>
     <message>
         <location filename="citizen/CitizenAccountPage.cpp" line="129"/>
         <source>Mining configuration has been written. This miner account will start mining when the wallet is launched next time.</source>
-        <oldsource>Mining configuration has been written. This candidate account will start mining when the wallet is launched next time.</oldsource>
-        <translation type="unfinished">挖矿配置已被写入。该candidate账户会在下次钱包启动时开始挖矿。</translation>
+        <oldsource>Mining configuration has been written. This miner account will start mining when the wallet is launched next time.</oldsource>
+        <translation type="unfinished">挖矿配置已被写入。该miner账户会在下次钱包启动时开始挖矿。</translation>
     </message>
     <message>
         <location filename="citizen/CitizenAccountPage.cpp" line="221"/>
         <source>Sure to open the mining function of this miner account?</source>
-        <oldsource>Sure to open the mining function of this candidate account?</oldsource>
-        <translation type="unfinished">确认打开该candidate账户的挖矿功能吗？</translation>
+        <oldsource>Sure to open the mining function of this miner account?</oldsource>
+        <translation type="unfinished">确认打开该miner账户的挖矿功能吗？</translation>
     </message>
 </context>
 <context>
@@ -2322,13 +2322,13 @@ better not transfer or upgrade</source>
     <message>
         <location filename="citizen/CitizenPolicyPage.ui" line="39"/>
         <source>当前Miner账号</source>
-        <oldsource>当前Candidate账号</oldsource>
+        <oldsource>当前Miner账号</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="citizen/CitizenPolicyPage.ui" line="67"/>
         <source>Miner决议投票</source>
-        <oldsource>Candidate决议投票</oldsource>
+        <oldsource>Miner决议投票</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2359,8 +2359,8 @@ better not transfer or upgrade</source>
     <message>
         <location filename="citizen/CitizenPolicyPage.cpp" line="71"/>
         <source>There are no miner accounts in the wallet.</source>
-        <oldsource>There are no candidate accounts in the wallet.</oldsource>
-        <translation type="unfinished">钱包内没有candidate账户。</translation>
+        <oldsource>There are no miner accounts in the wallet.</oldsource>
+        <translation type="unfinished">钱包内没有miner账户</translation>
     </message>
     <message>
         <location filename="citizen/CitizenPolicyPage.cpp" line="142"/>
@@ -2371,7 +2371,7 @@ better not transfer or upgrade</source>
         <location filename="citizen/CitizenPolicyPage.cpp" line="155"/>
         <source>no miner</source>
         <oldsource>no citizen</oldsource>
-        <translation type="unfinished">无candidate</translation>
+        <translation type="unfinished">无miner</translation>
     </message>
     <message>
         <location filename="citizen/CitizenPolicyPage.cpp" line="162"/>
@@ -2389,7 +2389,7 @@ better not transfer or upgrade</source>
     <message>
         <location filename="citizen/CitizenProposalPage.ui" line="39"/>
         <source>当前Miner账号</source>
-        <oldsource>当前Candidate账号</oldsource>
+        <oldsource>当前Miner账号</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2427,7 +2427,7 @@ better not transfer or upgrade</source>
     <message>
         <location filename="citizen/CitizenProposalPage.ui" line="240"/>
         <source>Miner提案</source>
-        <oldsource>Candidate提案</oldsource>
+        <oldsource>Miner提案</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2436,9 +2436,10 @@ better not transfer or upgrade</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>There are no candidate accounts in the wallet.</source>
+        <location filename="citizen/CitizenProposalPage.cpp" line="98"/>
+        <source>There are no miner accounts in the wallet</source>
         <oldsource>There are no miner accounts in the wallet.</oldsource>
-        <translation type="obsolete">钱包内没有candidate账户。</translation>
+        <translation type="unfinished">钱包内没有miner账户</translation>
     </message>
     <message>
         <location filename="citizen/CitizenProposalPage.cpp" line="122"/>
@@ -2464,7 +2465,7 @@ better not transfer or upgrade</source>
     </message>
     <message>
         <source>Official Senator selection will begin on 8th February,2019. Please do no initiate any selection proposal before 8th in order to keep a friendly selection process. Your understanding is much appreciated.</source>
-        <translation type="obsolete">Wallfacer官方竞选预计在2月8号Candidate正式开始，为避免影响首次竞选进度，请勿在2月8号前发起竞选提案。</translation>
+        <translation type="obsolete">Wallfacer官方竞选预计在2月8号Miner正式开始，为避免影响首次竞选进度，请勿在2月8号前发起竞选提案。</translation>
     </message>
     <message>
         <location filename="citizen/CitizenProposalPage.cpp" line="189"/>
@@ -2484,7 +2485,7 @@ better not transfer or upgrade</source>
         <location filename="citizen/CitizenProposalPage.cpp" line="489"/>
         <source>no miner</source>
         <oldsource>no citizen</oldsource>
-        <translation type="unfinished">无candidate</translation>
+        <translation type="unfinished">无miner</translation>
     </message>
     <message>
         <location filename="citizen/CitizenProposalPage.cpp" line="211"/>
@@ -2495,11 +2496,6 @@ better not transfer or upgrade</source>
     <message>
         <source>disapproved</source>
         <translation type="obsolete">已反对</translation>
-    </message>
-    <message>
-        <location filename="citizen/CitizenProposalPage.cpp" line="98"/>
-        <source>There are no miner accounts in the wallet.</source>
-        <translation type="unfinished">钱包内没有candidate账户。</translation>
     </message>
     <message>
         <location filename="citizen/CitizenProposalPage.cpp" line="216"/>
@@ -2539,7 +2535,7 @@ better not transfer or upgrade</source>
     </message>
     <message>
         <source>Official Senator selection will begin on 8th January,2019. Please do no initiate any selection proposal before 8th in order to keep a friendly selection process. Your understanding is much appreciated.</source>
-        <translation type="obsolete">Wallfacer官方竞选预计在1月8号Candidate正式开始，为避免影响首次竞选进度，请勿在1月8号前发起竞选提案。</translation>
+        <translation type="obsolete">Wallfacer官方竞选预计在1月8号Miner正式开始，为避免影响首次竞选进度，请勿在1月8号前发起竞选提案。</translation>
     </message>
 </context>
 <context>
@@ -2557,7 +2553,7 @@ better not transfer or upgrade</source>
     <message>
         <location filename="citizen/CitizenResolutionDialog.ui" line="89"/>
         <source>Miner决议投票</source>
-        <oldsource>Candidate决议投票</oldsource>
+        <oldsource>Miner决议投票</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2583,14 +2579,14 @@ better not transfer or upgrade</source>
     <message>
         <location filename="citizen/CitizenResolutionDialog.cpp" line="53"/>
         <source>no miner account</source>
-        <oldsource>no candidate account</oldsource>
-        <translation type="unfinished">无candidate账户</translation>
+        <oldsource>no miner account</oldsource>
+        <translation type="unfinished">无miner账户</translation>
     </message>
     <message>
         <location filename="citizen/CitizenResolutionDialog.cpp" line="96"/>
         <source>Transaction of miner-voting has been sent,please wait for confirmation</source>
-        <oldsource>Transaction of candidate-voting has been sent,please wait for confirmation</oldsource>
-        <translation type="unfinished">Candidate投票交易已发出，请等待确认</translation>
+        <oldsource>Transaction of miner-voting has been sent,please wait for confirmation</oldsource>
+        <translation type="unfinished">Miner投票交易已发出，请等待确认</translation>
     </message>
     <message>
         <location filename="citizen/CitizenResolutionDialog.cpp" line="103"/>
@@ -3704,14 +3700,10 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">错误的密码！</translation>
     </message>
     <message>
-        <source>Transaction of create-candidate has been sent out!</source>
-        <oldsource>Transaction of create-miner has been sent out!</oldsource>
-        <translation type="obsolete">创建candidate交易已发出！</translation>
-    </message>
-    <message>
         <location filename="citizen/CreateCitizenDialog.cpp" line="106"/>
         <source>Transaction of create-miner has been sent out!</source>
-        <translation type="unfinished"></translation>
+        <oldsource>Transaction of create-miner has been sent out!</oldsource>
+        <translation type="unfinished">创建miner交易已发出！</translation>
     </message>
     <message>
         <location filename="citizen/CreateCitizenDialog.cpp" line="117"/>
@@ -5512,27 +5504,27 @@ Cover it or not?</source>
 <context>
     <name>Frame</name>
     <message>
-        <location filename="frame.cpp" line="1334"/>
+        <location filename="frame.cpp" line="1341"/>
         <source>Please Import Or Create Account First!</source>
         <translation type="unfinished">请先导入或创建账户！</translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="1593"/>
+        <location filename="frame.cpp" line="1600"/>
         <source>This wallet is newly imported. It will rescan the blockchain data when launched next time. After that the transactions of the accounts in this wallet will be shown.</source>
         <translation type="unfinished">这是一个新导入的钱包，会在下次启动时重新扫描区块链数据。在此之后钱包内账户的交易将被显示。</translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="2805"/>
+        <location filename="frame.cpp" line="2812"/>
         <source>Minimize</source>
         <translation type="unfinished">最小化</translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="2808"/>
+        <location filename="frame.cpp" line="2815"/>
         <source>Restore</source>
         <translation type="unfinished">恢复</translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="2811"/>
+        <location filename="frame.cpp" line="2818"/>
         <source>Quit</source>
         <translation type="unfinished">退出</translation>
     </message>
@@ -5565,6 +5557,11 @@ Cover it or not?</source>
     <message>
         <location filename="functionBar/FunctionAccountWidget.ui" line="108"/>
         <source>分红</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="functionBar/FunctionAccountWidget.ui" line="126"/>
+        <source>交易记录</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -5824,37 +5821,37 @@ add an account first</source>
         <translation type="unfinished">软件更新</translation>
     </message>
     <message>
-        <location filename="functionBar/FunctionWidget.cpp" line="319"/>
+        <location filename="functionBar/FunctionWidget.cpp" line="320"/>
         <source>ACCOUNT</source>
         <translation type="unfinished">账户</translation>
     </message>
     <message>
-        <location filename="functionBar/FunctionWidget.cpp" line="320"/>
+        <location filename="functionBar/FunctionWidget.cpp" line="321"/>
         <source>EXCHANGE</source>
         <translation type="unfinished">挂单</translation>
     </message>
     <message>
-        <location filename="functionBar/FunctionWidget.cpp" line="321"/>
+        <location filename="functionBar/FunctionWidget.cpp" line="322"/>
         <source>CONTACT</source>
         <translation type="unfinished">联系人</translation>
     </message>
     <message>
-        <location filename="functionBar/FunctionWidget.cpp" line="322"/>
+        <location filename="functionBar/FunctionWidget.cpp" line="323"/>
         <source>ADVANCED</source>
         <translation type="unfinished">高级</translation>
     </message>
     <message>
-        <location filename="functionBar/FunctionWidget.cpp" line="323"/>
+        <location filename="functionBar/FunctionWidget.cpp" line="324"/>
         <source>MINER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="functionBar/FunctionWidget.cpp" line="324"/>
+        <location filename="functionBar/FunctionWidget.cpp" line="325"/>
         <source>WALLFACER</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="functionBar/FunctionWidget.cpp" line="325"/>
+        <location filename="functionBar/FunctionWidget.cpp" line="326"/>
         <source>SETTINGS</source>
         <translation type="unfinished">设置</translation>
     </message>
@@ -5945,7 +5942,7 @@ add an account first</source>
     <message>
         <location filename="guard/GuardIncomePage.ui" line="146"/>
         <source>来自MINER</source>
-        <oldsource>来自CANDIDATE</oldsource>
+        <oldsource>来自MINER</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6965,27 +6962,19 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Pledge asset to miner successfully!</source>
         <oldsource>Pledge coins to miner successfully!</oldsource>
-        <translation type="obsolete">成功质押资产给candidate！</translation>
-    </message>
-    <message>
-        <source>Transaction of lock-to-candidate has been sent out!</source>
-        <oldsource>Transaction of lock-to-miner has been sent out!</oldsource>
-        <translation type="obsolete">质押资产给candidate的交易已发出！</translation>
-    </message>
-    <message>
-        <source>Fail to lock balance to candidate!</source>
-        <oldsource>Fail to lock balance to miner!</oldsource>
-        <translation type="obsolete">质押资产给candidate失败！</translation>
+        <translation type="obsolete">成功质押资产给miner！</translation>
     </message>
     <message>
         <location filename="miner/locktominerdialog.cpp" line="90"/>
         <source>Transaction of lock-to-miner has been sent out!</source>
-        <translation type="unfinished"></translation>
+        <oldsource>Transaction of lock-to-miner has been sent out!</oldsource>
+        <translation type="unfinished">质押资产给miner的交易已发出！</translation>
     </message>
     <message>
         <location filename="miner/locktominerdialog.cpp" line="97"/>
         <source>Fail to lock balance to miner!</source>
-        <translation type="unfinished"></translation>
+        <oldsource>Fail to lock balance to miner!</oldsource>
+        <translation type="unfinished">质押资产给miner失败！</translation>
     </message>
     <message>
         <location filename="miner/locktominerdialog.cpp" line="128"/>
@@ -7128,22 +7117,22 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">划转</translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="362"/>
+        <location filename="mainpage.cpp" line="367"/>
         <source>Fail to create account!</source>
         <translation type="unfinished">创建账户失败！</translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="518"/>
+        <location filename="mainpage.cpp" line="523"/>
         <source>There are no unregistered accounts in the wallet!</source>
         <translation type="unfinished">钱包中没有未注册账户！</translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="557"/>
+        <location filename="mainpage.cpp" line="562"/>
         <source>PUBKEY</source>
         <translation type="unfinished">查看公钥</translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="563"/>
+        <location filename="mainpage.cpp" line="568"/>
         <source>HIDE</source>
         <translation type="unfinished">隐藏公钥</translation>
     </message>
@@ -7168,8 +7157,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">复制到剪贴板</translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="473"/>
-        <location filename="mainpage.cpp" line="476"/>
+        <location filename="mainpage.cpp" line="478"/>
+        <location filename="mainpage.cpp" line="481"/>
         <source>copy to clipboard</source>
         <translation type="unfinished">复制到剪贴板</translation>
     </message>
@@ -7245,7 +7234,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="miner/minerpage.ui" line="186"/>
         <source>来自MINER</source>
-        <oldsource>来自CANDIDATE</oldsource>
+        <oldsource>来自MINER</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7262,7 +7251,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="miner/minerpage.ui" line="294"/>
         <source>投票MINER账户</source>
-        <oldsource>投票CANDIDATE账户</oldsource>
+        <oldsource>投票MINER账户</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7376,7 +7365,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="miner/minerpage.ui" line="807"/>
         <source>MINER信息</source>
-        <oldsource>CANDIDATE信息</oldsource>
+        <oldsource>MINER信息</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7407,7 +7396,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Foreclose asset from miner successfully!</source>
         <oldsource>Foreclose balance from miner successfully!</oldsource>
-        <translation type="obsolete">成功从candidate赎回资产！</translation>
+        <translation type="obsolete">成功从miner赎回资产！</translation>
     </message>
     <message>
         <source>obtain</source>
@@ -7435,7 +7424,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="miner/minerpage.cpp" line="122"/>
         <source>There&apos;s no miner!</source>
-        <oldsource>There&apos;s no candidate!</oldsource>
+        <oldsource>There&apos;s no miner!</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7448,8 +7437,8 @@ p, li { white-space: pre-wrap; }
         <location filename="miner/minerpage.cpp" line="241"/>
         <location filename="miner/minerpage.cpp" line="370"/>
         <source>Fail to foreclose asset from miner!</source>
-        <oldsource>Fail to foreclose asset from candidate!</oldsource>
-        <translation type="unfinished">从candidate赎回资产失败！</translation>
+        <oldsource>Fail to foreclose asset from miner!</oldsource>
+        <translation type="unfinished">从miner赎回资产失败！</translation>
     </message>
     <message>
         <location filename="miner/minerpage.cpp" line="283"/>
@@ -7517,14 +7506,14 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="miner/minerpage.cpp" line="1105"/>
         <source>You can obtain income from at most 100 miners at one time!</source>
-        <oldsource>You can obtain income from at most 100 candidates at one time!</oldsource>
-        <translation type="unfinished">一次最多只能从100个candidate领取收益！</translation>
+        <oldsource>You can obtain income from at most 100 miners at one time!</oldsource>
+        <translation type="unfinished">一次最多只能从100个miner领取收益！</translation>
     </message>
     <message>
         <location filename="miner/minerpage.cpp" line="1160"/>
         <source>You can foreclose assets from at most 100 miners at one time!</source>
-        <oldsource>You can foreclose assets from at most 100 candidates at one time!</oldsource>
-        <translation type="unfinished">一次最多只能从100个candidate赎回资产！</translation>
+        <oldsource>You can foreclose assets from at most 100 miners at one time!</oldsource>
+        <translation type="unfinished">一次最多只能从100个miner赎回资产！</translation>
     </message>
     <message>
         <location filename="miner/minerpage.cpp" line="1119"/>
@@ -7537,7 +7526,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>Citizen:</source>
-        <translation type="obsolete">Candidate:</translation>
+        <translation type="obsolete">Miner:</translation>
     </message>
     <message>
         <location filename="miner/minerpage.cpp" line="1190"/>
@@ -9191,7 +9180,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="guard/ProposalDetailDialog.cpp" line="301"/>
         <source>miner vote for changing wallfacer</source>
-        <oldsource>candidate vote for changing wallfacer</oldsource>
+        <oldsource>miner vote for changing wallfacer</oldsource>
         <translation type="unfinished">更换Wallfacer提案</translation>
     </message>
     <message>

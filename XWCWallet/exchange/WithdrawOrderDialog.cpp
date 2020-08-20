@@ -10,7 +10,7 @@ WithdrawOrderDialog::WithdrawOrderDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    setParent(XWCWallet::getInstance()->mainFrame);
+    setParent(XWCWallet::getInstance()->mainFrame->containerWidget);
 
     setAttribute(Qt::WA_TranslucentBackground, true);
     setWindowFlags(Qt::FramelessWindowHint);

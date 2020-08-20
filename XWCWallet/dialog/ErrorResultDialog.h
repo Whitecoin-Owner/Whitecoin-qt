@@ -27,8 +27,13 @@ private slots:
 
     void on_copyBtn_clicked();
     
+    void on_detailBtn_clicked();
+
 private:
     Ui::ErrorResultDialog *ui;
+
+    void hideDetail();
+    void showDetail();
 };
 
 #endif // ERRORRESULTDIALOG_H

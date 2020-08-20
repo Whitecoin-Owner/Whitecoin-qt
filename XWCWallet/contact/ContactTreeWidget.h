@@ -66,6 +66,8 @@ private slots:
 
     void editGroupFinishSlots(/*QTreeWidgetItem *groupItem*/);
     void editPersonFinishSlots();
+    void on_ContactTreeWidget_itemDoubleClicked(QTreeWidgetItem *item, int column);
+
 public:
     //////////////////////////////////////////////////////////////////////////
     ///<summary>设置联系人数据 </summary>

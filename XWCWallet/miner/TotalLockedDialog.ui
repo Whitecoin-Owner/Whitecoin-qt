@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TotalLockedDialog</class>
+ <widget class="QDialog" name="TotalLockedDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>346</width>
+    <height>196</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>3</x>
+     <y>1</y>
+     <width>340</width>
+     <height>190</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableView{background-color:rgb(255,255,255);border:none;border-radius:0px;font: 12px &quot;Microsoft YaHei&quot;;color:rgb(80,80,80);}
+QHeaderView{border:none;border-bottom:1px solid #e9eef4;background-color:rgb(255,255,255);color:rgb(57,68,107,204);font:bold 12px &quot;Microsoft YaHei&quot;;}
+QHeaderView:section{height:30px;border:none;background-color:rgb(255,255,255);}
+QHeaderView:section:first{border-top-left-radius:0px;}
+QHeaderView:section:last{border-top-right-radius:0px;}</string>
+   </property>
+   <column>
+    <property name="text">
+     <string>币种</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>投票总数</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,5 +1,5 @@
 ﻿#include <QDebug>
-
+#include <QMovie>
 
 #include "titlebar.h"
 #include "ui_titlebar.h"
@@ -16,6 +16,13 @@ TitleBar::TitleBar(QWidget *parent) :
 
     ui->minBtn->setStyleSheet("QToolButton{background-image:url(:/ui/wallet_ui/titlebar_mini.png);background-repeat: no-repeat;background-position: center;background-attachment: fixed;background-clip: padding;border-style: flat;}");
     ui->closeBtn->setStyleSheet("QToolButton{background-image:url(:/ui/wallet_ui/titlebar_close.png);background-repeat: no-repeat;background-position: center;border-style: flat;}");
+    ui->refreshBtn->setStyleSheet("QToolButton{background-image:url(:/ui/wallet_ui/refresh.png);background-repeat: no-repeat;background-position: center;background-attachment: fixed;background-clip: padding;border-style: flat;}"
+                                  "QToolButton:hover{background-image:url(:/ui/wallet_ui/refresh_hover.png);background-repeat: no-repeat;background-position: center;background-attachment: fixed;background-clip: padding;border-style: flat;}");
+
+    gif = new QMovie(":/ui/wallet_ui/refresh.gif");
+    connect(gif,SIGNAL(frameChanged(int)),this,SLOT( gifPlayOnce(int)));
+    ui->gifLabel->setMovie(gif);
+    ui->gifLabel->hide();
 
     ui->backBtn->setVisible(false);
     ui->backBtn->setStyleSheet("QToolButton{background-image:url(:/ui/wallet_ui/back.png);background-repeat: no-repeat;background-position: center;background-attachment: fixed;background-clip: padding;border-style: flat;}");
@@ -23,7 +30,9 @@ TitleBar::TitleBar(QWidget *parent) :
     connect( XWCWallet::getInstance(), SIGNAL(jsonDataUpdated(QString)), this, SLOT(jsonDataUpdated(QString)));
     connect(ui->backBtn,&QToolButton::clicked,this,&TitleBar::back);
 
-
+#ifndef LIGHT_MODE
+    ui->refreshBtn->hide();
+#endif
 }
 
 TitleBar::~TitleBar()
@@ -99,7 +108,36 @@ void TitleBar::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
     painter.setBrush(QColor(255,255,255));
-    painter.setPen(QColor(255,255,255));
+    painter.setPen(QColor(171,173,175));
     painter.drawRect( -1, -1, this->width() + 2, this->height());
 
+}
+
+
+void TitleBar::on_refreshBtn_clicked()
+{
+    ui->gifLabel->show();
+    ui->refreshBtn->hide();
+    gif->start();
+
+    if(!refreshing)
+    {
+        if(!refreshTimer)   refreshTimer = new QTimer;
+        refreshing = true;
+        refreshTimer->singleShot(10000, [this](){
+            refreshing = false;
+        });
+
+        Q_EMIT refresh();
+    }
+}
+
+void TitleBar::gifPlayOnce(int num)
+{
+    if( gif->frameCount() == num + 1)
+    {
+        gif->stop();
+        ui->gifLabel->hide();
+        ui->refreshBtn->show();
+    }
 }

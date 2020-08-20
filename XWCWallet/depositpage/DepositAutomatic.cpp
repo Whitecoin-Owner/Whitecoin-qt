@@ -98,14 +98,8 @@ public:
         std::lock_guard<std::mutex> lockguard(mutexLock);
         for(auto it = accounts.begin();it != accounts.end();++it){
             if(tunnelAddress == (*it)->tunnelAddress && assetSymbol == (*it)->assetSymbol){
-                int pre = 5;
-                foreach(AssetInfo asset,XWCWallet::getInstance()->assetInfoMap){
-                    if(asset.symbol == (*it)->assetSymbol)
-                    {
-                        pre = asset.precision;
-                        break;
-                    }
-                }
+                int pre = XWCWallet::getInstance()->assetInfoMap.value(XWCWallet::getInstance()->getAssetId( getRealAssetSymbol( assetSymbol))).precision;
+
                 (*it)->assetNumber = QString::number(std::max<double>(0,number.toDouble()-(*it)->captialFee)
                                                      ,'f',pre);
                 //qDebug()<<"update-money---"<<tunnelAddress<<(*it)->assetMultiAddress<<(*it)->assetNumber;

@@ -178,7 +178,7 @@ int main(int argc, char *argv[])
 //    ::LoadLibrary(LPCWSTR(ssl.utf16()));
 
 #endif
-//    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 //    qputenv("QT_AUTO_SCREEN_SCALE_FACTOR", "1");
 
     QApplication a(argc, argv);

@@ -28,6 +28,7 @@
 #include "extra/transactiontype.h"
 #include "extra/WitnessConfig.h"
 #include "extra/LogToFile.h"
+#include "extra/OldRpcAdapter.h"
 //#define TEST_WALLET
 #define ASSET_NAME "XWC"
 #define ACCOUNT_ADDRESS_PREFIX  "XWCN"
@@ -36,9 +37,14 @@
 #define PUBKEY_PREFIX "XWC"
 #define ASSET_PRECISION 8
 
-#define WALLET_VERSION "1.0.0"           // 版本号
+#define WALLET_VERSION "1.2.4"           // 版本号
 
+#ifdef  LIGHT_MODE
+#define AUTO_REFRESH_TIME 15000
+#else
 #define AUTO_REFRESH_TIME 5000           // 自动刷新时间(ms)
+#endif
+
 #define EXCHANGE_CONTRACT_HASH  "c0192642072e9ca233df0fd2aa99ee1c50f7ba17"
 
 #ifdef TEST_WALLET
@@ -55,7 +61,7 @@
 #define MIDDLE_DEFAULT_URL      "http://192.168.1.121:5005/api"
 #define MIDDLE_EXCHANGE_URL     "http://192.168.1.124:15000/api"
 #else
-#define MIDDLE_DEFAULT_URL      "http://39.108.173.165:5005/api"
+#define MIDDLE_DEFAULT_URL      "http://120.79.93.99:5005/api"
 #define MIDDLE_EXCHANGE_URL     ""               // 查询交易所信息的URL
 #endif
 
@@ -117,8 +123,9 @@ struct AccountInfo
 
     QString pubKey;
 
-    AssetAmountMap   assetAmountMap;
-    QVector<ContractInfo> contractsVector;
+    AssetAmountMap          assetAmountMap;
+    QVector<ContractInfo>   contractsVector;
+    QVector<QPair<QString,AssetAmount>>    lockBalances;
 };
 
 struct WalletInfo
@@ -129,6 +136,7 @@ struct WalletInfo
     QString blockAge;
     QString chainId;
     QString participation;
+    int connections = 0;
 //    QStringList activeMiners;
 };
 
@@ -389,6 +397,17 @@ struct ExchangeBalance
     unsigned long long available = 0;
 };
 
+struct LightModeMark
+{
+    bool citizenGetAccountMark = false;
+    bool queryTunnelAddressMark = false;
+    bool getMyContractMark = false;
+    bool listCitizensMark = false;
+    bool listAccountMark = false;
+    bool listSenatorsMark = false;
+    bool listAssetsMark = false;
+};
+
 class XWCWallet : public QObject
 {
     Q_OBJECT
@@ -440,6 +459,7 @@ public:
     bool autoWithdrawConfirm = false;
     FeeChargeInfo feeChargeInfo;//手续费情况
     bool autoBackupWallet;//自动备份钱包json
+    bool showVotedAsset = false;
 
     QString currentAccount; // 保存当前账户  切换页面的时候默认选择当前账户
     QString currentSellAssetId;
@@ -461,6 +481,7 @@ public:
     QString jsonDataValue(QString id);
     double getPendingAmount(QString name);
     QString getPendingInfo(QString id);
+    void getAccountLockBalance(QString accountName);
 
     void appendCurrentDialogVector(QWidget*);
     void removeCurrentDialogVector(QWidget *);
@@ -613,7 +634,11 @@ public:
     QString citizenAccountIdToName(QString citizenAccountId);
 
     //当前块时间
-    QString currentBlockTime;//2018-11-16T12:14:15
+    QString currentBlockTime;
+
+    LightModeMark lightModeMark;
+
+    OldRpcAdapter* oldRpcAdapter = nullptr;
 
 signals:
     void jsonDataUpdated(QString);
@@ -642,7 +667,8 @@ private:
 
 QString doubleTo5Decimals(double number);
 double roundDown(double decimal, int precision = 0);        // 根据精度 向下取"整"
-QString removeLastZeros(QString number);        // qstring::number() 对小数的处理有问题  使用std::to_string() 然后把后面的0去掉
+QString roundDownStr(QString decimal, int precision);       // 向下取整 返回precision位小数
+QString removeLastZeros(QString number);
 QString getBigNumberString(unsigned long long number,int precision);
 QString decimalToIntegerStr(QString number, int precision);
 QString toEasyRead(unsigned long long number, int precision, int effectiveBitsNum = 4);

@@ -63,6 +63,8 @@ private slots:
 
     void on_pathBtn2_clicked();
 
+    void on_oldRpcBtn_clicked();
+
 private:
     void updateButtonIcon(int buttonNumber);
 protected:

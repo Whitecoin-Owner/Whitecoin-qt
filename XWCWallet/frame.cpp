@@ -53,10 +53,10 @@
 #include "multisig/MultiSigPage.h"
 #include "autoUpdate/AutoUpdateNotify.h"
 #include "websocketmanager.h"
-#include "LightModeConfig.h"
 #include "nameTransfer/NameTransferPage.h"
 #include "citizen/CitizenPolicyPage.h"
 #include "control/CoverWidget.h"
+#include "LightModeConfig.h"
 
 Frame::Frame(): timer(NULL),
     firstLogin(NULL),
@@ -150,6 +150,7 @@ Frame::Frame(): timer(NULL),
     shadowWidget = new ShadowWidget(this);
     shadowWidget->hide();
     shadowWidget->init(this->size());
+
 
 #ifdef LIGHT_MODE
     lightModeConfig = new LightModeConfig(this);
@@ -258,8 +259,11 @@ Frame::Frame(): timer(NULL),
 
     trayIcon = new QSystemTrayIcon(this);
     //放在托盘提示信息、托盘图标
+#ifdef LIGHT_MODE
+    trayIcon ->setToolTip(QString("XWCWallet light mode ") + WALLET_VERSION);
+#else
     trayIcon ->setToolTip(QString("XWCWallet ") + WALLET_VERSION);
-
+#endif
     trayIcon ->setIcon(QIcon(":/ui/wallet_ui/XWC.ico"));
     //点击托盘执行的事件
     connect(trayIcon , SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
@@ -268,8 +272,9 @@ Frame::Frame(): timer(NULL),
     createTrayIconActions();
     createTrayIcon();
 
-    //朱正天--自动转账
+#ifndef LIGHT_MODE
     autoDeposit = new DepositAutomatic(this);
+#endif
     //自动记录链外资金划转
     crossMark = new CrossCapitalMark(this);
 }
@@ -341,10 +346,18 @@ qDebug() << "~Frame end;";
 
 void Frame::alreadyLogin()
 {
-    setGeometry(0,0, 960, 543);
+    containerWidget = new QWidget(this);
+    containerWidget->setGeometry(0,0,960,543);
+    containerWidget->show();
+
+    setGeometry(0,0, containerWidget->width() + 4, containerWidget->height() + 4);
     moveWidgetToScreenCenter(this);
 
-    titleBar = new TitleBar(this);
+#ifdef WIN32
+    installBlurEffect(containerWidget, 2.0);        //   mac上使用有问题
+#endif
+
+    titleBar = new TitleBar(containerWidget);
     titleBar->resize(770,33);
     titleBar->move(190,0);
     titleBar->show();
@@ -353,19 +366,20 @@ void Frame::alreadyLogin()
     connect(titleBar,SIGNAL(closeWallet()),this,SLOT(onCloseWallet()));
     connect(titleBar,SIGNAL(tray()),this,SLOT(hide()));
     connect(titleBar,&TitleBar::back,this,&Frame::onBack);
+    connect(titleBar,&TitleBar::refresh,this,&Frame::lightModeRefresh);
     connect(this,&Frame::titleBackVisible,titleBar,&TitleBar::backBtnVis);
 
-    centralWidget = new QWidget(this);
+    centralWidget = new QWidget(containerWidget);
     centralWidget->resize(770,510);
     centralWidget->move(190, titleBar->height());
     centralWidget->show();
 
-    bottomBar = new BottomBar(this);
+    bottomBar = new BottomBar(containerWidget);
     bottomBar->resize(220,40);
     bottomBar->move(740,503);
     bottomBar->raise();
     bottomBar->show();
-    coverWidget = new CoverWidget(this);
+    coverWidget = new CoverWidget(containerWidget);
     coverWidget->raise();
     coverWidget->show();
     coverWidget->move(centralWidget->x(),centralWidget->y());
@@ -378,13 +392,13 @@ void Frame::alreadyLogin()
 //    connect(showBottomBarWidget, SIGNAL(showBottomBar()), bottomBar, SLOT(dynamicShow()) );
 //    showBottomBarWidget->show();
 
-    functionBar = new FunctionWidget(this);
+    functionBar = new FunctionWidget(containerWidget);
     functionBar->resize(190,480);
     functionBar->move(0,63);
     functionBar->show();
     connect(functionBar,SIGNAL(lock()),this,SLOT(showLockPage()));
 
-    topLeftWidget = new QWidget(this);
+    topLeftWidget = new QWidget(containerWidget);
     topLeftWidget->setGeometry(0,0,190,63);
     topLeftWidget->setStyleSheet("background:qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:1, stop:0 rgba(53,70,172), stop:1 rgba(83,107,215));");
     QLabel* logoLabel = new QLabel(topLeftWidget);
@@ -447,6 +461,8 @@ void Frame::alreadyLogin()
     init();
     functionBar->DefaultShow();
 
+    XWCWallet::getInstance()->oldRpcAdapter = new OldRpcAdapter(qApp);
+
     //自动更新
 //    AutoUpdateNotify *autoupdate = new AutoUpdateNotify();
 #ifndef SAFE_VERSION
@@ -484,21 +500,44 @@ QString toThousandFigure( int number)     // 转换为0001,0015  这种数字格
 void Frame::getAccountInfo()
 {
 
-    XWCWallet::getInstance()->postRPC( "id-list_my_accounts", toJsonFormat( "list_my_accounts", QJsonArray()));
+    if(getInfoCount % 5 == 1)
+    {
+#ifdef LIGHT_MODE
+        if(!XWCWallet::getInstance()->lightModeMark.listAccountMark)
+        {
+            XWCWallet::getInstance()->lightModeMark.listAccountMark = true;
+#endif
+            XWCWallet::getInstance()->postRPC( "id-list_my_accounts", toJsonFormat( "list_my_accounts", QJsonArray()));
+            XWCWallet::getInstance()->postRPC( "id-info", toJsonFormat( "info", QJsonArray()));
+#ifdef LIGHT_MODE
+        }
+#endif
 
+    }
 
     XWCWallet::getInstance()->fetchTransactions();
 
-    if(getInfoCount % 10 == 0)
+    if(getInfoCount % 100 == 1)
     {
-        XWCWallet::getInstance()->postRPC( "id-list_assets", toJsonFormat( "list_assets", QJsonArray() << "A" << "100"));
+#ifdef LIGHT_MODE
+        if(!XWCWallet::getInstance()->lightModeMark.listAssetsMark)
+        {
+            XWCWallet::getInstance()->lightModeMark.listAssetsMark = true;
+#endif
+            XWCWallet::getInstance()->postRPC( "id-list_assets", toJsonFormat( "list_assets", QJsonArray() << "A" << "100"));
+#ifdef LIGHT_MODE
+        }
+#endif
 
         XWCWallet::getInstance()->fetchMiners();
 
         XWCWallet::getInstance()->fetchAllGuards();
     }
 
-    XWCWallet::getInstance()->fetchCrosschainTransactions();
+    if(getInfoCount % 10 == 1)
+    {
+        XWCWallet::getInstance()->fetchCrosschainTransactions();
+    }
 }
 
 
@@ -565,7 +604,7 @@ void Frame::showLockPage()
     {
         hideKLineWidget();
 
-        lockPage = new LockPage(this);
+        lockPage = new LockPage(containerWidget);
         lockPage->setAttribute(Qt::WA_DeleteOnClose);
         lockPage->move(0,0);
         connect( lockPage,SIGNAL(unlock()),this,SLOT(unlock()));
@@ -1622,6 +1661,8 @@ void Frame::jsonDataUpdated(QString id)
             {
                 XWCWallet::getInstance()->fetchAccountPubKey(accountName);
             }
+
+            XWCWallet::getInstance()->getAccountLockBalance(accountName);
         }
 
         XWCWallet::getInstance()->fetchMyContracts();
@@ -1658,6 +1699,32 @@ void Frame::jsonDataUpdated(QString id)
             }
             XWCWallet::getInstance()->accountInfoMap[accountName].assetAmountMap = map;
 
+        }
+
+        return;
+    }
+
+    if( id.startsWith("id-get_account_lock_balance+"))
+    {
+        QString accountName = id.mid(QString("id-get_account_lock_balance+").size());
+        QString result = XWCWallet::getInstance()->jsonDataValue(id);
+
+        result.prepend("{");
+        result.append("}");
+
+        QJsonDocument parse_doucment = QJsonDocument::fromJson(result.toLatin1());
+        QJsonObject jsonObject = parse_doucment.object();
+        QJsonArray array = jsonObject.take("result").toArray();
+
+        XWCWallet::getInstance()->accountInfoMap[accountName].lockBalances.clear();
+        for(QJsonValue v : array)
+        {
+            QJsonObject object = v.toObject();
+            QPair<QString,AssetAmount> pair;
+            pair.first = object.value("lockto_miner_account").toString();
+            pair.second.assetId = object.take("lock_asset_id").toString();
+            pair.second.amount = jsonValueToULL(object.value("lock_asset_amount"));
+            XWCWallet::getInstance()->accountInfoMap[accountName].lockBalances.append(pair);
         }
 
         return;
@@ -2898,14 +2965,14 @@ void Frame::RestoreRightPart()
     //bottomBar->move(220,516);
 }
 
-void Frame::installBlurEffect(QWidget *widget)
+void Frame::installBlurEffect(QWidget *widget, double distance)
 {
-//    if(!widget) return;
-//    CustomShadowEffect *bodyShadow = new CustomShadowEffect(this);
-//    bodyShadow->setBlurRadius(20.0);
-//    bodyShadow->setDistance(5.0);
-//    bodyShadow->setColor(QColor(150, 150, 150, 35));
-//    widget->setGraphicsEffect(bodyShadow);
+    if(!widget) return;
+    CustomShadowEffect *bodyShadow = new CustomShadowEffect(this);
+    bodyShadow->setBlurRadius(20.0);
+    bodyShadow->setDistance(distance);
+    bodyShadow->setColor(QColor(150, 150, 150, 35));
+    widget->setGraphicsEffect(bodyShadow);
 }
 
 void Frame::showCoverWidget()
@@ -2917,6 +2984,72 @@ void Frame::showCoverWidget()
 void Frame::newAccount(QString name)
 {
     getAccountInfo();
+}
+
+void Frame::lightModeRefresh()
+{
+    qDebug() << "llllllllllllllll " << currentPageNum;
+    switch (currentPageNum) {
+    case 0:
+        XWCWallet::getInstance()->lightModeMark.queryTunnelAddressMark = false;
+        XWCWallet::getInstance()->lightModeMark.getMyContractMark = false;
+        XWCWallet::getInstance()->lightModeMark.listAccountMark = false;
+        XWCWallet::getInstance()->postRPC( "id-list_my_accounts", toJsonFormat( "list_my_accounts", QJsonArray()));
+        XWCWallet::getInstance()->postRPC( "id-info", toJsonFormat( "info", QJsonArray()));
+
+        XWCWallet::getInstance()->lightModeMark.listAssetsMark = false;
+        break;
+    case 1:
+        break;
+    case 2:
+        break;
+    case 3:
+        break;
+    case 4:
+        break;
+    case 5:
+        break;
+    case 6:
+        break;
+    case 7:
+        XWCWallet::getInstance()->lightModeMark.listCitizensMark = false;
+        XWCWallet::getInstance()->fetchMiners();
+        break;
+    case 8:
+        break;
+    case 9:
+        break;
+    case 10:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
+    case 16:
+    case 17:
+    case 18:
+        XWCWallet::getInstance()->lightModeMark.listSenatorsMark = false;
+        XWCWallet::getInstance()->fetchAllGuards();
+        break;
+    case 19:
+        break;
+    case 20:
+        break;
+    case 21:
+        XWCWallet::getInstance()->lightModeMark.citizenGetAccountMark = false;
+        break;
+    case 22:
+        break;
+    case 23:
+        break;
+    case 24:
+        break;
+    case 25:
+        break;
+    case 26:
+        break;
+    default:
+        break;
+    }
 }
 
 void Frame::enter()

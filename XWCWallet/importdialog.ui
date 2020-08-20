@@ -33,7 +33,7 @@
       <x>330</x>
       <y>175</y>
       <width>300</width>
-      <height>193</height>
+      <height>211</height>
      </rect>
     </property>
     <widget class="QLineEdit" name="privateKeyLineEdit">
@@ -177,7 +177,7 @@ font: 11px &quot;微软雅黑&quot;;</string>
      <property name="geometry">
       <rect>
        <x>52</x>
-       <y>150</y>
+       <y>170</y>
        <width>92</width>
        <height>28</height>
       </rect>
@@ -201,7 +201,7 @@ font: 11px &quot;微软雅黑&quot;;</string>
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>150</y>
+       <y>170</y>
        <width>92</width>
        <height>28</height>
       </rect>
@@ -243,6 +243,19 @@ font: 11px &quot;微软雅黑&quot;;</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="isXwcc">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>140</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>兼容XWCC</string>
      </property>
     </widget>
    </widget>

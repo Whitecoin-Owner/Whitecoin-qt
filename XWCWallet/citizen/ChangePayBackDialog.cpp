@@ -70,7 +70,7 @@ void ChangePayBackDialog::jsonDataUpdated(QString id)
 
 void ChangePayBackDialog::InitWidget()
 {
-    setParent(XWCWallet::getInstance()->mainFrame);
+    setParent(XWCWallet::getInstance()->mainFrame->containerWidget);
     move(0,0);
 
     setAttribute(Qt::WA_TranslucentBackground, true);

@@ -468,7 +468,7 @@ void XWCWallet::getSystemEnvironmentPath()
         if (str.startsWith("APPDATA="))
         {
 
-            walletConfigPath = str.mid(8) + "\\XWCWallet" WALLET_EXE_SUFFIX "_" "1.1.0";
+            walletConfigPath = str.mid(8) + "\\XWCWallet" WALLET_EXE_SUFFIX "_" "1.2.0";
             appDataPath = walletConfigPath + "\\chaindata";
             qDebug() << "appDataPath:" << appDataPath;
             break;
@@ -480,7 +480,7 @@ void XWCWallet::getSystemEnvironmentPath()
         if (str.startsWith("HOME="))
         {
 
-            walletConfigPath = str.mid(5) + "/Library/Application Support/XWCWallet" WALLET_EXE_SUFFIX "_" "1.1.0";
+            walletConfigPath = str.mid(5) + "/Library/Application Support/XWCWallet" WALLET_EXE_SUFFIX "_" "1.2.0";
             appDataPath = walletConfigPath + "/chaindata";
             qDebug() << "appDataPath:" << appDataPath;
             break;
@@ -1220,6 +1220,17 @@ void XWCWallet::checkPendingTransactions()
 
 void XWCWallet::fetchAllGuards()
 {
+#ifdef LIGHT_MODE
+    if(XWCWallet::getInstance()->lightModeMark.listSenatorsMark)
+    {
+        return;
+    }
+    else
+    {
+        XWCWallet::getInstance()->lightModeMark.listSenatorsMark = true;
+    }
+#endif
+
     postRPC( "id-list_all_wallfacers", toJsonFormat( "list_all_wallfacers", QJsonArray() << "A" << 100));
 }
 
@@ -1601,6 +1612,16 @@ QStringList XWCWallet::lookupSignedGuardsByGeneratedTrxId(QString generatedTrxId
 
 void XWCWallet::fetchMiners()
 {
+#ifdef LIGHT_MODE
+    if(XWCWallet::getInstance()->lightModeMark.listCitizensMark)
+    {
+        return;
+    }
+    {
+        XWCWallet::getInstance()->lightModeMark.listCitizensMark = true;
+    }
+#endif
+
     if(!fetchCitizensFinished)  return;
     fetchCitizensFinished = false;
     postRPC( "id-list_miners", toJsonFormat( "list_miners", QJsonArray() << "A" << 1000));
@@ -1608,6 +1629,17 @@ void XWCWallet::fetchMiners()
 
 void XWCWallet::fetchCitizenPayBack()
 {
+#ifdef LIGHT_MODE
+    if(lightModeMark.citizenGetAccountMark)
+    {
+        return;
+    }
+    else
+    {
+        lightModeMark.citizenGetAccountMark = true;
+    }
+#endif
+
     QStringList citizens = minerMap.keys();
     foreach (QString citizen, citizens)
     {
@@ -1639,7 +1671,19 @@ QString XWCWallet::citizenAccountIdToName(QString citizenAccountId)
 
 void XWCWallet::fetchMyContracts()
 {
+#ifdef LIGHT_MODE
+    if(XWCWallet::getInstance()->lightModeMark.getMyContractMark)
+    {
+        return;
+    }
+    else
+    {
+        XWCWallet::getInstance()->lightModeMark.getMyContractMark = true;
+    }
+#else
     if( myContractsQueryCount++ % 10 != 0)     return;
+#endif
+
     foreach (QString accountName, accountInfoMap.keys())
     {
         postRPC( "id-get_contracts_hash_entry_by_owner-" + accountName, toJsonFormat( "get_contracts_hash_entry_by_owner", QJsonArray() << accountName));
@@ -1804,6 +1848,12 @@ QString XWCWallet::getPendingInfo(QString id)
     return info;
 }
 
+void XWCWallet::getAccountLockBalance(QString accountName)
+{
+    XWCWallet::getInstance()->postRPC( "id-get_account_lock_balance+" + accountName,
+                                     toJsonFormat( "get_account_lock_balance",QJsonArray() << accountName));
+}
+
 QString doubleTo5Decimals(double number)
 {
         QString num = QString::number(number,'f', 5);
@@ -1911,6 +1961,21 @@ double roundDown(double decimal, int precision)
 
     return result;
 }
+
+QString roundDownStr(QString decimal, int precision)
+{
+    if(!decimal.contains(".") || precision < 0)  return decimal;
+    int index = decimal.indexOf(".");
+    if(index + precision < decimal.size())
+    {
+        return decimal.mid(0,index + precision + 1);
+    }
+    else
+    {
+        return decimal;
+    }
+}
+
 
 QString removeLastZeros(QString number)     // 去掉小数最后面的0
 {
@@ -2296,6 +2361,7 @@ QString toEasyRead(unsigned long long number, int precision, int effectiveBitsNu
         return str;
     }
 }
+
 
 
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>960</width>
-    <height>543</height>
+    <width>964</width>
+    <height>547</height>
    </rect>
   </property>
   <property name="font">
@@ -23,8 +23,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>960</width>
-     <height>543</height>
+     <width>964</width>
+     <height>547</height>
     </rect>
    </property>
    <widget class="QWidget" name="containerWidget" native="true">
@@ -94,9 +94,15 @@
      </property>
      <property name="font">
       <font>
-       <family>Microsoft YaHei UI Light</family>
-       <pointsize>9</pointsize>
+       <family>微软雅黑</family>
+       <pointsize>-1</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 12px &quot;微软雅黑&quot;;</string>
      </property>
      <property name="text">
       <string>本操作需要收取固定手续费:@ XWC</string>
@@ -148,9 +154,15 @@
      </property>
      <property name="font">
       <font>
-       <family>Microsoft YaHei UI Light</family>
-       <pointsize>12</pointsize>
+       <family>微软雅黑</family>
+       <pointsize>-1</pointsize>
+       <weight>50</weight>
+       <italic>false</italic>
+       <bold>false</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 14px &quot;微软雅黑&quot;;</string>
      </property>
      <property name="text">
       <string>手续费收取</string>

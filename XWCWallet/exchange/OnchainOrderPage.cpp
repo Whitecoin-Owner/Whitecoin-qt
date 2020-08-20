@@ -111,7 +111,6 @@ void OnchainOrderPage::init()
     inited = true;
 
     on_accountComboBox_currentIndexChanged(ui->accountComboBox->currentText());
-
 }
 
 

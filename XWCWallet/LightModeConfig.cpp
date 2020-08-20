@@ -11,8 +11,13 @@ LightModeConfig::LightModeConfig(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    default_ip_port_vector.append(IP_Port("127.0.0.1", "50420"));
-    default_ip_port_vector.append(IP_Port("192.168.1.121", "60038"));
+#ifdef TEST_WALLET
+//    default_ip_port_vector.append(IP_Port("106.13.107.239", "19035"));
+    default_ip_port_vector.append(IP_Port("127.0.0.1", "50906"));
+#else
+    default_ip_port_vector.append(IP_Port("47.56.106.1", "50806"));
+    default_ip_port_vector.append(IP_Port("127.0.0.1", "50806"));
+#endif
 
     InitWidget();
 }
@@ -55,7 +60,7 @@ void LightModeConfig::InitStyle()
     setPalette(palette);
 
     QPalette pa;
-    pa.setColor(QPalette::WindowText,QColor(255,255,255));
+    pa.setColor(QPalette::WindowText,QColor(243,241,250));
     ui->label_version->setPalette(pa);
 
     ui->closeBtn->setStyleSheet("QToolButton{background-image:url(:/ui/wallet_ui/cover_close.png);background-repeat: no-repeat;background-position: center;border: none;}");

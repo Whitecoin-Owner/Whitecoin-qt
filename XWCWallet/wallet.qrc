@@ -124,6 +124,10 @@
         <file>wallet_ui/titlebar_mini.png</file>
         <file>wallet_ui/coin_XWC.png</file>
         <file>wallet_ui/XWC.ico</file>
+        <file>wallet_ui/more.png</file>
+        <file>wallet_ui/refresh.gif</file>
+        <file>wallet_ui/refresh.png</file>
+        <file>wallet_ui/refresh_hover.png</file>
     </qresource>
     <qresource prefix="/">
         <file>notifyWidget/close.png</file>

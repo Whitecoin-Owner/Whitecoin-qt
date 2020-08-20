@@ -35,11 +35,11 @@ private slots:
 
     void passwordChangeSlots(const QString &address);
     void jsonDataUpdated(QString id);
+
 private:
     void InitData();
 private:
     void InitWidget();
-    void InitStyle();
 protected:
     void paintEvent(QPaintEvent *event);
 private:

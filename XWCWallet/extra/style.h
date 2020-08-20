@@ -59,4 +59,7 @@
                                 "QComboBox QAbstractItemView {outline: 0px;}" \
                                 "QComboBox QAbstractItemView{ min-width:80px;min-height: 18px; color: #39446B;selection-color: white;background-color: rgb(255,255,255);selection-background-color: rgb(148,186,249);}"
 
+#define SWITCHBTN_STYLE         "QToolButton{background-image:url(:/ui/wallet_ui/switch_off.png);background-repeat: no-repeat;background-position: center;background-color:transparent;border:none;}" \
+                                "QToolButton:checked{background-image:url(:/ui/wallet_ui/switch_on.png);}"
+
 #endif // STYLE_H

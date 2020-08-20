@@ -13,7 +13,7 @@ SellDialog::SellDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    setParent(XWCWallet::getInstance()->mainFrame);
+    setParent(XWCWallet::getInstance()->mainFrame->containerWidget);
 
     setAttribute(Qt::WA_TranslucentBackground, true);
     setWindowFlags(Qt::FramelessWindowHint);
@@ -63,6 +63,8 @@ void SellDialog::init()
         ui->assetComboBox->addItem( revertERCSymbol( XWCWallet::getInstance()->assetInfoMap.value(assetId).symbol), assetId);
         ui->assetComboBox2->addItem( revertERCSymbol( XWCWallet::getInstance()->assetInfoMap.value(assetId).symbol), assetId);
     }
+
+    if(ui->assetComboBox2->count() > 1)     ui->assetComboBox2->setCurrentIndex(1);
 }
 
 void SellDialog::setSellAsset(QString _assetSymbol)
@@ -212,6 +214,7 @@ void SellDialog::on_assetComboBox2_currentIndexChanged(const QString &arg1)
     QRegExpValidator *pReg1 = new QRegExpValidator(rx1, this);
     ui->buyAmountLineEdit->setValidator(pReg1);
     ui->buyAmountLineEdit->clear();
+    ui->buyAmountLineEdit->setPlaceholderText(ui->assetComboBox2->currentText());
 }
 
 void SellDialog::on_closeBtn_clicked()

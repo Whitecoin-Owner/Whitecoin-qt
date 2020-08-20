@@ -26,7 +26,7 @@ SetDialog::SetDialog(QWidget *parent) :
     ui->setupUi(this);
 
 //    XWCWallet::getInstance()->appendCurrentDialogVector(this);
-    setParent(XWCWallet::getInstance()->mainFrame);
+    setParent(XWCWallet::getInstance()->mainFrame->containerWidget);
 
     setAttribute(Qt::WA_TranslucentBackground, true);
     setWindowFlags(Qt::FramelessWindowHint);
@@ -41,6 +41,7 @@ SetDialog::SetDialog(QWidget *parent) :
     ui->safeBtn->setCheckable(true);
     ui->accountBtn->setCheckable(true);
     ui->depositBtn->setCheckable(true);
+    ui->oldRpcBtn->setCheckable(true);
 
     ui->depositBtn->setChecked(XWCWallet::getInstance()->autoDeposit);
 //    ui->depositBtn->setIconSize(QSize(26,12));
@@ -48,6 +49,10 @@ SetDialog::SetDialog(QWidget *parent) :
     ui->depositBtn->setText(ui->depositBtn->isChecked()?tr("on"):tr("off"));
     ui->label_autotip->setWordWrap(true);
     ui->label_autotip->setVisible(ui->depositBtn->isChecked());
+
+    ui->oldRpcBtn->setChecked(XWCWallet::getInstance()->oldRpcAdapter->isRunning());
+    ui->oldRpcBtn->setIcon(ui->oldRpcBtn->isChecked()?QIcon(":/ui/wallet_ui/on.png"):QIcon(":/ui/wallet_ui/off.png"));
+    ui->oldRpcBtn->setText(ui->oldRpcBtn->isChecked()?tr("on"):tr("off"));
 
     ui->generalBtn->setChecked(false);
 
@@ -638,4 +643,22 @@ void SetDialog::on_pathBtn2_clicked()
 #else
             QProcess::startDetached("open \"" + ui->configPathLineEdit->text() + "\"");
 #endif
+}
+
+void SetDialog::on_oldRpcBtn_clicked()
+{
+    if(ui->oldRpcBtn->isChecked())
+    {
+        ui->oldRpcBtn->setIcon(QIcon(":/ui/wallet_ui/on.png"));
+        ui->oldRpcBtn->setText(tr("on"));
+
+        XWCWallet::getInstance()->oldRpcAdapter->startServer();
+    }
+    else
+    {
+        ui->oldRpcBtn->setIcon(QIcon(":/ui/wallet_ui/off.png"));
+        ui->oldRpcBtn->setText(tr("off"));
+
+        XWCWallet::getInstance()->oldRpcAdapter->close();
+    }
 }

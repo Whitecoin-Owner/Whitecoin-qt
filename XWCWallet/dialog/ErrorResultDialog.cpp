@@ -10,7 +10,7 @@ ErrorResultDialog::ErrorResultDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    setParent(XWCWallet::getInstance()->mainFrame);
+    setParent(XWCWallet::getInstance()->mainFrame->containerWidget);
 
     setAttribute(Qt::WA_TranslucentBackground, true);
     setWindowFlags(Qt::FramelessWindowHint);
@@ -26,6 +26,8 @@ ErrorResultDialog::ErrorResultDialog(QWidget *parent) :
     ui->copyBtn->setStyleSheet("QToolButton{background-image:url(:/ui/wallet_ui/copy.png);background-repeat: no-repeat;background-position: center;border-style: flat;}"
                                "QToolButton:hover{background-image:url(:/ui/wallet_ui/copy_hover.png);}");
     ui->copyBtn->setToolTip(tr("copy to clipboard"));
+
+    hideDetail();
 }
 
 ErrorResultDialog::~ErrorResultDialog()
@@ -63,4 +65,31 @@ void ErrorResultDialog::on_copyBtn_clicked()
 {
     QClipboard* clipBoard = QApplication::clipboard();
     clipBoard->setText(ui->textBrowser->toPlainText());
+}
+
+void ErrorResultDialog::hideDetail()
+{
+    ui->containerWidget->setGeometry(ui->containerWidget->x(), (ui->widget->height() - 220) / 2,
+                                     ui->containerWidget->width(), 220);
+    ui->label_2->hide();
+    ui->textBrowser->hide();
+    ui->copyBtn->hide();
+    ui->detailBtn->show();
+    ui->okBtn->move(172,160);
+}
+
+void ErrorResultDialog::showDetail()
+{
+    ui->containerWidget->setGeometry(ui->containerWidget->x(), (ui->widget->height() - 460) / 2,
+                                     ui->containerWidget->width(), 460);
+    ui->label_2->show();
+    ui->textBrowser->show();
+    ui->copyBtn->show();
+    ui->detailBtn->hide();
+    ui->okBtn->move(172,410);
+}
+
+void ErrorResultDialog::on_detailBtn_clicked()
+{
+    showDetail();
 }

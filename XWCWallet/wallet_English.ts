@@ -1812,7 +1812,7 @@ This name will be registered in the Goopal blockchain,permanently and immutably.
         <translation type="unfinished">fast</translation>
     </message>
     <message>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="500"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="499"/>
         <source>please wait</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1823,7 +1823,7 @@ This name will be registered in the Goopal blockchain,permanently and immutably.
     </message>
     <message>
         <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="93"/>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="498"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="497"/>
         <source>select withdraw to input address</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1852,37 +1852,37 @@ This name will be registered in the Goopal blockchain,permanently and immutably.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="249"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="248"/>
         <source>max:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="360"/>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="371"/>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="394"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="359"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="370"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="393"/>
         <source>number cannot less than </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="401"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="400"/>
         <source>balance left should not less than </source>
         <oldsource>balance less than </oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="448"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="447"/>
         <source> %1 is pending!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="533"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="532"/>
         <source>make sure there&apos;s 0.001 BTC at least in tunnel address</source>
         <oldsource>make sure there&apos;s 0.00045 ETH at least in tunnel address</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="313"/>
-        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="317"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="312"/>
+        <location filename="capitalTransferPage/CapitalTransferPage.cpp" line="316"/>
         <source>about</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2381,19 +2381,24 @@ This name will be registered in the Goopal blockchain,permanently and immutably.
         <translation type="unfinished">Change Fee</translation>
     </message>
     <message>
-        <location filename="citizen/CitizenAccountPage.cpp" line="91"/>
-        <source>There are no miner accounts in the wallet.</source>
+        <location filename="citizen/CitizenAccountPage.cpp" line="92"/>
+        <source>There are no miner accounts in the wallet</source>
         <oldsource>There are no miner accounts in the wallet.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="citizen/CitizenAccountPage.cpp" line="129"/>
+        <location filename="citizen/CitizenAccountPage.cpp" line="131"/>
         <source>Mining configuration has been written. This miner account will start mining when the wallet is launched next time.</source>
         <oldsource>Mining configuration has been written. This miner account will start mining when the wallet is launched next time.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="citizen/CitizenAccountPage.cpp" line="221"/>
+        <location filename="citizen/CitizenAccountPage.cpp" line="222"/>
+        <source>This miner will take effect at %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="citizen/CitizenAccountPage.cpp" line="272"/>
         <source>Sure to open the mining function of this miner account?</source>
         <oldsource>Sure to open the mining function of this miner account?</oldsource>
         <translation type="unfinished"></translation>
@@ -2445,7 +2450,7 @@ This name will be registered in the Goopal blockchain,permanently and immutably.
     </message>
     <message>
         <location filename="citizen/CitizenPolicyPage.cpp" line="71"/>
-        <source>There are no miner accounts in the wallet.</source>
+        <source>There are no miner accounts in the wallet</source>
         <oldsource>There are no miner accounts in the wallet.</oldsource>
         <translation type="unfinished"></translation>
     </message>
@@ -2559,7 +2564,8 @@ This name will be registered in the Goopal blockchain,permanently and immutably.
     </message>
     <message>
         <location filename="citizen/CitizenProposalPage.cpp" line="98"/>
-        <source>There are no miner accounts in the wallet.</source>
+        <source>There are no miner accounts in the wallet</source>
+        <oldsource>There are no miner accounts in the wallet.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3059,22 +3065,22 @@ This name will be registered in the Goopal blockchain,permanently and immutably.
         <translation type="obsolete">Add this address to contacts?</translation>
     </message>
     <message>
-        <location filename="commondialog.cpp" line="27"/>
+        <location filename="commondialog.cpp" line="26"/>
         <source>Ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commondialog.cpp" line="28"/>
+        <location filename="commondialog.cpp" line="27"/>
         <source>Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commondialog.cpp" line="45"/>
+        <location filename="commondialog.cpp" line="44"/>
         <source>Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commondialog.cpp" line="46"/>
+        <location filename="commondialog.cpp" line="45"/>
         <source>No</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5260,12 +5266,12 @@ Cover it or not?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="depositpage/FeeChargeWidget.ui" line="156"/>
+        <location filename="depositpage/FeeChargeWidget.ui" line="168"/>
         <source>手续费收取</source>
         <translation type="unfinished">Fee</translation>
     </message>
     <message>
-        <location filename="depositpage/FeeChargeWidget.ui" line="102"/>
+        <location filename="depositpage/FeeChargeWidget.ui" line="108"/>
         <source>本操作需要收取固定手续费:@ XWC</source>
         <translation type="unfinished">You need to pay the fee for this operation:@ XWC</translation>
     </message>
@@ -5275,7 +5281,7 @@ Cover it or not?</source>
         <translation type="unfinished">Ok</translation>
     </message>
     <message>
-        <location filename="depositpage/FeeChargeWidget.ui" line="137"/>
+        <location filename="depositpage/FeeChargeWidget.ui" line="143"/>
         <source>取消</source>
         <translation type="unfinished">Cancel</translation>
     </message>
@@ -5642,27 +5648,27 @@ Cover it or not?</source>
 <context>
     <name>Frame</name>
     <message>
-        <location filename="frame.cpp" line="1341"/>
+        <location filename="frame.cpp" line="1351"/>
         <source>Please Import Or Create Account First!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="1600"/>
+        <location filename="frame.cpp" line="1610"/>
         <source>This wallet is newly imported. It will rescan the blockchain data when launched next time. After that the transactions of the accounts in this wallet will be shown.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="2812"/>
+        <location filename="frame.cpp" line="2850"/>
         <source>Minimize</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="2815"/>
+        <location filename="frame.cpp" line="2853"/>
         <source>Restore</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="2818"/>
+        <location filename="frame.cpp" line="2856"/>
         <source>Quit</source>
         <translation type="unfinished"></translation>
     </message>
@@ -6419,38 +6425,53 @@ Cover it or not?</source>
         <translation type="obsolete">About Us</translation>
     </message>
     <message>
-        <location filename="HelpWidget.ui" line="95"/>
-        <source>暂无更新</source>
-        <translation type="unfinished">No updates</translation>
-    </message>
-    <message>
-        <location filename="HelpWidget.ui" line="159"/>
-        <source>检查更新</source>
-        <translation type="unfinished">Check for updates</translation>
-    </message>
-    <message>
-        <location filename="HelpWidget.ui" line="175"/>
-        <source>立即重启</source>
-        <translation type="unfinished">Restart</translation>
-    </message>
-    <message>
-        <location filename="HelpWidget.ui" line="124"/>
-        <source>Windows桌面版 v</source>
-        <oldsource>Windows桌面版 v1.0.1</oldsource>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="HelpWidget.ui" line="64"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Microsoft YaHei UI Light&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:15px;&quot;&gt;关于我们&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:15px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Whitecoin项目成立于2014年，目前已经是一条支持跨链交易且拥有智能合约、去中心化交易所的高性能公链。它实现了现有区块链（BTC、LTC、BCH、ETH、EOS、ERC20、OMNI等）之间的跨链流通，以及本链的多资产管理。通过Blockchain Multi Tunnel（BMT）协议进入Whitecoin生态，打通区块链间的壁垒，创造互通互联的全新区块链世界。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Whitecoin钱包是生态体系中的重要聚合平台，支持跨链资产的转移、去中心化交易所、去中心化矿池、智能合约、DAPP等应用场景，是用户使用Whitecoin服务的重要载体。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Whitecoin钱包兑换流程公开透明，安全可靠。帮助用户快速实现跨链资产的转移和交易，打破链与链之间的流通壁垒。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <oldsource>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Microsoft YaHei UI Light&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:15px;&quot;&gt;关于我们&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Whitecoin项目成立于2014年，目前已经是一条支持跨链交易且拥有智能合约、去中心化交易所的高性能公链。它实现了现有区块链（BTC、LTC、BCH、ETH、EOS、ERC20、OMNI等）之间的跨链流通，以及本链的多资产管理。通过Blockchain Multi Tunnel（BMT）协议进入Whitecoin生态，打通区块链间的壁垒，创造互通互联的全新区块链世界。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Whitecoin钱包是生态体系中的重要聚合平台，支持跨链资产的转移、去中心化交易所、去中心化矿池、智能合约、DAPP等应用场景，是用户使用Whitecoin服务的重要载体。&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Whitecoin钱包兑换流程公开透明，安全可靠。帮助用户快速实现跨链资产的转移和交易，打破链与链之间的流通壁垒。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</oldsource>
+        <translation type="unfinished">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Microsoft YaHei UI Light&apos;; font-size:12pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:15px;&quot;&gt;Abount Us&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Whitecoin, referred to as XWC. The community was established in 2014, it is now a decentralized blockchain asset project with more than 5 years of history. Whitecoin has gone through two phases from PoW and PoS1.0 to POS 3.0, and Whitecoin will enter the third phase in 2019. The new Whitecoin will adopt RPPOM, realize the management of cross-chain assets, the transfer and exchange of cross-chain assets, and the delivery of cross-chain value. The new XWC has three major functions and one feature: cross-chain assets, smart contracts, decentralized exchanges and creative original community governance mechanism.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="HelpWidget.ui" line="97"/>
+        <source>暂无更新</source>
+        <translation type="unfinished">No updates</translation>
+    </message>
+    <message>
+        <location filename="HelpWidget.ui" line="161"/>
+        <source>检查更新</source>
+        <translation type="unfinished">check updates</translation>
+    </message>
+    <message>
+        <location filename="HelpWidget.ui" line="177"/>
+        <source>立即重启</source>
+        <translation type="unfinished">Restart</translation>
+    </message>
+    <message>
+        <location filename="HelpWidget.ui" line="126"/>
+        <source>Windows桌面版 v</source>
+        <oldsource>Windows桌面版 v1.0.1</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="HelpWidget.ui" line="143"/>
+        <location filename="HelpWidget.ui" line="145"/>
         <source>升级</source>
         <translation type="unfinished">Update</translation>
     </message>
@@ -6735,49 +6756,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>LightModeConfig</name>
     <message>
-        <location filename="LightModeConfig.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="LightModeConfig.ui" line="35"/>
         <source>确定</source>
-        <translation type="unfinished">Ok</translation>
+        <translation type="obsolete">Ok</translation>
     </message>
     <message>
-        <location filename="LightModeConfig.ui" line="75"/>
-        <source>v1.0.1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="LightModeConfig.ui" line="120"/>
-        <source>light mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="LightModeConfig.ui" line="147"/>
-        <source>60038</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="LightModeConfig.ui" line="173"/>
-        <source>远程节点IP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="LightModeConfig.ui" line="190"/>
         <source>端口</source>
-        <translation type="unfinished">Port</translation>
-    </message>
-    <message>
-        <location filename="LightModeConfig.cpp" line="85"/>
-        <source>Wrong IP!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="LightModeConfig.cpp" line="94"/>
-        <source>Wrong port!</source>
-        <translation type="unfinished"></translation>
+        <translation type="obsolete">Port</translation>
     </message>
 </context>
 <context>
@@ -7155,6 +7139,11 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">PUBKEY</translation>
     </message>
     <message>
+        <location filename="mainpage.ui" line="595"/>
+        <source>显示已投票</source>
+        <translation type="unfinished">show voted</translation>
+    </message>
+    <message>
         <source>公钥</source>
         <translation type="obsolete">PUBKEY</translation>
     </message>
@@ -7234,48 +7223,48 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="120"/>
+        <location filename="mainpage.cpp" line="152"/>
         <source>transfer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="123"/>
+        <location filename="mainpage.cpp" line="155"/>
         <source>deposit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="124"/>
+        <location filename="mainpage.cpp" line="156"/>
         <source>withdraw</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="125"/>
+        <location filename="mainpage.cpp" line="157"/>
         <source>allot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="367"/>
+        <location filename="mainpage.cpp" line="399"/>
         <source>Fail to create account!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="478"/>
-        <location filename="mainpage.cpp" line="481"/>
+        <location filename="mainpage.cpp" line="510"/>
+        <location filename="mainpage.cpp" line="513"/>
         <source>copy to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="523"/>
+        <location filename="mainpage.cpp" line="555"/>
         <source>There are no unregistered accounts in the wallet!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="562"/>
+        <location filename="mainpage.cpp" line="594"/>
         <source>PUBKEY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="568"/>
+        <location filename="mainpage.cpp" line="600"/>
         <source>HIDE</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7443,6 +7432,12 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">Mining</translation>
     </message>
     <message>
+        <location filename="miner/minerpage.ui" line="916"/>
+        <source>投票资产总览</source>
+        <oldsource>质押资产总览</oldsource>
+        <translation type="unfinished">TOTAL VOTED</translation>
+    </message>
+    <message>
         <source>CITIZEN信息</source>
         <translation type="obsolete">MINER INFO</translation>
     </message>
@@ -7488,147 +7483,147 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">Fee low-high</translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="194"/>
+        <location filename="miner/minerpage.cpp" line="195"/>
         <source>add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="201"/>
+        <location filename="miner/minerpage.cpp" line="202"/>
         <source>foreclose</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="234"/>
-        <location filename="miner/minerpage.cpp" line="363"/>
+        <location filename="miner/minerpage.cpp" line="235"/>
+        <location filename="miner/minerpage.cpp" line="364"/>
         <source>Transaction of foreclose-asset has been sent out!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="116"/>
+        <location filename="miner/minerpage.cpp" line="117"/>
         <source>There&apos;s no income!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="118"/>
+        <location filename="miner/minerpage.cpp" line="119"/>
         <source>There&apos;s no foreclose information!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="120"/>
+        <location filename="miner/minerpage.cpp" line="121"/>
         <source>There&apos;s no income record!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="122"/>
+        <location filename="miner/minerpage.cpp" line="123"/>
         <source>There&apos;s no miner!</source>
         <oldsource>There&apos;s no miner!</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="241"/>
-        <location filename="miner/minerpage.cpp" line="370"/>
+        <location filename="miner/minerpage.cpp" line="242"/>
+        <location filename="miner/minerpage.cpp" line="371"/>
         <source>Fail to foreclose asset from miner!</source>
         <oldsource>Fail to foreclose asset from miner!</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="283"/>
+        <location filename="miner/minerpage.cpp" line="284"/>
         <source>get income</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="323"/>
+        <location filename="miner/minerpage.cpp" line="324"/>
         <source>Transaction of get-income has been sent out!</source>
         <oldsource>Transaction of obtain-income has been sent out!</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="334"/>
+        <location filename="miner/minerpage.cpp" line="335"/>
         <source>This account&apos;s mining income is less than %1 %2 ! You can not get it.</source>
         <oldsource>This account&apos;s mining income is less than %1 %2 ! You can not obtain it.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="339"/>
+        <location filename="miner/minerpage.cpp" line="340"/>
         <source>Fail to get mining income!</source>
         <oldsource>Fail to obtain mining income!</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="385"/>
+        <location filename="miner/minerpage.cpp" line="386"/>
         <source>There are no unregistered accounts in the wallet!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="537"/>
+        <location filename="miner/minerpage.cpp" line="538"/>
         <source>total </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="548"/>
+        <location filename="miner/minerpage.cpp" line="549"/>
         <source>confirmed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="717"/>
+        <location filename="miner/minerpage.cpp" line="718"/>
         <source>unknown</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="719"/>
+        <location filename="miner/minerpage.cpp" line="720"/>
         <source>VOTE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="945"/>
-        <location filename="miner/minerpage.cpp" line="1074"/>
+        <location filename="miner/minerpage.cpp" line="949"/>
+        <location filename="miner/minerpage.cpp" line="1078"/>
         <source>You need to pay %1 %2 for this operation. Continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="1105"/>
+        <location filename="miner/minerpage.cpp" line="1109"/>
         <source>You can obtain income from at most 100 miners at one time!</source>
         <oldsource>You can obtain income from at most 100 miners at one time!</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="1160"/>
+        <location filename="miner/minerpage.cpp" line="1164"/>
         <source>You can foreclose assets from at most 100 miners at one time!</source>
         <oldsource>You can foreclose assets from at most 100 miners at one time!</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="1119"/>
+        <location filename="miner/minerpage.cpp" line="1123"/>
         <source>Sure to foreclose all assets that you have voted?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="1189"/>
+        <location filename="miner/minerpage.cpp" line="1193"/>
         <source>Miner:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="1190"/>
+        <location filename="miner/minerpage.cpp" line="1194"/>
         <source>Fee:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="1191"/>
+        <location filename="miner/minerpage.cpp" line="1195"/>
         <source>Weight:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="1192"/>
+        <location filename="miner/minerpage.cpp" line="1196"/>
         <source>LastProduce:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="1193"/>
+        <location filename="miner/minerpage.cpp" line="1197"/>
         <source>Missed:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="miner/minerpage.cpp" line="1194"/>
+        <location filename="miner/minerpage.cpp" line="1198"/>
         <source>Total:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -8555,11 +8550,6 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">ImportWallet</translation>
     </message>
     <message>
-        <location filename="neworimportwalletwidget.ui" line="82"/>
-        <source>v1.0.1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="neworimportwalletwidget.cpp" line="28"/>
         <source>Select your wallet file.</source>
         <oldsource>Choose your wallet file.</oldsource>
@@ -8719,58 +8709,58 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/OnchainOrderPage.cpp" line="157"/>
+        <location filename="exchange/OnchainOrderPage.cpp" line="156"/>
         <source>buy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/OnchainOrderPage.cpp" line="166"/>
+        <location filename="exchange/OnchainOrderPage.cpp" line="165"/>
         <source>my order</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/OnchainOrderPage.cpp" line="247"/>
+        <location filename="exchange/OnchainOrderPage.cpp" line="246"/>
         <source>SELL</source>
         <oldsource>Sell</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/OnchainOrderPage.cpp" line="248"/>
+        <location filename="exchange/OnchainOrderPage.cpp" line="247"/>
         <source>BUY</source>
         <oldsource>Buy</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/OnchainOrderPage.cpp" line="249"/>
+        <location filename="exchange/OnchainOrderPage.cpp" line="248"/>
         <source>PRICE</source>
         <oldsource>Price</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/OnchainOrderPage.cpp" line="253"/>
+        <location filename="exchange/OnchainOrderPage.cpp" line="252"/>
         <source>SELL / %1</source>
         <oldsource>Sell / %1</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/OnchainOrderPage.cpp" line="254"/>
+        <location filename="exchange/OnchainOrderPage.cpp" line="253"/>
         <source>BUY / %1</source>
         <oldsource>Buy / %1</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/OnchainOrderPage.cpp" line="255"/>
+        <location filename="exchange/OnchainOrderPage.cpp" line="254"/>
         <source>PRICE (%1/%2)</source>
         <oldsource>Price (%1/%2)</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/OnchainOrderPage.cpp" line="297"/>
+        <location filename="exchange/OnchainOrderPage.cpp" line="296"/>
         <source>Please Import Or Create Account First!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/OnchainOrderPage.cpp" line="376"/>
+        <location filename="exchange/OnchainOrderPage.cpp" line="375"/>
         <source>You can only set at most 6 favorite order pairs!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9842,22 +9832,22 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="selectwalletpathwidget.ui" line="149"/>
+        <location filename="selectwalletpathwidget.ui" line="152"/>
         <source>Select the path of the wallet data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="selectwalletpathwidget.ui" line="172"/>
+        <location filename="selectwalletpathwidget.ui" line="175"/>
         <source>Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="selectwalletpathwidget.ui" line="189"/>
+        <location filename="selectwalletpathwidget.ui" line="192"/>
         <source>简体中文</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="selectwalletpathwidget.ui" line="194"/>
+        <location filename="selectwalletpathwidget.ui" line="197"/>
         <source>English</source>
         <translation type="unfinished"></translation>
     </message>
@@ -9924,32 +9914,32 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">Password</translation>
     </message>
     <message>
-        <location filename="exchange/selldialog.cpp" line="90"/>
+        <location filename="exchange/selldialog.cpp" line="92"/>
         <source>Transaction of sell-order has been sent out!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/selldialog.cpp" line="97"/>
+        <location filename="exchange/selldialog.cpp" line="99"/>
         <source>Fail to create sell-order!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/selldialog.cpp" line="147"/>
+        <location filename="exchange/selldialog.cpp" line="149"/>
         <source>Wrong password!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/selldialog.cpp" line="159"/>
+        <location filename="exchange/selldialog.cpp" line="161"/>
         <source>Assets can not be the same!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/selldialog.cpp" line="168"/>
+        <location filename="exchange/selldialog.cpp" line="170"/>
         <source>The amount can not be 0!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="exchange/selldialog.cpp" line="198"/>
+        <location filename="exchange/selldialog.cpp" line="200"/>
         <source>Max: %1 %2</source>
         <oldsource>Total %1 %2</oldsource>
         <translation type="unfinished"></translation>
@@ -10118,8 +10108,11 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="setdialog.ui" line="567"/>
-        <location filename="setdialog.cpp" line="48"/>
-        <location filename="setdialog.cpp" line="380"/>
+        <location filename="setdialog.ui" line="1210"/>
+        <location filename="setdialog.cpp" line="49"/>
+        <location filename="setdialog.cpp" line="55"/>
+        <location filename="setdialog.cpp" line="385"/>
+        <location filename="setdialog.cpp" line="653"/>
         <source>on</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10184,12 +10177,17 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">open</translation>
     </message>
     <message>
-        <location filename="setdialog.ui" line="1231"/>
+        <location filename="setdialog.ui" line="1239"/>
+        <source>旧钱包rpc接口服务</source>
+        <translation type="unfinished">Old Rpc Service</translation>
+    </message>
+    <message>
+        <location filename="setdialog.ui" line="1292"/>
         <source>安全设置</source>
         <translation type="unfinished">Safety</translation>
     </message>
     <message>
-        <location filename="setdialog.ui" line="1259"/>
+        <location filename="setdialog.ui" line="1320"/>
         <source>账户管理</source>
         <translation type="unfinished">Account</translation>
     </message>
@@ -10250,31 +10248,33 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">vote</translation>
     </message>
     <message>
-        <location filename="setdialog.cpp" line="48"/>
-        <location filename="setdialog.cpp" line="385"/>
+        <location filename="setdialog.cpp" line="49"/>
+        <location filename="setdialog.cpp" line="55"/>
+        <location filename="setdialog.cpp" line="390"/>
+        <location filename="setdialog.cpp" line="660"/>
         <source>off</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setdialog.cpp" line="429"/>
-        <location filename="setdialog.cpp" line="482"/>
+        <location filename="setdialog.cpp" line="434"/>
+        <location filename="setdialog.cpp" line="487"/>
         <source>at least 8 letters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setdialog.cpp" line="456"/>
-        <location filename="setdialog.cpp" line="481"/>
-        <location filename="setdialog.cpp" line="501"/>
+        <location filename="setdialog.cpp" line="461"/>
+        <location filename="setdialog.cpp" line="486"/>
+        <location filename="setdialog.cpp" line="506"/>
         <source>not consistent</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setdialog.cpp" line="530"/>
+        <location filename="setdialog.cpp" line="535"/>
         <source>wrong password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="setdialog.cpp" line="549"/>
+        <location filename="setdialog.cpp" line="554"/>
         <source>Fail to modify the password!</source>
         <oldsource>Fail to set password!</oldsource>
         <translation type="unfinished"></translation>
@@ -10710,6 +10710,24 @@ p, li { white-space: pre-wrap; }
         <location filename="ToolButtonWidget.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TotalLockedDialog</name>
+    <message>
+        <location filename="miner/TotalLockedDialog.ui" line="14"/>
+        <source>Dialog</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="miner/TotalLockedDialog.ui" line="34"/>
+        <source>币种</source>
+        <translation type="unfinished">COIN</translation>
+    </message>
+    <message>
+        <location filename="miner/TotalLockedDialog.ui" line="42"/>
+        <source>投票总数</source>
+        <translation type="unfinished">TOTAL AMOUNT</translation>
     </message>
 </context>
 <context>
@@ -11468,12 +11486,12 @@ This name will be registered in the Goopal blockchain,permanently and immutably.
         <translation type="unfinished">Cancel</translation>
     </message>
     <message>
-        <location filename="withdrawpage/WithdrawConfirmWidget.cpp" line="72"/>
+        <location filename="withdrawpage/WithdrawConfirmWidget.cpp" line="90"/>
         <source>Transaction of withdraw-crosschain-balance has been sent,please wait for confirmation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="withdrawpage/WithdrawConfirmWidget.cpp" line="79"/>
+        <location filename="withdrawpage/WithdrawConfirmWidget.cpp" line="97"/>
         <source>Fail to withdraw crosschain balance!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11692,7 +11710,8 @@ This name will be registered in the Goopal blockchain,permanently and immutably.
     </message>
     <message>
         <location filename="withdrawpage/WithdrawInputWidget.cpp" line="55"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Due to on-chain reasons of ETH, withdrawing to the exchanges &lt;/span&gt;&lt;span style=&quot; font-size:14px; font-weight:600; color:#ff0000;&quot;&gt;might fail because of unable to handle&lt;/span&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;.We suggest you firstly withdraw to XWC deposit address and alot to deposit address of the exchange. This operation applies to ETH and ERC20 token (%1). &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Due to on-chain reasons of ETH, withdrawing to the exchanges &lt;/span&gt;&lt;span style=&quot; font-size:14px; font-weight:600; color:#ff0000;&quot;&gt;might fail because of unable to handle&lt;/span&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;.We suggest you firstly withdraw to XWC deposit address and alot to deposit address of the exchange. This operation applies to ETH and ERC20 token. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <oldsource>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;Due to on-chain reasons of ETH, withdrawing to the exchanges &lt;/span&gt;&lt;span style=&quot; font-size:14px; font-weight:600; color:#ff0000;&quot;&gt;might fail because of unable to handle&lt;/span&gt;&lt;span style=&quot; font-size:14px;&quot;&gt;.We suggest you firstly withdraw to XWC deposit address and alot to deposit address of the exchange. This operation applies to ETH and ERC20 token (%1). &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>

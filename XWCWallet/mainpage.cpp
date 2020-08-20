@@ -74,6 +74,11 @@ MainPage::MainPage(QWidget *parent) :
 
     ui->pubKeyLabel->hide();
     ui->copyBtn2->hide();
+
+    ui->showVotedBtn->setCheckable(true);
+
+    ui->showVotedBtn->setChecked(XWCWallet::getInstance()->showVotedAsset);
+    ui->showVotedBtn->setStyleSheet(SWITCHBTN_STYLE);
 }
 
 MainPage::~MainPage()
@@ -89,11 +94,26 @@ MainPage::~MainPage()
 
 QString toThousandFigure( int);
 
+const AssetAmountMap calculateLockedBalances(const QVector<QPair<QString,AssetAmount>> vector)
+{
+    AssetAmountMap map;
+    for(const QPair<QString,AssetAmount>& pair : vector)
+    {
+        map[pair.second.assetId].assetId = pair.second.assetId;
+        map[pair.second.assetId].amount += pair.second.amount;
+    }
+
+    return map;
+}
+
 void MainPage::updateAccountList()
 {
     AccountInfo info = XWCWallet::getInstance()->accountInfoMap.value(ui->accountComboBox->currentText());
     ui->addressLabel->setText(info.address);
     ui->pubKeyLabel->setText( info.pubKey);
+
+    // calculate account locked balances
+    const AssetAmountMap& lockedBalancesMap = calculateLockedBalances(info.lockBalances);
 
 
     AssetAmountMap map = info.assetAmountMap;
@@ -115,7 +135,19 @@ void MainPage::updateAccountList()
         ui->accountTableWidget->setItem(i,0,new QTableWidgetItem(symbol));
 
         //数量
-        ui->accountTableWidget->setItem(i,1,new QTableWidgetItem(getBigNumberString(map.value(assetId).amount, assetInfo.precision)));
+        QString showAmount;
+        if(XWCWallet::getInstance()->showVotedAsset)
+        {
+            unsigned long long amountSum = 0;
+            amountSum += map.value(assetId).amount;
+            amountSum += lockedBalancesMap.value(assetId).amount;
+            showAmount = getBigNumberString(amountSum, assetInfo.precision);
+        }
+        else
+        {
+            showAmount = getBigNumberString(map.value(assetId).amount, assetInfo.precision);
+        }
+        ui->accountTableWidget->setItem(i,1,new QTableWidgetItem(showAmount));
 
         ui->accountTableWidget->setItem(i,2,new QTableWidgetItem(tr("transfer")));
         if(ui->accountTableWidget->item(i,0)->text() != ASSET_NAME)
@@ -272,6 +304,13 @@ int tableWidgetPosToRow(QPoint pos, QTableWidget* table);
 
 void MainPage::refresh()
 {
+    if(XWCWallet::getInstance()->accountInfoMap.size() != ui->accountComboBox->count())
+    {
+        inited = false;
+        init();
+        return;
+    }
+
 //    qDebug() << "mainpage refresh"   << refreshOrNot;
 //    if( !refreshOrNot) return;
     ui->backupBtn->setVisible(XWCWallet::getInstance()->IsBackupNeeded);
@@ -497,12 +536,17 @@ void MainPage::InitStyle()
 
 void MainPage::on_allTransactionBtn_clicked()
 {
+#ifdef LIGHT_MODE
+    QString url = "http://explorer.whitecoin.info/#/address?address=" + ui->addressLabel->text();
+    QDesktopServices::openUrl(url);
+#else
     emit backBtnVisible(true);
 
     AllTransactionWidget* allTransactionWidget = new AllTransactionWidget(this);
     allTransactionWidget->setAttribute(Qt::WA_DeleteOnClose);
     allTransactionWidget->show();
     allTransactionWidget->raise();
+#endif
 }
 
 void MainPage::on_backupBtn_clicked()
@@ -567,4 +611,11 @@ void MainPage::on_pubkeyBtn_clicked()
         ui->copyBtn2->show();
         ui->pubkeyBtn->setText(tr("HIDE"));
     }
+}
+
+void MainPage::on_showVotedBtn_clicked()
+{
+    XWCWallet::getInstance()->showVotedAsset = !XWCWallet::getInstance()->showVotedAsset;
+    ui->showVotedBtn->setChecked(XWCWallet::getInstance()->showVotedAsset);
+    updateAccountList();
 }

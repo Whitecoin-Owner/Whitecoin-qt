@@ -66,18 +66,12 @@ public:
         }
     }
     //更新账户余额
-    void updateMoney(const QString &tunnelAddress,const QString &assetName,const QString &number){
+    void updateMoney(const QString &tunnelAddress,const QString &assetSymbol,const QString &number){
         std::lock_guard<std::mutex> lockguard(mutexLock);
         for(auto it = accounts.begin();it != accounts.end();++it){
-            if(tunnelAddress == (*it)->tunnelAddress && assetName == (*it)->assetSymbol){
-                int pre = 5;
-                foreach(AssetInfo asset,XWCWallet::getInstance()->assetInfoMap){
-                    if(asset.symbol == (*it)->assetSymbol)
-                    {
-                        pre = asset.precision;
-                        break;
-                    }
-                }
+            if(tunnelAddress == (*it)->tunnelAddress && assetSymbol == (*it)->assetSymbol){
+                int pre = XWCWallet::getInstance()->assetInfoMap.value(XWCWallet::getInstance()->getAssetId( getRealAssetSymbol( (*it)->assetSymbol))).precision;
+
                 (*it)->assetNumber = QString::number(std::max<double>(0,number.toDouble()-(*it)->captialFee),'f',pre);
                 if((*it)->assetNumber.toDouble() < 1e-11)
                 {
@@ -192,13 +186,25 @@ void CaptialNotify::httpReplied(QByteArray _data, int _status)
     QJsonObject object  = QJsonDocument::fromJson(_data).object().value("result").toObject();
     QString tunnel   = object.value("address").toString();
     QString asset = object.value("chainId").toString().toUpper();
-    QString number = QString::number( jsonValueToDouble(object.value("balance")));
+    QString number = roundDownStr(object.value("balance").toString(), 8);
+
     _p->updateMoney(tunnel,asset,number);
 }
 
 void CaptialNotify::updateData()
 {
     if(_p->isInUpdate || !_p->isNotifyOn) return;
+
+#ifdef LIGHT_MODE
+    if(XWCWallet::getInstance()->lightModeMark.queryTunnelAddressMark)
+    {
+        return;
+    }
+    else
+    {
+        XWCWallet::getInstance()->lightModeMark.queryTunnelAddressMark = true;
+    }
+#endif
 
     //清空数据
     _p->SetInUpdateTrue();

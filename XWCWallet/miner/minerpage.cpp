@@ -18,6 +18,7 @@
 #include "depositpage/FeeChargeWidget.h"
 #include "showcontentdialog.h"
 #include "control/BlankDefaultWidget.h"
+#include "TotalLockedDialog.h"
 
 
 static const int ROWNUMBER = 6;
@@ -767,6 +768,7 @@ void MinerPage::InitStyle()
     ui->lockToMinerBtn->setStyleSheet(TOOLBUTTON_STYLE_1);
     ui->registerBtn->setStyleSheet(TOOLBUTTON_STYLE_1);
     ui->forecloseAllBtn->setStyleSheet(TOOLBUTTON_STYLE_1);
+    ui->totalInfoAllBtn->setStyleSheet(TOOLBUTTON_STYLE_1);
 }
 
 void MinerPage::updateCheckState(int number)
@@ -808,6 +810,8 @@ void MinerPage::checkBtnVisible()
     {
         ui->forecloseAllBtn->show();
     }
+
+    ui->totalInfoAllBtn->setVisible(ui->stackedWidget->currentIndex() == 3);
 }
 
 void MinerPage::autoLockToCitizen()
@@ -1001,7 +1005,7 @@ void MinerPage::on_citizenInfoBtn_clicked()
     updateCheckState(3);
 
     checkBtnVisible();
-    ui->sortTypeComboBox->show();
+    ui->sortTypeComboBox->setVisible(ui->accountComboBox->isVisible());
 }
 
 void MinerPage::pageChangeSlot(unsigned int page)
@@ -1236,4 +1240,11 @@ void MinerPage::modifyStringLength(QString &first, QString &second, bool fillApp
             }
         }
     }
+}
+
+void MinerPage::on_totalInfoAllBtn_clicked()
+{
+    TotalLockedDialog dialog;
+    dialog.move(ui->totalInfoAllBtn->mapToGlobal(QPoint(-120,24)));
+    dialog.exec();
 }

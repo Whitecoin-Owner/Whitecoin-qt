@@ -281,7 +281,7 @@ void PageScrollWidget::InitStyle()
                   font-size:10 px;\
                   font-weight:bold;\
                   color:rgb(83,107,215);}"
-                  "QToolButton:checked{color:rgb(83,107,215);}"
+                  "QToolButton:checked{color:rgb(158,127,215);}"
                   "QToolButton#toolButton_next{border-radius:4px;background-color:rgb(83,107,215);background-image:url(:/ui/wallet_ui/next.png);background-repeat: no-repeat;background-position: center;}"
                   "QToolButton#toolButton_pre{border-radius:4px;background-color:rgb(255,255,255);background-image:url(:/ui/wallet_ui/pre.png);background-repeat: no-repeat;background-position: center;}"
                   "QLineEdit{max-height:20 px;\

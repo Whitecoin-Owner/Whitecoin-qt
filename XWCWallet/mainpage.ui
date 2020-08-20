@@ -549,6 +549,52 @@ text-decoration: underline;</string>
     <string>查看公钥</string>
    </property>
   </widget>
+  <widget class="QToolButton" name="showVotedBtn">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>148</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+    </font>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>146</y>
+     <width>70</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:rgb(57,68,107,204);font:11px &quot;Microsoft YaHei&quot;;</string>
+   </property>
+   <property name="text">
+    <string>显示已投票</string>
+   </property>
+  </widget>
   <zorder>title_label</zorder>
   <zorder>addressLabel</zorder>
   <zorder>addAccountBtn</zorder>
@@ -564,6 +610,8 @@ text-decoration: underline;</string>
   <zorder>copyBtn2</zorder>
   <zorder>registerBtn</zorder>
   <zorder>pubkeyBtn</zorder>
+  <zorder>label</zorder>
+  <zorder>showVotedBtn</zorder>
  </widget>
  <customwidgets>
   <customwidget>

@@ -184,10 +184,10 @@ color: rgb(57,68,107);border-radius:0px;}</string>
   <widget class="QLabel" name="label_pic4">
    <property name="geometry">
     <rect>
-     <x>406</x>
-     <y>150</y>
-     <width>143</width>
-     <height>28</height>
+     <x>385</x>
+     <y>140</y>
+     <width>190</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">

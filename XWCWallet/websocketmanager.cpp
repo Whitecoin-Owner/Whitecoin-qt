@@ -2,6 +2,13 @@
 
 #include "wallet.h"
 
+#ifdef LIGHT_MODE
+#define RPC_TIMEOUT  3000
+#else
+#define RPC_TIMEOUT  1000       // rpc超时时间
+#endif
+
+
 WebSocketManager::WebSocketManager(QObject *parent)
     : QThread(parent)
     , busy(true)
@@ -133,7 +140,7 @@ void WebSocketManager::onTimer()
     if( !processingRpc.isEmpty())
     {
         loopCount++;
-        if(loopCount >= 1000 && loopCount % 1000 == 0 )
+        if(loopCount >= RPC_TIMEOUT && loopCount % RPC_TIMEOUT == 0 )
         {
             logToFile( QStringList() << QString("rpc timeout: %1 %2").arg(QString::number(loopCount / 1000))
                        .arg(processingRpc) );
