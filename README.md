@@ -2,7 +2,7 @@
 
 
 # Development
-1. Install g++
+1. Install g++ (Mac) or VS2017 (Win)
 2. Install QT 5.11
 3. Open ".pro" file with qtcreator
 4. Build with qtcreator
