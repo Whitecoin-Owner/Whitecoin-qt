@@ -293,7 +293,7 @@ void ContractTokenPage::on_addTokenBtn_clicked()
 
     if(addTokenDialog.newTokenAdded)
     {
-        QTimer::singleShot(5000, this, &ContractTokenPage::fetchTokensInfo);
+        QTimer::singleShot(100, this, &ContractTokenPage::fetchTokensInfo);
     }
 }
 
