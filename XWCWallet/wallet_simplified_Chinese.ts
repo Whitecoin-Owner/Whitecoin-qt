@@ -5509,27 +5509,27 @@ Cover it or not?</source>
 <context>
     <name>Frame</name>
     <message>
-        <location filename="frame.cpp" line="1351"/>
+        <location filename="frame.cpp" line="1380"/>
         <source>Please Import Or Create Account First!</source>
         <translation type="unfinished">请先导入或创建账户！</translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="1610"/>
+        <location filename="frame.cpp" line="1639"/>
         <source>This wallet is newly imported. It will rescan the blockchain data when launched next time. After that the transactions of the accounts in this wallet will be shown.</source>
         <translation type="unfinished">这是一个新导入的钱包，会在下次启动时重新扫描区块链数据。在此之后钱包内账户的交易将被显示。</translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="2850"/>
+        <location filename="frame.cpp" line="2879"/>
         <source>Minimize</source>
         <translation type="unfinished">最小化</translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="2853"/>
+        <location filename="frame.cpp" line="2882"/>
         <source>Restore</source>
         <translation type="unfinished">恢复</translation>
     </message>
     <message>
-        <location filename="frame.cpp" line="2856"/>
+        <location filename="frame.cpp" line="2885"/>
         <source>Quit</source>
         <translation type="unfinished">退出</translation>
     </message>
@@ -6330,6 +6330,11 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="importdialog.ui" line="258"/>
+        <source>兼容XWCC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="importdialog.ui" line="144"/>
         <source>选择路径</source>
         <translation type="unfinished"></translation>
@@ -6351,22 +6356,26 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">选择你的私钥文件</translation>
     </message>
     <message>
-        <location filename="importdialog.cpp" line="139"/>
+        <location filename="importdialog.cpp" line="141"/>
         <source>Wrong file path.</source>
         <translation type="unfinished">错误的文件路径</translation>
     </message>
     <message>
-        <location filename="importdialog.cpp" line="150"/>
+        <location filename="importdialog.cpp" line="152"/>
         <source>XWC Address:%1  Already Exists!</source>
         <translation type="unfinished">XWC地址:%1 已存在！</translation>
     </message>
     <message>
-        <location filename="importdialog.cpp" line="187"/>
-        <source>Wrong XWC private key!</source>
-        <translation type="unfinished">错误的XWC私钥</translation>
+        <location filename="importdialog.cpp" line="189"/>
+        <source>Wrong XWC/XWCC private key!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="importdialog.cpp" line="313"/>
+        <source>Wrong XWC private key!</source>
+        <translation type="obsolete">错误的XWC私钥</translation>
+    </message>
+    <message>
+        <location filename="importdialog.cpp" line="315"/>
         <source>Fail to import key!</source>
         <translation type="unfinished">导入私钥失败！</translation>
     </message>
@@ -6379,7 +6388,7 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">导入私钥错误：</translation>
     </message>
     <message>
-        <location filename="importdialog.cpp" line="351"/>
+        <location filename="importdialog.cpp" line="353"/>
         <source>Everytime a new account is imported, the wallet will rescan the blockchain data when launched next time. After that the transactions of the account will be shown.</source>
         <translation type="unfinished">每当一个新的账户被导入，钱包会在下次启动时重新扫描区块链数据。在此之后该账户的交易将被显示。</translation>
     </message>
@@ -6388,7 +6397,7 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">已经存在</translation>
     </message>
     <message>
-        <location filename="importdialog.cpp" line="347"/>
+        <location filename="importdialog.cpp" line="349"/>
         <source> has been imported!</source>
         <translation type="unfinished">已经被导入!</translation>
     </message>
@@ -6582,6 +6591,54 @@ p, li { white-space: pre-wrap; }
         <location filename="exchange/KLineWidget.cpp" line="460"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10px; color:%7;&quot;&gt;CHANGE: %1%    &lt;/span&gt;&lt;span style=&quot; font-size:10px; color:#261932;&quot;&gt;O:%2 H:%3 L:%4 C:%5 V:%6&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10px; color:%7;&quot;&gt;涨幅: %1%    &lt;/span&gt;&lt;span style=&quot; font-size:10px; color:#261932;&quot;&gt;开:%2 高:%3 低:%4 收:%5 量:%6&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+</context>
+<context>
+    <name>LightModeConfig</name>
+    <message>
+        <location filename="LightModeConfig.ui" line="14"/>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="LightModeConfig.ui" line="35"/>
+        <source>确定</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="LightModeConfig.ui" line="75"/>
+        <source>v1.0.1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="LightModeConfig.ui" line="120"/>
+        <source>light mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="LightModeConfig.ui" line="147"/>
+        <source>60038</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="LightModeConfig.ui" line="173"/>
+        <source>远程节点IP</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="LightModeConfig.ui" line="190"/>
+        <source>端口</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="LightModeConfig.cpp" line="90"/>
+        <source>Wrong IP!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="LightModeConfig.cpp" line="99"/>
+        <source>Wrong port!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7083,22 +7140,22 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished">划转</translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="399"/>
+        <location filename="mainpage.cpp" line="406"/>
         <source>Fail to create account!</source>
         <translation type="unfinished">创建账户失败！</translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="555"/>
+        <location filename="mainpage.cpp" line="567"/>
         <source>There are no unregistered accounts in the wallet!</source>
         <translation type="unfinished">钱包中没有未注册账户！</translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="594"/>
+        <location filename="mainpage.cpp" line="606"/>
         <source>PUBKEY</source>
         <translation type="unfinished">查看公钥</translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="600"/>
+        <location filename="mainpage.cpp" line="612"/>
         <source>HIDE</source>
         <translation type="unfinished">隐藏公钥</translation>
     </message>
@@ -7123,8 +7180,8 @@ p, li { white-space: pre-wrap; }
         <translation type="obsolete">复制到剪贴板</translation>
     </message>
     <message>
-        <location filename="mainpage.cpp" line="510"/>
-        <location filename="mainpage.cpp" line="513"/>
+        <location filename="mainpage.cpp" line="517"/>
+        <location filename="mainpage.cpp" line="520"/>
         <source>copy to clipboard</source>
         <translation type="unfinished">复制到剪贴板</translation>
     </message>
@@ -10291,7 +10348,7 @@ update or not?</source>
         <translation type="obsolete">还没有消息!</translation>
     </message>
     <message>
-        <location filename="titlebar.cpp" line="59"/>
+        <location filename="titlebar.cpp" line="68"/>
         <source>Sure to close the Wallet?</source>
         <translation type="unfinished">确定关闭钱包?</translation>
     </message>
