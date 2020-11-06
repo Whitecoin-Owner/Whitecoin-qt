@@ -1,4 +1,4 @@
-#include "LightModeConfig.h"
+﻿#include "LightModeConfig.h"
 #include "ui_LightModeConfig.h"
 
 #include "wallet.h"
@@ -16,6 +16,37 @@ LightModeConfig::LightModeConfig(QWidget *parent) :
     default_ip_port_vector.append(IP_Port("127.0.0.1", "50906"));
 #else
     default_ip_port_vector.append(IP_Port("47.56.106.1", "50806"));
+    default_ip_port_vector.append(IP_Port("47.245.53.117", "60015"));
+    default_ip_port_vector.append(IP_Port("112.5.37.28", "23456"));
+    default_ip_port_vector.append(IP_Port("123.129.217.68", "23456"));
+    default_ip_port_vector.append(IP_Port("27.159.82.205", "23456"));
+    default_ip_port_vector.append(IP_Port("117.24.6.145", "23456"));
+    default_ip_port_vector.append(IP_Port("223.111.134.138", "23456"));
+    default_ip_port_vector.append(IP_Port("37.58.57.33", "23456"));
+    default_ip_port_vector.append(IP_Port("23.106.33.176", "23456"));
+    default_ip_port_vector.append(IP_Port("85.25.134.29", "23456"));
+    default_ip_port_vector.append(IP_Port("46.29.163.206", "23456"));
+    default_ip_port_vector.append(IP_Port("209.126.119.147", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.209.50", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.65", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.66", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.67", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.68", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.69", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.70", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.71", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.72", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.73", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.74", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.75", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.76", "23456"));
+    default_ip_port_vector.append(IP_Port("107.148.255.77", "23456"));
+    default_ip_port_vector.append(IP_Port("103.96.3.217", "23456"));
+    default_ip_port_vector.append(IP_Port("103.43.10.218", "23456"));
+    default_ip_port_vector.append(IP_Port("103.43.10.219", "23456"));
+    default_ip_port_vector.append(IP_Port("103.43.10.220", "23456"));
+    default_ip_port_vector.append(IP_Port("103.43.10.221", "23456"));
+    default_ip_port_vector.append(IP_Port("103.43.10.222", "23456"));
     default_ip_port_vector.append(IP_Port("127.0.0.1", "50806"));
 #endif
 
