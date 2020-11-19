@@ -1,4 +1,4 @@
-#ifndef ASSETICONITEM_H
+﻿#ifndef ASSETICONITEM_H
 #define ASSETICONITEM_H
 
 #include <QWidget>
@@ -18,6 +18,9 @@ public:
     void setAsset(QString assetSymbol);
 
     void setBackgroundColor(QString color);
+
+private slots:
+    void on_assetLabel_destroyed();
 
 private:
     Ui::AssetIconItem *ui;
