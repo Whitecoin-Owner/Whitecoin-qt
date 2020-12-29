@@ -37,7 +37,7 @@
 #define PUBKEY_PREFIX "XWC"
 #define ASSET_PRECISION 8
 
-#define WALLET_VERSION "1.2.7"           // 版本号
+#define WALLET_VERSION "1.2.8"           // 版本号
 
 #ifdef  LIGHT_MODE
 #define AUTO_REFRESH_TIME 15000
