@@ -19,8 +19,6 @@ public:
 
     void setBackgroundColor(QString color);
 
-private slots:
-    void on_assetLabel_destroyed();
 
 private:
     Ui::AssetIconItem *ui;
