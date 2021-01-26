@@ -82,9 +82,6 @@ LPWSTR ConvertCharToLPWSTR(const char * szString)
     return lpszPath;
 }
 
-
-
-
 #endif
 
 #ifdef TARGET_OS_MAC
