@@ -34,29 +34,31 @@ win32{
     QMAKE_LFLAGS += /MANIFESTUAC:\"level=\'requireAdministrator\' uiAccess=\'false\'\"
     QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
 
-    CONFIG(debug, debug|release) {
-        INCLUDEPATH += $$PWD/leveldb/include/
-        LIBS += -L$$PWD/leveldb -lleveldbd
+    INCLUDEPATH += $$PWD/leveldb/include
+    LIBS += -L$$PWD/leveldb -lleveldbd
 
-        if(contains(DEFINES,QT_NO_DEBUG)){
-            LIBS += -lDbgHelp -limm32
-        } else {
-            INCLUDEPATH += VisualLeakDetector/include
-            LIBS += -L$$PWD/VisualLeakDetector/lib/Win64 -lvld
-        }
+    if(contains(DEFINES,QT_NO_DEBUG)){
+        LIBS += -lDbgHelp -limm32
+    } else {
+        INCLUDEPATH += VisualLeakDetector/include
+        LIBS += -L$$PWD/VisualLeakDetector/lib/Win64 -lvld
     }
+    LIBS += -lShLwApi User32.Lib
 
-    LIBS += -lShLwApi
-    LIBS += User32.Lib
+    # Nothing to do at here
+    CONFIG(release, debug|release) {
+    }
 }
 
 macx{
     ICON = XWC.icns
     QMAKE_MAC_SDK = macosx10.15
 
+    INCLUDEPATH += $$PWD/leveldb/include
+    LIBS += $$PWD/leveldb/libleveldb.a
+
+    # Nothing to do at here
     CONFIG(release, debug|release) {
-        INCLUDEPATH += $$PWD/leveldb/include/
-        LIBS += $$PWD/leveldb/libleveldb.a
     }
 }
 
