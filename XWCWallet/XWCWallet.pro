@@ -34,9 +34,6 @@ win32{
     QMAKE_LFLAGS += /MANIFESTUAC:\"level=\'requireAdministrator\' uiAccess=\'false\'\"
     QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
 
-    INCLUDEPATH += $$PWD/leveldb/include
-    LIBS += -L$$PWD/leveldb -lleveldbd
-
     if(contains(DEFINES,QT_NO_DEBUG)){
         LIBS += -lDbgHelp -limm32
     } else {
@@ -45,8 +42,13 @@ win32{
     }
     LIBS += -lShLwApi User32.Lib
 
-    # Nothing to do at here
+    INCLUDEPATH += $$PWD/leveldb/include
+    CONFIG(debug, debug|release) {
+        LIBS += -L$$PWD/leveldb -lleveldbd
+    }
+
     CONFIG(release, debug|release) {
+        LIBS += -L$$PWD/leveldb -lleveldb
     }
 }
 
