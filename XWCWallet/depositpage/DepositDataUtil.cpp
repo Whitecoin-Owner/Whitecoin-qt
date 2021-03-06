@@ -23,20 +23,26 @@ QImage DepositDataUtil::CreateQRcodeImage(const QString &data)
     {
         return QImage(1,1,QImage::Format_RGB32);
     }
-    QImage image(qr->width,qr->width,QImage::Format_RGB32);
-    image.fill(Qt::white);
-    for(int i = 0; i < qr->width; ++i)
+    else
     {
-        for(int j = 0; j < qr->width; ++j)
+        QImage image(qr->width,qr->width,QImage::Format_RGB32);
+        image.fill(Qt::white);
+        for(int i = 0; i < qr->width; ++i)
         {
-            if(qr->data[i * qr->width + j] & 0x01)
+            for(int j = 0; j < qr->width; ++j)
             {
-                image.setPixelColor(i,j,Qt::black);
+                if(qr->data[i * qr->width + j] & 0x01)
+                {
+                    image.setPixelColor(i,j,Qt::black);
+                }
             }
         }
+
+        QRcode_free(qr);
+        return image;
     }
-    return image;
 }
+
 #include <QDebug>
 bool DepositDataUtil::ParseTunnelData(const QString &jsonString, std::shared_ptr<TunnelData> &resultData)
 {

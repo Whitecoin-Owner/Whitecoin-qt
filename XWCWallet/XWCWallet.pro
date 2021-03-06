@@ -13,7 +13,7 @@ TEMPLATE = app
 #DEFINES += TEST_WALLET
 #DEFINES += SAFE_VERSION
 #DEFINES += LIGHT_MODE
-
+DEFINES += QT_NO_DEBUG
 
 if(contains(DEFINES,TEST_WALLET)){
     if(contains(DEFINES,LIGHT_MODE)){
@@ -34,33 +34,38 @@ win32{
     QMAKE_LFLAGS += /MANIFESTUAC:\"level=\'requireAdministrator\' uiAccess=\'false\'\"
     QMAKE_LFLAGS_WINDOWS = /SUBSYSTEM:WINDOWS,5.01
 
-CONFIG(debug, debug|release) {
-    LIBS += -L$$PWD -lqrencoded
-    LIBS += -L$$PWD/leveldb -lleveldbd
-    INCLUDEPATH += VisualLeakDetector/include
-    LIBS += -L$$PWD/VisualLeakDetector/lib/Win64 -lvld
+    if(contains(DEFINES,QT_NO_DEBUG)){
+        LIBS += -lDbgHelp -limm32
+    } else {
+        INCLUDEPATH += VisualLeakDetector/include
+        LIBS += -L$$PWD/VisualLeakDetector/lib/Win64 -lvld
+    }
+    LIBS += -lShLwApi User32.Lib
+
+    INCLUDEPATH += $$PWD/leveldb/include
+    CONFIG(debug, debug|release) {
+        LIBS += -L$$PWD/leveldb -lleveldbd
+    }
+
+    CONFIG(release, debug|release) {
+        LIBS += -L$$PWD/leveldb -lleveldb
+    }
 }
-#    LIBS += -lDbgHelp
-#    LIBS += -limm32
-    LIBS += -lShLwApi
-    LIBS += User32.Lib
-}
+
 macx{
     ICON = XWC.icns
-    QMAKE_MAC_SDK = macosx10.12
+    QMAKE_MAC_SDK = macosx10.15
+
+    INCLUDEPATH += $$PWD/leveldb/include
+    LIBS += $$PWD/leveldb/libleveldb.a
+
+    # Nothing to do at here
+    CONFIG(release, debug|release) {
+    }
 }
-
-CONFIG(release, debug|release) {
-    LIBS += -L$$PWD -lqrencode
-    LIBS += -L$$PWD/leveldb -lleveldb
-}
-
-INCLUDEPATH += $$PWD/leveldb/include/
-
-
 
 SOURCES += main.cpp\
-        firstlogin.cpp \
+    firstlogin.cpp \
     normallogin.cpp \
     frame.cpp \
     mainpage.cpp \
@@ -441,6 +446,31 @@ HEADERS  += firstlogin.h \
     extra/OldRpcAdapter.h \
     LightModeConfig.h
 
+HEADERS += \
+    code.h \
+    qrencode/bitstream.h \
+    qrencode/config.h \
+    qrencode/mask.h \
+    qrencode/mmask.h \
+    qrencode/mqrspec.h \
+    qrencode/qrencode_inner.h \
+    qrencode/qrencode.h \
+    qrencode/qrinput.h \
+    qrencode/qrspec.h \
+    qrencode/rscode.h \
+    qrencode/split.h
+
+SOURCES += \
+    qrencode/bitstream.c \
+    qrencode/mask.c \
+    qrencode/mmask.c \
+    qrencode/mqrspec.c \
+    qrencode/qrencode.c \
+    qrencode/qrinput.c \
+    qrencode/qrspec.c \
+    qrencode/rscode.c \
+    qrencode/split.c
+
 FORMS    += firstlogin.ui \
     normallogin.ui \
     mainpage.ui \
@@ -604,7 +634,7 @@ RESOURCES += \
     contact/resources.qrc \
     functionBar/functionbar.qrc
 
-TRANSLATIONS +=   wallet_simplified_Chinese.ts  wallet_English.ts
+TRANSLATIONS += wallet_simplified_Chinese.ts  wallet_English.ts
 
 
 CONFIG(release,debug|release){
