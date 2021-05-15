@@ -44,7 +44,7 @@ static const QString CLIENT_PROC_MD5 = "f73e35c983364a14831291fab7cfac4d";
 
 XWCWallet* XWCWallet::goo = 0;
 static const QMap<QString,double>    defaultAutoWithdrawAmountMap = { {"BTC",10},{"LTC",1000},{"ETH",100} };
-extern const QStringList ERCAssets = {};
+static const QStringList ERCAssets = {"USDT"};
 
 XWCWallet::XWCWallet()
 {
@@ -2299,7 +2299,6 @@ QString getRealAssetSymbol(QString symbol)
     {
         return symbol;
     }
-
 }
 
 int checkUseGuaranteeOrderType(QString payer, QString currentAddress, QString ownerAddress)
