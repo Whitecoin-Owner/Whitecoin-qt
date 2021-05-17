@@ -12,11 +12,10 @@ LightModeConfig::LightModeConfig(QWidget *parent) :
     ui->setupUi(this);
 
 #ifdef TEST_WALLET
-//    default_ip_port_vector.append(IP_Port("106.13.107.239", "19035"));
+//  default_ip_port_vector.append(IP_Port("106.13.107.239", "19035"));
     default_ip_port_vector.append(IP_Port("127.0.0.1", "50906"));
 #else
     default_ip_port_vector.append(IP_Port("47.56.106.1", "50806"));
-    default_ip_port_vector.append(IP_Port("47.245.53.117", "60015"));
 
     //xwc_node IP list at here: https://list.xwc.com/list.txt
     default_ip_port_vector.append(IP_Port("112.5.37.28", "23454"));
