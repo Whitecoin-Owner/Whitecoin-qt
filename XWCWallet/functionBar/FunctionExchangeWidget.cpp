@@ -1,4 +1,4 @@
-#include "FunctionExchangeWidget.h"
+﻿#include "FunctionExchangeWidget.h"
 #include "ui_FunctionExchangeWidget.h"
 
 #include "extra/style.h"
@@ -24,7 +24,6 @@ void FunctionExchangeWidget::retranslator()
 
 void FunctionExchangeWidget::DefaultShow()
 {
-//    on_exchangeBtn_clicked();
     on_onchainOrderBtn_clicked();
 }
 
@@ -34,6 +33,7 @@ void FunctionExchangeWidget::InitWidget()
     ui->exchangeBtn->setCheckable(true);
     ui->onchainOrderBtn->setCheckable(true);
     ui->contractTokenBtn->setCheckable(true);
+    ui->nftTokenBtn->setCheckable(true);
 
     ui->exchangeBtn->hide();
 }
@@ -69,7 +69,6 @@ void FunctionExchangeWidget::on_contractTokenBtn_clicked()
     Q_EMIT showContractTokenSignal();
 }
 
-
 void FunctionExchangeWidget::paintEvent(QPaintEvent *)
 {
     QPainter painter(this);
@@ -82,3 +81,11 @@ void FunctionExchangeWidget::paintEvent(QPaintEvent *)
     painter.drawLine(0,199,130,199);
 }
 
+void FunctionExchangeWidget::on_nftTokenBtn_clicked()
+{
+    ui->exchangeBtn->setChecked(false);
+    ui->onchainOrderBtn->setChecked(false);
+    ui->contractTokenBtn->setChecked(false);
+    ui->nftTokenBtn->setChecked(true);
+    Q_EMIT showNftTokenSignal();
+}

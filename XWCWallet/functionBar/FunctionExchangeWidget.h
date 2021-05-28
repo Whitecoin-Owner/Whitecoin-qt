@@ -1,4 +1,4 @@
-#ifndef FUNCTIONEXCHANGEWIDGET_H
+﻿#ifndef FUNCTIONEXCHANGEWIDGET_H
 #define FUNCTIONEXCHANGEWIDGET_H
 
 #include <QWidget>
@@ -26,6 +26,7 @@ signals:
     void showOnchainOrderSignal();
     void showMyOrderSignal();
     void showContractTokenSignal();
+    void showNftTokenSignal();
 
 private slots:
     void on_exchangeBtn_clicked();
@@ -34,6 +35,7 @@ private slots:
 
     void on_contractTokenBtn_clicked();
 
+    void on_nftTokenBtn_clicked();
 
 private:
     Ui::FunctionExchangeWidget *ui;

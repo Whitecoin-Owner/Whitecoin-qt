@@ -10,7 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TEMPLATE = app
 
-#DEFINES += TEST_WALLET
+DEFINES += TEST_WALLET
 #DEFINES += SAFE_VERSION
 #DEFINES += LIGHT_MODE
 DEFINES += QT_NO_DEBUG
@@ -251,7 +251,8 @@ SOURCES += main.cpp\
     control/CommonControl.cpp \
     miner/TotalLockedDialog.cpp \
     extra/OldRpcAdapter.cpp \
-    LightModeConfig.cpp
+    LightModeConfig.cpp \
+    dapp/NftTokenPage.cpp
 
 
 HEADERS  += firstlogin.h \
@@ -444,7 +445,8 @@ HEADERS  += firstlogin.h \
     control/CommonControl.h \
     miner/TotalLockedDialog.h \
     extra/OldRpcAdapter.h \
-    LightModeConfig.h
+    LightModeConfig.h \
+    dapp/NftTokenPage.h
 
 HEADERS += \
     code.h \
@@ -622,7 +624,8 @@ FORMS    += firstlogin.ui \
     citizen/CitizenResolutionDialog.ui \
     control/CoverWidget.ui \
     miner/TotalLockedDialog.ui \
-    LightModeConfig.ui
+    LightModeConfig.ui \
+    dapp/NftTokenPage.ui
 
 win32{
     DISTFILES += logo.rc

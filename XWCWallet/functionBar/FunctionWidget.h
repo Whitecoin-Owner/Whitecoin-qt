@@ -1,4 +1,4 @@
-#ifndef FUNCTIONWIDGET_H
+﻿#ifndef FUNCTIONWIDGET_H
 #define FUNCTIONWIDGET_H
 
 #include <QWidget>
@@ -55,6 +55,7 @@ signals:
     void showOnchainOrderSignal();
     void showMyOrderSignal();
     void showContractTokenSignal();
+    void showNftTokenSignal();
     void showGuardAccountSignal();
     void showGuardIncomeSignal();
     void showLockContractSignal();

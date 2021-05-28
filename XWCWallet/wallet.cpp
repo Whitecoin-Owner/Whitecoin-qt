@@ -203,7 +203,7 @@ void XWCWallet:: startExe()
     {
         strList << "--replay";
     }
-
+    strList << "--genesis-json=test_genesis.json";
 
     XWCWallet::getInstance()->configFile->setValue("/settings/resyncNextTime",false);
     XWCWallet::getInstance()->configFile->setValue("/settings/dbReplay1",false);
@@ -229,6 +229,7 @@ void XWCWallet::startClient(QString ip, QString port)
             << QString("--server-rpc-endpoint=ws://%1:%2").arg(ip).arg(port)
             << QString("--rpc-endpoint=127.0.0.1:%1").arg(CLIENT_RPC_PORT);
 
+    strList << "--chain-id=a3c762d4c7bcbbfa59327c35c2a6e98558f6ca90d9fd71dfc59a15d09c8c52e4";
     clientProc->start(CLIENT_PROC_NAME,strList);
 }
 
@@ -298,6 +299,7 @@ void XWCWallet::delayedLaunchClient()
             << QString("--server-rpc-endpoint=ws://127.0.0.1:%1").arg(NODE_RPC_PORT)
             << QString("--rpc-endpoint=127.0.0.1:%1").arg(CLIENT_RPC_PORT);
 
+    strList << "--chain-id=a3c762d4c7bcbbfa59327c35c2a6e98558f6ca90d9fd71dfc59a15d09c8c52e4";
     clientProc->start(CLIENT_PROC_NAME,strList);
 }
 
