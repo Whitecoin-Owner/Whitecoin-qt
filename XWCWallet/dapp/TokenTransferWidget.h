@@ -1,4 +1,4 @@
-#ifndef TOKENTRANSFERWIDGET_H
+﻿#ifndef TOKENTRANSFERWIDGET_H
 #define TOKENTRANSFERWIDGET_H
 
 #include <QWidget>
@@ -45,9 +45,9 @@ private slots:
 private:
     Ui::TokenTransferWidget *ui;
     bool inited = false;
-    ContractTokenPage* page = NULL;
+    ContractTokenPage* page = nullptr;
     int stepCount = 0;
-    FeeChooseWidget* transferFeeWidget = NULL;
+    FeeChooseWidget* transferFeeWidget = nullptr;
 
     void calculateTransferFee();
 };

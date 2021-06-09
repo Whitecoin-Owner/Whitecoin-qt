@@ -119,7 +119,6 @@
         <file>wallet_ui/login_pic2.png</file>
         <file>wallet_ui/login_pic3.png</file>
         <file>wallet_ui/login_pic4.png</file>
-        <file>wallet_ui/XWC_logo.png</file>
         <file>wallet_ui/titlebar_close.png</file>
         <file>wallet_ui/titlebar_mini.png</file>
         <file>wallet_ui/coin_XWC.png</file>
@@ -129,6 +128,12 @@
         <file>wallet_ui/refresh.png</file>
         <file>wallet_ui/refresh_hover.png</file>
         <file>wallet_ui/coin_ERCUSDT.png</file>
+        <file>wallet_ui/coin_DOGE.png</file>
+        <file>wallet_ui/coin_ERCAAVE.png</file>
+        <file>wallet_ui/coin_ERCDAI.png</file>
+        <file>wallet_ui/coin_ERCUNI.png</file>
+        <file>wallet_ui/coin_ERCMATIC.png</file>
+        <file>wallet_ui/coin_ERCSHIB.png</file>
     </qresource>
     <qresource prefix="/">
         <file>notifyWidget/close.png</file>

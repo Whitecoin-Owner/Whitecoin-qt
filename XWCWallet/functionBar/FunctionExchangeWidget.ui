@@ -125,11 +125,30 @@ font: bold 16px &quot;微软雅黑&quot;;</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="nftTokenBtn">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>240</y>
+     <width>130</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>NFT</string>
+   </property>
+  </widget>
   <zorder>exchangeBtn</zorder>
   <zorder>label_normal</zorder>
   <zorder>onchainOrderBtn</zorder>
   <zorder>contractTokenBtn</zorder>
   <zorder>label_normal_2</zorder>
+  <zorder>nftTokenBtn</zorder>
  </widget>
  <resources/>
  <connections/>

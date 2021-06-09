@@ -47,6 +47,7 @@
 #include "guard/LockContractPage.h"
 #include "bonus/BonusPage.h"
 #include "dapp/ContractTokenPage.h"
+#include "dapp/NftTokenPage.h"
 #include "citizen/CitizenAccountPage.h"
 #include "citizen/CitizenProposalPage.h"
 #include "dialog/ExitingWidget.h"
@@ -433,6 +434,7 @@ void Frame::alreadyLogin()
     connect(functionBar,&FunctionWidget::showFeedPriceSignal,this,&Frame::showFeedPricePage);
     connect(functionBar,&FunctionWidget::showColdHotTransferSignal,this,&Frame::showColdHotTransferPage);
     connect(functionBar,&FunctionWidget::showContractTokenSignal,this,&Frame::showContractTokenPage);
+    connect(functionBar,&FunctionWidget::showNftTokenSignal,this,&Frame::showNftTokenPage);
     connect(functionBar,&FunctionWidget::showCitizenAccountSignal,this,&Frame::showCitizenAccountPage);
     connect(functionBar,&FunctionWidget::showCitizenProposalSignal,this,&Frame::showCitizenProposalPage);
     connect(functionBar,&FunctionWidget::showCitizenPolicySignal,this,&Frame::showCitizenPolicyPage);
@@ -1259,6 +1261,9 @@ void Frame::setLanguage(QString language)
         case 26:
             showCitizenPolicyPage();
             break;
+        case 27:
+            showNftTokenPage();
+            break;
         default:
             break;
         }
@@ -1504,6 +1509,18 @@ void Frame::showContractTokenPage()
     contractTokenPage->setAttribute(Qt::WA_DeleteOnClose);
     contractTokenPage->show();
     currentPageNum = 20;
+}
+
+void Frame::showNftTokenPage()
+{
+    emit titleBackVisible(false);
+
+    closeCurrentPage();
+    nftTokenPage = new NftTokenPage(centralWidget);
+//    connect(nftTokenPage,&NftTokenPage::backBtnVisible,titleBar,&TitleBar::backBtnVis);
+    nftTokenPage->setAttribute(Qt::WA_DeleteOnClose);
+    nftTokenPage->show();
+    currentPageNum = 27;
 }
 
 void Frame::showCitizenAccountPage()
@@ -2843,6 +2860,9 @@ void Frame::onBack()
         break;
     case 25:
         showNameTransferPage();
+        break;
+    case 27:
+        showNftTokenPage();
         break;
     default:
         break;

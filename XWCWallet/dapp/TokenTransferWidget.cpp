@@ -1,4 +1,4 @@
-#include "TokenTransferWidget.h"
+﻿#include "TokenTransferWidget.h"
 #include "ui_TokenTransferWidget.h"
 
 #include "wallet.h"

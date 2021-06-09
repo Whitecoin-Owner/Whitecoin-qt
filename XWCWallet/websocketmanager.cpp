@@ -1,4 +1,4 @@
-#include "websocketmanager.h"
+﻿#include "websocketmanager.h"
 
 #include "wallet.h"
 
@@ -46,52 +46,11 @@ void WebSocketManager::processRPC(QString _rpcId, QString _rpcCmd)
 
 void WebSocketManager::processRPCs(QString _rpcId, QString _rpcCmd, int _priority)
 {
-//    if(pendingRpcs.contains(_rpcId))      return;
-
-//    pendingRpcs.append(_rpcId + "***" + _rpcCmd);
-
     if(pendingRpcs.value(_priority).contains(_rpcId))   return;
     pendingRpcs[_priority].append(_rpcId + "***" + _rpcCmd);
-
-//    if(busy)
-//    {
-//        if(pendingRpcs.size() > 0)
-//        {
-////            qDebug() << "busy is " << pendingRpcs.at(0);
-//        }
-
-//        return;
-//    }
-
-//retry:
-//    if(!busy)
-//    {
-//        processRPC(_rpcId,_rpcCmd);
-//    }
-//    else
-//    {
-//        qDebug() << "busy is " << m_rpcId;
-//    }
-
-//    if( !processed)
-//    {
-//        if(loopCount > 100)
-//        {
-//            m_buff.clear();
-//            m_rpcId.clear();
-//            loopCount = 0;
-
-//            busy = false;
-//            return;
-//        }
-//        else
-//        {
-//            QThread::msleep(100);
-//            loopCount++;
-//            goto retry;
-//        }
-
-//    }
+    if (_rpcId.startsWith("NftTokenPage")) {
+        logToFile(QStringList() << _rpcId << _rpcCmd);
+    }
 }
 
 void WebSocketManager::run()

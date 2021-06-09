@@ -1,4 +1,4 @@
-#include "ContractTokenPage.h"
+﻿#include "ContractTokenPage.h"
 #include "ui_ContractTokenPage.h"
 
 #include "wallet.h"
@@ -21,12 +21,10 @@ ContractTokenPage::ContractTokenPage(QWidget *parent) :
     ui->tokenTableWidget->setSelectionMode(QAbstractItemView::NoSelection);
     ui->tokenTableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tokenTableWidget->setFocusPolicy(Qt::NoFocus);
-//    ui->tokenTableWidget->setFrameShape(QFrame::NoFrame);
     ui->tokenTableWidget->setMouseTracking(true);
-    ui->tokenTableWidget->setShowGrid(false);//隐藏表格线
+    ui->tokenTableWidget->setShowGrid(false);
 
     ui->tokenTableWidget->horizontalHeader()->setSectionsClickable(true);
-//    ui->tokenTableWidget->horizontalHeader()->setFixedHeight(40);
     ui->tokenTableWidget->horizontalHeader()->setVisible(true);
     ui->tokenTableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Fixed);
 

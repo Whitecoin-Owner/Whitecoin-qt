@@ -1,4 +1,4 @@
-#ifndef FRAME_H
+﻿#ifndef FRAME_H
 #define FRAME_H
 #include <QFrame>
 #include <QWidget>
@@ -54,6 +54,7 @@ class WithdrawConfirmPage;
 class FeedPricePage;
 class ColdHotTransferPage;
 class ContractTokenPage;
+class NftTokenPage;
 class CitizenAccountPage;
 class CitizenProposalPage;
 class CitizenPolicyPage;
@@ -133,6 +134,7 @@ private slots:
     void showFeedPricePage();
     void showColdHotTransferPage();
     void showContractTokenPage();
+    void showNftTokenPage();
     void showCitizenAccountPage();
     void showCitizenProposalPage();
     void showCitizenPolicyPage();
@@ -185,6 +187,7 @@ private:
     FeedPricePage*      feedPricePage;
     ColdHotTransferPage* coldHotTransferPage;
     ContractTokenPage*  contractTokenPage;
+    NftTokenPage* nftTokenPage;
     CitizenAccountPage* citizenAccountPage;
     CitizenProposalPage* citizenProposalPage;
     CitizenPolicyPage*  citizenPolicyPage = nullptr;

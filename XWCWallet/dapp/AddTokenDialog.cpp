@@ -1,4 +1,4 @@
-#include "AddTokenDialog.h"
+﻿#include "AddTokenDialog.h"
 #include "ui_AddTokenDialog.h"
 
 #include "wallet.h"
@@ -7,6 +7,8 @@
 static const QStringList tokenContractAbis = {"transfer", "transferFrom", "approve"};
 static const QStringList tokenContractOfflineAbis = {"precision", "totalSupply", "balanceOf", "approvedBalanceFrom", "allApprovedFromUser"};
 static const QStringList codeHashList = {"3e96f4a1fa3b647afb8cbb5aae08beaa50e4d9ba"};
+static const QStringList nftContractAbis = {"transfer", "transferFrom", "approve", "setApprovalForAll"};
+static const QStringList nftContractOfflineAbis = {"ownerOf", "totalSupply", "balanceOf", "tokenOfOwnerByIndex"};
 
 AddTokenDialog::AddTokenDialog(QWidget *parent) :
     QDialog(parent),
@@ -98,7 +100,21 @@ void AddTokenDialog::jsonDataUpdated(QString id)
                 }
             }
 
-            if(isStandard)
+            bool isNft = true;
+            foreach (QString str, nftContractAbis) {
+                if(!abis.contains(str))
+                {
+                    isStandard = false;
+                    break;
+                }
+            }
+            foreach (QString str, nftContractOfflineAbis) {
+                if(!offlineAbis.contains(str)) {
+                    isNft = false;
+                    break;
+                }
+            }
+            if(isStandard || isNft)
             {
                 if(codeHashList.contains(codeHash))
                 {
@@ -111,7 +127,11 @@ void AddTokenDialog::jsonDataUpdated(QString id)
                 }
                 else
                 {
-                    XWCWallet::getInstance()->configFile->setValue("/contractTokens/" + contractId, 1);
+                    if (isStandard) {
+                        XWCWallet::getInstance()->configFile->setValue("/contractTokens/" + contractId, 1);
+                    } else {
+                        XWCWallet::getInstance()->configFile->setValue("/nftTokens/" + contractId, 1);
+                    }
                     newTokenAdded = true;
 
                     CommonDialog commonDialog(CommonDialog::OkOnly);

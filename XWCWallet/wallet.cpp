@@ -44,7 +44,7 @@ static const QString CLIENT_PROC_MD5 = "f73e35c983364a14831291fab7cfac4d";
 
 XWCWallet* XWCWallet::goo = 0;
 static const QMap<QString,double>    defaultAutoWithdrawAmountMap = { {"BTC",10},{"LTC",1000},{"ETH",100} };
-static const QStringList ERCAssets = {"USDT"};
+static const QStringList ERCAssets = {"USDT", "AAVE", "UNI", "DAI", "SHIB", "MATIC"};
 
 XWCWallet::XWCWallet()
 {
@@ -203,7 +203,7 @@ void XWCWallet:: startExe()
     {
         strList << "--replay";
     }
-
+    strList << "--genesis-json=test_genesis.json";
 
     XWCWallet::getInstance()->configFile->setValue("/settings/resyncNextTime",false);
     XWCWallet::getInstance()->configFile->setValue("/settings/dbReplay1",false);
@@ -229,6 +229,7 @@ void XWCWallet::startClient(QString ip, QString port)
             << QString("--server-rpc-endpoint=ws://%1:%2").arg(ip).arg(port)
             << QString("--rpc-endpoint=127.0.0.1:%1").arg(CLIENT_RPC_PORT);
 
+    strList << "--chain-id=a3c762d4c7bcbbfa59327c35c2a6e98558f6ca90d9fd71dfc59a15d09c8c52e4";
     clientProc->start(CLIENT_PROC_NAME,strList);
 }
 

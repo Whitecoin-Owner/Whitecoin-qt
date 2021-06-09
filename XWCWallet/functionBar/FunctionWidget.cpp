@@ -1,4 +1,4 @@
-#include "FunctionWidget.h"
+﻿#include "FunctionWidget.h"
 #include "ui_FunctionWidget.h"
 
 #include <QMenu>
@@ -288,6 +288,7 @@ void FunctionWidget::InitWidget()
     connect(_p->exchangeBar,&FunctionExchangeWidget::showOnchainOrderSignal,this,&FunctionWidget::showOnchainOrderSignal);
     connect(_p->exchangeBar,&FunctionExchangeWidget::showMyOrderSignal,this,&FunctionWidget::showMyOrderSignal);
     connect(_p->exchangeBar,&FunctionExchangeWidget::showContractTokenSignal,this,&FunctionWidget::showContractTokenSignal);
+    connect(_p->exchangeBar,&FunctionExchangeWidget::showNftTokenSignal,this,&FunctionWidget::showNftTokenSignal);
 
     connect(_p->guardBar,&FunctionGuardWidget::showGuardAccountSignal,this,&FunctionWidget::showGuardAccountSignal);
     connect(_p->guardBar,&FunctionGuardWidget::showGuardIncomeSignal,this,&FunctionWidget::showGuardIncomeSignal);
