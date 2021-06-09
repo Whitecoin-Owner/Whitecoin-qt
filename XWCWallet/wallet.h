@@ -464,6 +464,7 @@ public:
     QString currentAccount; // 保存当前账户  切换页面的时候默认选择当前账户
     QString currentSellAssetId;
     QString currentBuyAssetId;
+    QString xwcChainId;
 
 
     unsigned long long contractFee;     // 合约单步执行费用

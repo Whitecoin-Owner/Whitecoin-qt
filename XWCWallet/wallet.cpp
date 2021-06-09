@@ -298,6 +298,12 @@ void XWCWallet::delayedLaunchClient()
             << QString("--server-rpc-endpoint=ws://127.0.0.1:%1").arg(NODE_RPC_PORT)
             << QString("--rpc-endpoint=127.0.0.1:%1").arg(CLIENT_RPC_PORT);
 
+    if (!xwcChainId.isEmpty())
+    {
+        strList << QString("--chain-id=%1").arg(xwcChainId);
+    }
+
+    logToFile( QStringList() << "start" << CLIENT_PROC_NAME << strList);
     clientProc->start(CLIENT_PROC_NAME,strList);
 }
 
@@ -313,8 +319,11 @@ void XWCWallet::checkNodeExeIsReady()
 
     if(str.contains("Chain ID is"))
     {
+        int32_t pos = str.lastIndexOf("Chain ID is");
+        xwcChainId = str.mid(pos + sizeof("Chain ID is")).trimmed();
+
         timerForStartExe.stop();
-        QTimer::singleShot(1000,this,SLOT(delayedLaunchClient()));
+        QTimer::singleShot(2000,this,SLOT(delayedLaunchClient()));
         connect(nodeProc, SIGNAL(readyRead()), this, SLOT(readNodeOutput()));
     }
 }
