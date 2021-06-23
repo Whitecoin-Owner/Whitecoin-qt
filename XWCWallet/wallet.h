@@ -37,7 +37,7 @@
 #define PUBKEY_PREFIX "XWC"
 #define ASSET_PRECISION 8
 
-#define WALLET_VERSION "1.3.0"           // 版本号
+#define WALLET_VERSION "1.3.1"           // 版本号
 
 #ifdef  LIGHT_MODE
 #define AUTO_REFRESH_TIME 15000
@@ -464,7 +464,7 @@ public:
     QString currentAccount; // 保存当前账户  切换页面的时候默认选择当前账户
     QString currentSellAssetId;
     QString currentBuyAssetId;
-    QString xwcChainId;
+    QString currentChainId;
 
 
     unsigned long long contractFee;     // 合约单步执行费用

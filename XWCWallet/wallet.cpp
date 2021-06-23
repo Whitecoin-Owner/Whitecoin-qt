@@ -148,8 +148,6 @@ XWCWallet::XWCWallet()
 
 XWCWallet::~XWCWallet()
 {
-
-
     if (configFile)
     {
         delete configFile;
@@ -195,19 +193,20 @@ void XWCWallet:: startExe()
             << "--all-plugin-start"
             ;
 
+    // replay all block data
     if( XWCWallet::getInstance()->configFile->value("/settings/resyncNextTime",false).toBool()
 #ifndef SAFE_VERSION
-            ||  XWCWallet::getInstance()->configFile->value("/settings/dbReplay1",true).toBool()
+        || XWCWallet::getInstance()->configFile->value("/settings/dbReplay1",true).toBool()
 #endif
-            )
+    )
     {
         strList << "--replay";
     }
-    strList << "--genesis-json=test_genesis.json";
 
     XWCWallet::getInstance()->configFile->setValue("/settings/resyncNextTime",false);
     XWCWallet::getInstance()->configFile->setValue("/settings/dbReplay1",false);
 
+    // start NODE_PROC_NAME process now……
     nodeProc->start(NODE_PROC_NAME,strList);
     qDebug() << "start" << NODE_PROC_NAME << strList;
     logToFile( QStringList() << "start" << NODE_PROC_NAME << strList);
@@ -229,7 +228,11 @@ void XWCWallet::startClient(QString ip, QString port)
             << QString("--server-rpc-endpoint=ws://%1:%2").arg(ip).arg(port)
             << QString("--rpc-endpoint=127.0.0.1:%1").arg(CLIENT_RPC_PORT);
 
-    strList << "--chain-id=a3c762d4c7bcbbfa59327c35c2a6e98558f6ca90d9fd71dfc59a15d09c8c52e4";
+    if (!currentChainId.isEmpty())
+    {
+        strList << QString("--chain-id=%1").arg(currentChainId);
+    }
+
     clientProc->start(CLIENT_PROC_NAME,strList);
 }
 
@@ -301,7 +304,7 @@ void XWCWallet::delayedLaunchClient()
 
     if (!xwcChainId.isEmpty())
     {
-        strList << QString("--chain-id=%1").arg(xwcChainId);
+        strList << QString("--chain-id=%1").arg(currentChainId);
     }
 
     logToFile( QStringList() << "start" << CLIENT_PROC_NAME << strList);
@@ -321,7 +324,7 @@ void XWCWallet::checkNodeExeIsReady()
     if(str.contains("Chain ID is"))
     {
         int32_t pos = str.lastIndexOf("Chain ID is");
-        xwcChainId = str.mid(pos + sizeof("Chain ID is")).trimmed();
+        currentChainId = str.mid(pos + sizeof("Chain ID is")).trimmed();
 
         timerForStartExe.stop();
         QTimer::singleShot(2000,this,SLOT(delayedLaunchClient()));
@@ -477,8 +480,7 @@ void XWCWallet::getSystemEnvironmentPath()
     {
         if (str.startsWith("APPDATA="))
         {
-
-            walletConfigPath = str.mid(8) + "\\XWCWallet" WALLET_EXE_SUFFIX "_" "1.2.0";
+            walletConfigPath = str.mid(8) + "\\XWCWallet" WALLET_EXE_SUFFIX "_" "dev";
             appDataPath = walletConfigPath + "\\chaindata";
             qDebug() << "appDataPath:" << appDataPath;
             break;
@@ -489,8 +491,7 @@ void XWCWallet::getSystemEnvironmentPath()
     {
         if (str.startsWith("HOME="))
         {
-
-            walletConfigPath = str.mid(5) + "/Library/Application Support/XWCWallet" WALLET_EXE_SUFFIX "_" "1.2.0";
+            walletConfigPath = str.mid(5) + "/Library/Application Support/XWCWallet" WALLET_EXE_SUFFIX "_" "dev";
             appDataPath = walletConfigPath + "/chaindata";
             qDebug() << "appDataPath:" << appDataPath;
             break;
