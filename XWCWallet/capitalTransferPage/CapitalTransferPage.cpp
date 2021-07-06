@@ -16,7 +16,7 @@
 #include "dialog/TransactionResultDialog.h"
 
 //使用UTXO的币 通道账户剩余金额不得小于 dust_number，认为规定的值（用于防止粉尘交易）
-static const QMap<QString,double> dust_number = {{"BTC",0.00001},{"LTC",0.001},{"USDT",0.001},{"BCH",0.00001}};
+static const QMap<QString,double> dust_number = {{"BTC",0.00001}, {"LTC",0.001}, {"USDT",0.001}, {"BCH",0.00001}, {"DOGE", 5}};
 class CapitalTransferPage::CapitalTransferPagePrivate
 {
 public:
@@ -250,7 +250,8 @@ void CapitalTransferPage::httpReplied(QByteArray _data, int _status)
 }
 
 void CapitalTransferPage::passwordConfirmSlots()
-{//提交充值或提现指令
+{
+    //提交充值或提现指令
     if(ui->radioButton_deposit->isChecked())
     {//充值，对已有交易进行签名
         XWCWallet::getInstance()->postRPC( "captial-signrawtransaction",

@@ -45,13 +45,13 @@
 #define AUTO_REFRESH_TIME 5000           // 自动刷新时间(ms)
 #endif
 
-#define EXCHANGE_CONTRACT_HASH  "c0192642072e9ca233df0fd2aa99ee1c50f7ba17"
+#define EXCHANGE_CONTRACT_HASH          "c0192642072e9ca233df0fd2aa99ee1c50f7ba17"
 
 #ifdef TEST_WALLET
-#define LOCKFUND_CONTRACT_ADDRESS  "XWCCYz5JbktyW9ybi2DLF3ETkhmMVoAThurTU"
+#define LOCKFUND_CONTRACT_ADDRESS       "XWCCYz5JbktyW9ybi2DLF3ETkhmMVoAThurTU"
 #define EXCHANGE_MODE_CONTRACT_ADDRESS  "XWCCbXhiANMHKGmJqN5TBxmTs3sfq3UGnonFf"
 #else
-#define LOCKFUND_CONTRACT_ADDRESS  "XWCCPHA7vA91zV6r7iJ8oadFgj97PHAy3dKRa"
+#define LOCKFUND_CONTRACT_ADDRESS       "XWCCPHA7vA91zV6r7iJ8oadFgj97PHAy3dKRa"
 #define EXCHANGE_MODE_CONTRACT_ADDRESS  "XWCCRCnJ8AV624UZBLNKz4UBweVbhVXkQfNe7"  // 交易所模式合约地址
 #endif
 
@@ -61,7 +61,7 @@
 #define MIDDLE_DEFAULT_URL      "http://192.168.1.121:5005/api"
 #define MIDDLE_EXCHANGE_URL     "http://192.168.1.124:15000/api"
 #else
-#define MIDDLE_DEFAULT_URL      "http://120.79.93.99:5005/api"
+#define MIDDLE_DEFAULT_URL      "http://middleware.xwc.com:5005/api"
 #define MIDDLE_EXCHANGE_URL     ""               // 查询交易所信息的URL
 #endif
 
