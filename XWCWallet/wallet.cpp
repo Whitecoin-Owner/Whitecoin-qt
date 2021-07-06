@@ -43,7 +43,7 @@ static const QString CLIENT_PROC_MD5 = "f73e35c983364a14831291fab7cfac4d";
 #endif
 
 XWCWallet* XWCWallet::goo = 0;
-static const QMap<QString,double>    defaultAutoWithdrawAmountMap = { {"BTC",10},{"LTC",1000},{"ETH",100} };
+static const QMap<QString,double>    defaultAutoWithdrawAmountMap = { {"BTC",10},{"LTC",1000},{"ETH",100},{"DOGE", 1000} };
 static const QStringList ERCAssets = {"USDT", "AAVE", "UNI", "DAI", "SHIB", "MATIC"};
 
 XWCWallet::XWCWallet()
@@ -480,7 +480,7 @@ void XWCWallet::getSystemEnvironmentPath()
     {
         if (str.startsWith("APPDATA="))
         {
-            walletConfigPath = str.mid(8) + "\\XWCWallet" WALLET_EXE_SUFFIX "_" "dev";
+            walletConfigPath = str.mid(8) + "\\XWCWallet" WALLET_EXE_SUFFIX "_" "1.3.2";
             appDataPath = walletConfigPath + "\\chaindata";
             qDebug() << "appDataPath:" << appDataPath;
             break;
@@ -2284,9 +2284,6 @@ QString toLocalTime(QString timeStr)
     QDateTime localTime = dateTime.toLocalTime();
     return localTime.toString("yyyy-MM-dd hh:mm:ss");
 }
-
-
-
 
 QString revertERCSymbol(QString symbol)
 {
