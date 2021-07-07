@@ -302,7 +302,7 @@ void XWCWallet::delayedLaunchClient()
             << QString("--server-rpc-endpoint=ws://127.0.0.1:%1").arg(NODE_RPC_PORT)
             << QString("--rpc-endpoint=127.0.0.1:%1").arg(CLIENT_RPC_PORT);
 
-    if (!xwcChainId.isEmpty())
+    if (!currentChainId.isEmpty())
     {
         strList << QString("--chain-id=%1").arg(currentChainId);
     }
