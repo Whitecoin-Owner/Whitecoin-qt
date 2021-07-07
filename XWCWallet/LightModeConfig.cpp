@@ -12,75 +12,56 @@ LightModeConfig::LightModeConfig(QWidget *parent) :
     ui->setupUi(this);
 
 #ifdef TEST_WALLET
-//  default_ip_port_vector.append(IP_Port("106.13.107.239", "19035"));
     default_ip_port_vector.append(IP_Port("127.0.0.1", "50906"));
 #else
-    default_ip_port_vector.append(IP_Port("47.56.106.1", "50806"));
-
     //xwc_node IP list at here: https://list.xwc.com/list.txt
+    //福建泉州
     default_ip_port_vector.append(IP_Port("112.5.37.28", "23454"));
-    default_ip_port_vector.append(IP_Port("112.5.37.28", "23455"));
-    default_ip_port_vector.append(IP_Port("123.129.217.68", "23454"));
-    default_ip_port_vector.append(IP_Port("123.129.217.68", "23455"));
-    default_ip_port_vector.append(IP_Port("27.159.82.205", "23454"));
-    default_ip_port_vector.append(IP_Port("27.159.82.205", "23455"));
+    default_ip_port_vector.append(IP_Port("112.5.37.28", "23455"));    
     default_ip_port_vector.append(IP_Port("117.24.6.145", "23454"));
     default_ip_port_vector.append(IP_Port("117.24.6.145", "23455"));
-    default_ip_port_vector.append(IP_Port("223.111.134.138", "23454"));
-    default_ip_port_vector.append(IP_Port("223.111.134.138", "23455"));
-    default_ip_port_vector.append(IP_Port("46.29.163.206", "23454"));
-    default_ip_port_vector.append(IP_Port("46.29.163.206", "23455"));
-    default_ip_port_vector.append(IP_Port("194.62.214.170", "23454"));
-    default_ip_port_vector.append(IP_Port("194.62.214.170", "23455"));
-    default_ip_port_vector.append(IP_Port("43.242.203.134", "23454"));
-    default_ip_port_vector.append(IP_Port("43.242.203.134", "23455"));
-    default_ip_port_vector.append(IP_Port("69.64.39.121", "23454"));
-    default_ip_port_vector.append(IP_Port("69.64.39.121", "23455"));
-    default_ip_port_vector.append(IP_Port("62.75.216.82", "23454"));
-    default_ip_port_vector.append(IP_Port("62.75.216.82", "23455"));
-    default_ip_port_vector.append(IP_Port("23.106.63.80", "23454"));
-    default_ip_port_vector.append(IP_Port("23.106.63.80", "23455"));
-    default_ip_port_vector.append(IP_Port("113.212.90.171", "23454"));
-    default_ip_port_vector.append(IP_Port("113.212.90.171", "23455"));
-    default_ip_port_vector.append(IP_Port("194.87.68.93", "23454"));
-    default_ip_port_vector.append(IP_Port("194.87.68.93", "23455"));
+
+    //福建厦门
+    default_ip_port_vector.append(IP_Port("27.159.82.205", "23454"));
+    default_ip_port_vector.append(IP_Port("27.159.82.205", "23455"));
+
+    //新加坡
     default_ip_port_vector.append(IP_Port("103.254.155.140", "23454"));
     default_ip_port_vector.append(IP_Port("103.254.155.140", "23455"));
+
+    //日本东京
+    default_ip_port_vector.append(IP_Port("113.212.90.171", "23454"));
+    default_ip_port_vector.append(IP_Port("113.212.90.171", "23455"));
+
+    //山东济南
+    default_ip_port_vector.append(IP_Port("123.129.217.68", "23454"));
+    default_ip_port_vector.append(IP_Port("123.129.217.68", "23455"));
+
+    //中国香港
+    default_ip_port_vector.append(IP_Port("154.209.69.80", "23454"));
+    default_ip_port_vector.append(IP_Port("154.209.69.80", "23455"));
     default_ip_port_vector.append(IP_Port("154.222.23.66", "23454"));
     default_ip_port_vector.append(IP_Port("154.222.23.66", "23455"));
     default_ip_port_vector.append(IP_Port("154.86.17.133", "23454"));
     default_ip_port_vector.append(IP_Port("154.86.17.133", "23455"));
-    default_ip_port_vector.append(IP_Port("154.209.69.80", "23454"));
-    default_ip_port_vector.append(IP_Port("154.209.69.80", "23455"));
-    default_ip_port_vector.append(IP_Port("124.71.173.158", "23454"));
-    default_ip_port_vector.append(IP_Port("124.71.173.158", "23455"));
-    default_ip_port_vector.append(IP_Port("123.60.9.99", "23454"));
-    default_ip_port_vector.append(IP_Port("123.60.9.99", "23455"));
-    default_ip_port_vector.append(IP_Port("121.37.163.167", "23454"));
-    default_ip_port_vector.append(IP_Port("121.37.163.167", "23455"));
-    default_ip_port_vector.append(IP_Port("121.37.166.132", "23454"));
-    default_ip_port_vector.append(IP_Port("121.37.166.132", "23455"));
-    default_ip_port_vector.append(IP_Port("123.60.11.33", "23454"));
-    default_ip_port_vector.append(IP_Port("123.60.11.33", "23455"));
-    default_ip_port_vector.append(IP_Port("123.60.13.27", "23454"));
-    default_ip_port_vector.append(IP_Port("123.60.13.27", "23455"));
-    default_ip_port_vector.append(IP_Port("124.71.201.172", "23454"));
-    default_ip_port_vector.append(IP_Port("124.71.201.172", "23455"));
-    default_ip_port_vector.append(IP_Port("123.60.10.189", "23454"));
-    default_ip_port_vector.append(IP_Port("123.60.10.189", "23455"));
-    default_ip_port_vector.append(IP_Port("123.60.3.169", "23454"));
-    default_ip_port_vector.append(IP_Port("123.60.3.169", "23455"));
-    default_ip_port_vector.append(IP_Port("124.71.128.208", "23454"));
-    default_ip_port_vector.append(IP_Port("124.71.128.208", "23455"));
-    default_ip_port_vector.append(IP_Port("124.71.152.35", "23454"));
-    default_ip_port_vector.append(IP_Port("124.71.152.35", "23455"));
-    default_ip_port_vector.append(IP_Port("119.8.189.185", "23454"));
-    default_ip_port_vector.append(IP_Port("119.8.189.185", "23455"));
-    default_ip_port_vector.append(IP_Port("159.138.107.189", "23454"));
-    default_ip_port_vector.append(IP_Port("159.138.107.189", "23455"));
 
-    // Local port
-    default_ip_port_vector.append(IP_Port("127.0.0.1", "50806"));
+    //江苏扬州
+    default_ip_port_vector.append(IP_Port("223.111.134.138", "23454"));
+    default_ip_port_vector.append(IP_Port("223.111.134.138", "23455"));
+
+    //美国
+    default_ip_port_vector.append(IP_Port("23.106.63.80", "23454"));
+    default_ip_port_vector.append(IP_Port("23.106.63.80", "23455"));
+    default_ip_port_vector.append(IP_Port("69.64.39.121", "23454"));
+    default_ip_port_vector.append(IP_Port("69.64.39.121", "23455"));
+
+    //俄罗斯
+    default_ip_port_vector.append(IP_Port("46.29.163.206", "23454"));
+    default_ip_port_vector.append(IP_Port("46.29.163.206", "23455"));
+
+    //法国
+    default_ip_port_vector.append(IP_Port("62.75.216.82", "23454"));
+    default_ip_port_vector.append(IP_Port("62.75.216.82", "23455"));
 #endif
 
     InitWidget();
